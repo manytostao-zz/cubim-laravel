@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: CUBiM
+        psr4_prefix: CUBiM
+        src_path: app

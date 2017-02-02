@@ -5,7 +5,7 @@ needed by the institution to make strategical decisions such as which books to b
 
 ## Tools
 
-The original version of this product was built using [Symfony][http://symfony.com] but due to requirements made by final clients for later support, it's being migrated to [Laravel](http://laravel.com) 5.1 LTS.
+The original version of this product was built using [Symfony](http://symfony.com) but due to requirements made by final clients for later support, it's being migrated to [Laravel](http://laravel.com) 5.1 LTS.
 
 ### License
 

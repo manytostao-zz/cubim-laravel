@@ -3086,7 +3086,7 @@ table.fixedHeader-floating {
 
 .dropdown-menu.bottom-left {
     right: 100%;
-    top: -180%;
+    top: -100%;
     margin-bottom: 2px;
 }
 

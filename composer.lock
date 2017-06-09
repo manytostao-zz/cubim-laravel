@@ -4,17 +4,17 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7b100594bdfe1f76ab65929ec4851ee7",
-    "content-hash": "df57be465f6ba4510949474c9b5491bb",
+    "hash": "7604836f6662e11423012ccaaf95c989",
+    "content-hash": "075f2f8bdd28ee9a47b160a4c94056a6",
     "packages": [
         {
             "name": "cartalyst/sentinel",
-            "version": "2.0.9",
+            "version": "2.0.13",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/cartalyst-sentinel-2.0.9.zip",
+                "url": "http://localhost:5800/dists/cartalyst-sentinel-2.0.13.zip",
                 "reference": null,
-                "shasum": "8d1b58605220a520a6672a87d3239382502f0a02"
+                "shasum": "ae1ad1715b84550243cef71c080375edd8d790e1"
             },
             "require": {
                 "cartalyst/support": "~1.0",
@@ -28,7 +28,7 @@
                 "illuminate/session": "~5.0",
                 "ircmaxell/password-compat": "~1.0",
                 "mockery/mockery": "~0.9",
-                "paragonie/random_compat": "~1.1",
+                "paragonie/random_compat": "^1.4|^2",
                 "phpunit/phpunit": "~4.0"
             },
             "suggest": {
@@ -55,27 +55,8 @@
             "authors": [
                 {
                     "name": "Cartalyst LLC",
-                    "email": "help@cartalyst.com"
-                },
-                {
-                    "name": "Ben Corlett",
-                    "email": "ben.corlett@cartalyst.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Bruno Gaspar",
-                    "email": "bruno.gaspar@cartalyst.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Dan Syme",
-                    "email": "dan.syme@cartalyst.com",
-                    "role": "Creator & Designer"
-                },
-                {
-                    "name": "Suhayb Wardany",
-                    "email": "su.wardany@cartalyst.com",
-                    "role": "Developer"
+                    "email": "help@cartalyst.com",
+                    "homepage": "https://cartalyst.com"
                 }
             ],
             "description": "PHP 5.4+ Fully-featured Authentication & Authorization System",
@@ -94,9 +75,9 @@
             "version": "1.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/cartalyst-support-1.1.zip",
+                "url": "http://localhost:5800/dists/cartalyst-support-1.1.zip",
                 "reference": null,
-                "shasum": "1f442cc38804ab5f5278fe6c412243c46b1e5b43"
+                "shasum": "d681dc9bb41311a928c9e014d48fe2aac80f3471"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -156,9 +137,9 @@
             "version": "3.0.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/classpreloader-classpreloader-3.0.0.zip",
+                "url": "http://localhost:5800/dists/classpreloader-classpreloader-3.0.0.zip",
                 "reference": null,
-                "shasum": "cbc02da513d4455be2f8038d7ec8e745c44f96af"
+                "shasum": "a846f68f566a7de2047fae4a09d032c741825e8a"
             },
             "require": {
                 "nikic/php-parser": "^1.0|^2.0",
@@ -208,9 +189,9 @@
             "version": "1.8.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/danielstjules-stringy-1.8.0.zip",
+                "url": "http://localhost:5800/dists/danielstjules-stringy-1.8.0.zip",
                 "reference": null,
-                "shasum": "90835d0d703af62641df1d87e73fc7f497c539b3"
+                "shasum": "f49f41057086a14eef0d3e2c380d9eb394fd54ad"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -266,9 +247,9 @@
             "version": "0.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/dnoegel-php-xdg-base-dir-0.1.zip",
+                "url": "http://localhost:5800/dists/dnoegel-php-xdg-base-dir-0.1.zip",
                 "reference": null,
-                "shasum": "7f687124e95adece3a896249a741bbf745d87c10"
+                "shasum": "e77f06ec3b0ae0a89e9a93edea684f7b0b80c9e9"
             },
             "require": {
                 "php": ">=5.3.2"
@@ -292,9 +273,9 @@
             "version": "1.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/doctrine-inflector-1.0.zip",
+                "url": "http://localhost:5800/dists/doctrine-inflector-1.0.zip",
                 "reference": null,
-                "shasum": "587ef9e47c4fb575551b8910fe5dbcd54787ea1e"
+                "shasum": "3904e8f2152c1de4d018a8cf6d27ebe82478a4c8"
             },
             "require": {
                 "php": ">=5.3.2"
@@ -344,9 +325,9 @@
             "version": "0.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/jakub-onderka-php-console-color-0.1.zip",
+                "url": "http://localhost:5800/dists/jakub-onderka-php-console-color-0.1.zip",
                 "reference": null,
-                "shasum": "5e74610693237c8efca24e903f64cd839994fe41"
+                "shasum": "eba1457b529aaea866f8ebda8aba0ae5950ddceb"
             },
             "require": {
                 "php": ">=5.3.2"
@@ -379,9 +360,9 @@
             "version": "0.3.2",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/jakub-onderka-php-console-highlighter-0.3.2.zip",
+                "url": "http://localhost:5800/dists/jakub-onderka-php-console-highlighter-0.3.2.zip",
                 "reference": null,
-                "shasum": "32046c8bc14dd2c4f11e2613bc28468548b0813f"
+                "shasum": "2982df70ab5b24c850d6a7b159d8f61e23335dae"
             },
             "require": {
                 "jakub-onderka/php-console-color": "~0.1",
@@ -416,9 +397,9 @@
             "version": "2.2.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/jeremeamia-superclosure-2.2.0.zip",
+                "url": "http://localhost:5800/dists/jeremeamia-superclosure-2.2.0.zip",
                 "reference": null,
-                "shasum": "a528cf9075e1d3963c3481ec5a8c9f5bd504d9c8"
+                "shasum": "8780a85b70d28683927dec95754905c39eac37f4"
             },
             "require": {
                 "nikic/php-parser": "^1.2|^2.0",
@@ -472,9 +453,9 @@
             "version": "5.1.31",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/laravel-framework-5.1.31.zip",
+                "url": "http://localhost:5800/dists/laravel-framework-5.1.31.zip",
                 "reference": null,
-                "shasum": "7e4d4090a70bf53f5d5502ab91910815931bb188"
+                "shasum": "dd731d8b0f363a6706960841a19f8bbc168922bf"
             },
             "require": {
                 "classpreloader/classpreloader": "~2.0|~3.0",
@@ -597,9 +578,9 @@
             "version": "5.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/laravelcollective-html-5.1.zip",
+                "url": "http://localhost:5800/dists/laravelcollective-html-5.1.zip",
                 "reference": null,
-                "shasum": "c8b5ae43c5aebf9de6db8eb9cef906aec2df79ae"
+                "shasum": "97e31ede31451bf420977306b088e3882efca232"
             },
             "require": {
                 "illuminate/http": "5.1.*",
@@ -640,9 +621,9 @@
             "version": "1.0.20",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/league-flysystem-1.0.20.zip",
+                "url": "http://localhost:5800/dists/league-flysystem-1.0.20.zip",
                 "reference": null,
-                "shasum": "ea32eeeb9e0ebda4b3bc59915cbdf6806b292371"
+                "shasum": "1efc255b6abe4b5fb64f0e7bec99261cb8c22263"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -721,9 +702,9 @@
             "version": "2.2.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/lord-laroute-2.2.0.zip",
+                "url": "http://localhost:5800/dists/lord-laroute-2.2.0.zip",
                 "reference": null,
-                "shasum": "b4f5952b64e655e4ac282cdd353e4b0646c62c95"
+                "shasum": "8ac9947aaa71bb0774c46f28e321c820e8a637e7"
             },
             "require": {
                 "illuminate/config": "5.0.*|5.1.*|5.2.*",
@@ -762,12 +743,12 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.11.0",
+            "version": "1.22.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/monolog-monolog-1.11.0.zip",
+                "url": "http://localhost:5800/dists/monolog-monolog-1.22.0.zip",
                 "reference": null,
-                "shasum": "b06b1d827df0fd71f043d9eb97a6b0350c7eb148"
+                "shasum": "853e2f670a8c02fc05408092658c82e86e9fed80"
             },
             "require": {
                 "php": ">=5.3.0",
@@ -777,13 +758,17 @@
                 "psr/log-implementation": "1.0.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "~2.4, >2.4.8",
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "phpunit/phpunit": "~3.7.0",
-                "raven/raven": "~0.5",
-                "ruflin/elastica": "0.90.*",
-                "videlalvaro/php-amqplib": "~2.4"
+                "jakub-onderka/php-parallel-lint": "0.9",
+                "php-amqplib/php-amqplib": "~2.4",
+                "php-console/php-console": "^3.1.3",
+                "phpunit/phpunit": "~4.5",
+                "phpunit/phpunit-mock-objects": "2.3.0",
+                "ruflin/elastica": ">=0.90 <3.0",
+                "sentry/sentry": "^0.13",
+                "swiftmailer/swiftmailer": "~5.3"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -791,21 +776,34 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "raven/raven": "Allow sending log messages to a Sentry server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
                 "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
-                "videlalvaro/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib"
+                "sentry/sentry": "Allow sending log messages to a Sentry server"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Monolog\\": "src/Monolog"
                 }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Monolog\\": "tests/Monolog"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "parallel-lint . --exclude vendor",
+                    "phpunit"
+                ]
             },
             "license": [
                 "MIT"
@@ -830,9 +828,9 @@
             "version": "1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/mtdowling-cron-expression-1.0.0.zip",
+                "url": "http://localhost:5800/dists/mtdowling-cron-expression-1.0.0.zip",
                 "reference": null,
-                "shasum": "7e613c682f87cfb66d89c4b67f6030a2ab6f98c7"
+                "shasum": "b11497853a6827920e0b0a1c7e1a0066b0b7384d"
             },
             "require": {
                 "php": ">=5.3.2"
@@ -864,9 +862,9 @@
             "version": "1.20.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/nesbot-carbon-1.20.0.zip",
+                "url": "http://localhost:5800/dists/nesbot-carbon-1.20.0.zip",
                 "reference": null,
-                "shasum": "d2a7487ae866ec59b066e6a96a4997255c7eeb9b"
+                "shasum": "d42ae194b9aa25659725d1add8eac1a0eba56f20"
             },
             "require": {
                 "php": ">=5.3.0",
@@ -904,9 +902,9 @@
             "version": "2.0.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/nikic-php-parser-2.0.1.zip",
+                "url": "http://localhost:5800/dists/nikic-php-parser-2.0.1.zip",
                 "reference": null,
-                "shasum": "d76c9c8309ffccc19fe4f3c8d05d28269e662604"
+                "shasum": "e01d9c1a0245a11dcbfdf02df4c07bf8e37896e6"
             },
             "require": {
                 "ext-tokenizer": "*",
@@ -948,9 +946,9 @@
             "version": "1.4.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/paragonie-random_compat-1.4.0.zip",
+                "url": "http://localhost:5800/dists/paragonie-random_compat-1.4.0.zip",
                 "reference": null,
-                "shasum": "b8979112fc2ad0e58f96c77f1c20ff1f9d3efe6e"
+                "shasum": "600fad30c9ce1bc88b81f111514044b9690b8696"
             },
             "require": {
                 "php": ">=5.2.0"
@@ -991,17 +989,25 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/psr-log-1.0.0.zip",
+                "url": "http://localhost:5800/dists/psr-log-1.0.2.zip",
                 "reference": null,
-                "shasum": "905925a728a5810c7e68210c7bdbdd2cdfd21a80"
+                "shasum": "c27d7ae174ec4e191d2a041ea8d4fbe7f0a627d2"
+            },
+            "require": {
+                "php": ">=5.3.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "license": [
@@ -1014,6 +1020,7 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
@@ -1025,9 +1032,9 @@
             "version": "0.7.2",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/psy-psysh-0.7.2.zip",
+                "url": "http://localhost:5800/dists/psy-psysh-0.7.2.zip",
                 "reference": null,
-                "shasum": "49e911058ba6d83ac0860f7b11a28f1000d1a016"
+                "shasum": "94e46a45ae17311606f1e894c639753bc7b2371a"
             },
             "require": {
                 "dnoegel/php-xdg-base-dir": "0.1",
@@ -1092,26 +1099,35 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "5.1.0",
+            "version": "5.4.5",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/swiftmailer-swiftmailer-5.1.0.zip",
+                "url": "http://localhost:5800/dists/swiftmailer-swiftmailer-5.4.5.zip",
                 "reference": null,
-                "shasum": "5720ef0383b5d382b00bf69cd666d645e1fe138d"
+                "shasum": "3a3508ad219954a5108cdd93a19999575deb5ea4"
             },
             "require": {
-                "php": ">=5.2.4"
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.1",
+                "symfony/phpunit-bridge": "~3.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1-dev"
+                    "dev-master": "5.4-dev"
                 }
             },
             "autoload": {
                 "files": [
                     "lib/swift_required.php"
                 ]
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Swift_": "tests/unit"
+                }
             },
             "license": [
                 "MIT"
@@ -1128,6 +1144,7 @@
             "description": "Swiftmailer, free feature-rich PHP mailer",
             "homepage": "http://swiftmailer.org",
             "keywords": [
+                "email",
                 "mail",
                 "mailer"
             ]
@@ -1137,9 +1154,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-console-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-console-2.7.11.zip",
                 "reference": null,
-                "shasum": "f42f52a990129e59573c4b2ef3b3968a11fb6816"
+                "shasum": "68fd0f2afd7687d9b6f7e7359c723862a3b86b8f"
             },
             "require": {
                 "php": ">=5.3.9"
@@ -1189,9 +1206,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-css-selector-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-css-selector-2.7.11.zip",
                 "reference": null,
-                "shasum": "ea3c1cd6a71901a018bc28e5b5c14f3fc6c78987"
+                "shasum": "166387c1880099f61e2d91cf752a89b17f54a2c8"
             },
             "require": {
                 "php": ">=5.3.9"
@@ -1235,9 +1252,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-debug-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-debug-2.7.11.zip",
                 "reference": null,
-                "shasum": "b961552255922cd8df4f8c15a71e7230613bdc69"
+                "shasum": "919a00c897d3d1dedd2a611de84651e492267e14"
             },
             "require": {
                 "php": ">=5.3.9",
@@ -1285,9 +1302,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-dom-crawler-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-dom-crawler-2.7.11.zip",
                 "reference": null,
-                "shasum": "45bb0cbe28419149e51fdd115fc93c0e75d8810e"
+                "shasum": "a3649e4920dddd02f41d8b1c1b22dc8c775cbf1e"
             },
             "require": {
                 "php": ">=5.3.9"
@@ -1334,9 +1351,9 @@
             "target-dir": "Symfony/Component/EventDispatcher",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-event-dispatcher-2.6.13.zip",
+                "url": "http://localhost:5800/dists/symfony-event-dispatcher-2.6.13.zip",
                 "reference": null,
-                "shasum": "eadaa435e57730ba12601083425c555357c9adeb"
+                "shasum": "1a90d9130e7a37f4eab3f89e2ae25ca38a9a0b0c"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1385,9 +1402,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-finder-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-finder-2.7.11.zip",
                 "reference": null,
-                "shasum": "94fc09406184b8a7f3135ed208c0106eea760e1e"
+                "shasum": "4d31539f67c20399119dfa0d70b8c60ff2ef3972"
             },
             "require": {
                 "php": ">=5.3.9"
@@ -1427,9 +1444,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-http-foundation-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-http-foundation-2.7.11.zip",
                 "reference": null,
-                "shasum": "da982c6c0b5b5826f467317ce7e723b7177a1395"
+                "shasum": "de0ef9c6b1406a444dd6144c675653d6c59b7167"
             },
             "require": {
                 "php": ">=5.3.9",
@@ -1476,9 +1493,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-http-kernel-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-http-kernel-2.7.11.zip",
                 "reference": null,
-                "shasum": "6b06cf4511eb8920e53ad9f0781aa23407931c5a"
+                "shasum": "a1e1068401487b293844b5b814b1ec86aff97fad"
             },
             "require": {
                 "php": ">=5.3.9",
@@ -1551,9 +1568,9 @@
             "version": "1.1.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-polyfill-mbstring-1.1.1.zip",
+                "url": "http://localhost:5800/dists/symfony-polyfill-mbstring-1.1.1.zip",
                 "reference": null,
-                "shasum": "8da14811dc7e0621cc9d99c407c65641219284c9"
+                "shasum": "0d2418b6029598b54df05b751d295c0a6bfe5c21"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1603,9 +1620,9 @@
             "version": "1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-polyfill-php56-1.0.0.zip",
+                "url": "http://localhost:5800/dists/symfony-polyfill-php56-1.0.0.zip",
                 "reference": null,
-                "shasum": "2c0829b6fbbdfd0da5cbac0d07d06375f91b89f2"
+                "shasum": "7a73fed882557b0b79c56c08f747a2d6aa7db52b"
             },
             "require": {
                 "php": ">=5.3.3",
@@ -1652,9 +1669,9 @@
             "version": "1.0.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-polyfill-util-1.0.1.zip",
+                "url": "http://localhost:5800/dists/symfony-polyfill-util-1.0.1.zip",
                 "reference": null,
-                "shasum": "da485eb7ddca742f979c47ea17799032e57e86b1"
+                "shasum": "94664b78315971a9d1b431fa15e54bd3731d7148"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -1697,9 +1714,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-process-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-process-2.7.11.zip",
                 "reference": null,
-                "shasum": "9cf030132eafe3927a1022bd214dfcf2e87258fd"
+                "shasum": "2a09815966b33f6ecee3069809b2ac5af086b4f7"
             },
             "require": {
                 "php": ">=5.3.9"
@@ -1739,9 +1756,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-routing-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-routing-2.7.11.zip",
                 "reference": null,
-                "shasum": "59312bad79400719b0424d00819bae5744d317fb"
+                "shasum": "accd2ef2913f8e37ac53e0e4cb4abdffff09d83e"
             },
             "require": {
                 "php": ">=5.3.9"
@@ -1806,9 +1823,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-translation-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-translation-2.7.11.zip",
                 "reference": null,
-                "shasum": "e7487fd0053185bdca2a1244a9bb9359467686d0"
+                "shasum": "f0b03c682e8899589131c89ce9ccb95978885620"
             },
             "require": {
                 "php": ">=5.3.9"
@@ -1862,9 +1879,9 @@
             "version": "2.7.11",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-var-dumper-2.7.11.zip",
+                "url": "http://localhost:5800/dists/symfony-var-dumper-2.7.11.zip",
                 "reference": null,
-                "shasum": "2d0765c76637e558a3f6c99f65983487ab88f2b9"
+                "shasum": "1fb203145ce4f53575ea8cc8927ba2b161f3fb0a"
             },
             "require": {
                 "php": ">=5.3.9"
@@ -1914,9 +1931,9 @@
             "version": "1.0.9",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/vlucas-phpdotenv-1.0.9.zip",
+                "url": "http://localhost:5800/dists/vlucas-phpdotenv-1.0.9.zip",
                 "reference": null,
-                "shasum": "1450d81b3606e7579f1e7bf19b9e4f3449be34c8"
+                "shasum": "bdeca245a6afaa26a1ae08a4a5b7b4008fe7549f"
             },
             "require": {
                 "php": ">=5.3.2"
@@ -1960,9 +1977,9 @@
             "version": "2.2.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/barryvdh-laravel-debugbar-2.2.0.zip",
+                "url": "http://localhost:5800/dists/barryvdh-laravel-debugbar-2.2.0.zip",
                 "reference": null,
-                "shasum": "e34542a8a17b61d5bd3f62becc22bbb8c5dec305"
+                "shasum": "e488add4255e3d2df7ec936652f51b28b50dd322"
             },
             "require": {
                 "illuminate/support": "5.1.*|5.2.*",
@@ -2003,13 +2020,127 @@
             ]
         },
         {
+            "name": "barryvdh/laravel-ide-helper",
+            "version": "2.3.2",
+            "dist": {
+                "type": "zip",
+                "url": "http://localhost:5800/dists/barryvdh-laravel-ide-helper-2.3.2.zip",
+                "reference": null,
+                "shasum": "a93ecc630c0e6c292268a57aa08b91296eb50308"
+            },
+            "require": {
+                "barryvdh/reflection-docblock": "^2.0.4",
+                "illuminate/console": "^5.0,<5.5",
+                "illuminate/filesystem": "^5.0,<5.5",
+                "illuminate/support": "^5.0,<5.5",
+                "php": ">=5.4.0",
+                "symfony/class-loader": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "~2.3",
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "suggest": {
+                "doctrine/dbal": "Load information from the database about models for phpdocs (~2.3)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\LaravelIdeHelper\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    ":vendor\\:package_name\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ],
+                "cs": [
+                    "phpcs --standard=psr2 src/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Laravel IDE Helper, generates correct PHPDocs for all Facade classes, to improve auto-completion.",
+            "keywords": [
+                "autocomplete",
+                "codeintel",
+                "helper",
+                "ide",
+                "laravel",
+                "netbeans",
+                "phpdoc",
+                "phpstorm",
+                "sublime"
+            ]
+        },
+        {
+            "name": "barryvdh/reflection-docblock",
+            "version": "2.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "http://localhost:5800/dists/barryvdh-reflection-docblock-2.0.4.zip",
+                "reference": null,
+                "shasum": "b399c1ba9dd74c164e436aad76a19f7f43cdeb7e"
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0,<4.5"
+            },
+            "suggest": {
+                "dflydev/markdown": "~1.0",
+                "erusev/parsedown": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Barryvdh": [
+                        "src/"
+                    ]
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike van Riel",
+                    "email": "mike.vanriel@naenius.com"
+                }
+            ]
+        },
+        {
             "name": "cocur/slugify",
             "version": "1.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/cocur-slugify-1.1.zip",
+                "url": "http://localhost:5800/dists/cocur-slugify-1.1.zip",
                 "reference": null,
-                "shasum": "e4690db94583f7745af669424f09c38134db250b"
+                "shasum": "3316096abc3c4e2a5183aedfca67750c8c12a0e7"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -2062,9 +2193,9 @@
             "version": "3.1.4",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/cviebrock-eloquent-sluggable-3.1.4.zip",
+                "url": "http://localhost:5800/dists/cviebrock-eloquent-sluggable-3.1.4.zip",
                 "reference": null,
-                "shasum": "8ad173154ebd0451c33b0abb5737315aa878075b"
+                "shasum": "b170d2577ed1043ca6d25fca423c83b20d1aeda0"
             },
             "require": {
                 "cocur/slugify": "^1.1",
@@ -2105,9 +2236,9 @@
             "version": "1.0.5",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/doctrine-instantiator-1.0.5.zip",
+                "url": "http://localhost:5800/dists/doctrine-instantiator-1.0.5.zip",
                 "reference": null,
-                "shasum": "979ca201d796ea3034b951ce49531363c24297a4"
+                "shasum": "81a144f7514f1267b2541c60afe1c0b841888411"
             },
             "require": {
                 "php": ">=5.3,<8.0-DEV"
@@ -2156,30 +2287,35 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "1.4.0",
+            "version": "1.6.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/fzaninotto-faker-1.4.0.zip",
+                "url": "http://localhost:5800/dists/fzaninotto-faker-1.6.0.zip",
                 "reference": null,
-                "shasum": "1a5de93ac215cf664bcc42e66dd2428b2562422a"
+                "shasum": "8572e2e79706aae4397bbe3dde848e14ef8220bf"
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3|^7.0"
             },
             "require-dev": {
+                "ext-intl": "*",
                 "phpunit/phpunit": "~4.0",
                 "squizlabs/php_codesniffer": "~1.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.0"
+                    "dev-master": "1.6.0"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Faker": "src/",
-                    "Faker\\PHPUnit": "test/"
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Faker\\Test\\": "test/Faker/"
                 }
             },
             "license": [
@@ -2202,9 +2338,9 @@
             "version": "1.2",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/hamcrest-hamcrest-php-1.2.zip",
+                "url": "http://localhost:5800/dists/hamcrest-hamcrest-php-1.2.zip",
                 "reference": null,
-                "shasum": "0c9a73d015901822dcd772fea8230baef023e4f2"
+                "shasum": "284d2cb340cc54ea7a6a6591289a1793e3fd70a1"
             },
             "require": {
                 "php": "^5.3|^7.0"
@@ -2252,9 +2388,9 @@
             "version": "1.11.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/maximebf-debugbar-1.11.1.zip",
+                "url": "http://localhost:5800/dists/maximebf-debugbar-1.11.1.zip",
                 "reference": null,
-                "shasum": "fb8c42a248550c7b9e9485093083342b8fb09b17"
+                "shasum": "e649bf679a09541c5402af9ec49bb76bb61e532b"
             },
             "require": {
                 "php": ">=5.3.0",
@@ -2303,12 +2439,12 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.4",
+            "version": "0.9.7",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/mockery-mockery-0.9.4.zip",
+                "url": "http://localhost:5800/dists/mockery-mockery-0.9.7.zip",
                 "reference": null,
-                "shasum": "0f6a3c4a4ed302539bde755762c06aa0afa6df70"
+                "shasum": "95003cf63f32129961a4fcc4de8e5758e11f61ba"
             },
             "require": {
                 "hamcrest/hamcrest-php": "~1.1",
@@ -2364,9 +2500,9 @@
             "version": "1.3.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/myclabs-deep-copy-1.3.1.zip",
+                "url": "http://localhost:5800/dists/myclabs-deep-copy-1.3.1.zip",
                 "reference": null,
-                "shasum": "08f220026b754e7776b85c42ab126dfae69e4080"
+                "shasum": "33f0f8feffcd77188dd379de156372a27d69c138"
             },
             "require": {
                 "php": ">=5.4.0"
@@ -2400,34 +2536,83 @@
             ]
         },
         {
-            "name": "phpdocumentor/reflection-docblock",
-            "version": "2.0.4",
+            "name": "phpdocumentor/reflection-common",
+            "version": "1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpdocumentor-reflection-docblock-2.0.4.zip",
+                "url": "http://localhost:5800/dists/phpdocumentor-reflection-common-1.0.0.zip",
                 "reference": null,
-                "shasum": "b057431a950ed968f88dcb28b645a5a3578c1314"
+                "shasum": "68ba69ead0ceedc2139df179188b7e4a1d2b51ad"
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "suggest": {
-                "dflydev/markdown": "~1.0",
-                "erusev/parsedown": "~1.0"
+                "phpunit/phpunit": "^4.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "phpDocumentor": [
+                "psr-4": {
+                    "phpDocumentor\\Reflection\\": [
+                        "src"
+                    ]
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jaap van Otterdijk",
+                    "email": "opensource@ijaap.nl"
+                }
+            ],
+            "description": "Common reflection classes used by phpdocumentor to reflect the code structure",
+            "homepage": "http://www.phpdoc.org",
+            "keywords": [
+                "FQSEN",
+                "phpDocumentor",
+                "phpdoc",
+                "reflection",
+                "static analysis"
+            ]
+        },
+        {
+            "name": "phpdocumentor/reflection-docblock",
+            "version": "3.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "http://localhost:5800/dists/phpdocumentor-reflection-docblock-3.1.1.zip",
+                "reference": null,
+                "shasum": "afa1a5bdec198aad49796128472e186744f90f40"
+            },
+            "require": {
+                "php": ">=5.5",
+                "phpdocumentor/reflection-common": "^1.0@dev",
+                "phpdocumentor/type-resolver": "^0.2.0",
+                "webmozart/assert": "^1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "phpDocumentor\\Reflection\\": [
                         "src/"
+                    ]
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "phpDocumentor\\Reflection\\": [
+                        "tests/unit"
                     ]
                 }
             },
@@ -2437,7 +2622,55 @@
             "authors": [
                 {
                     "name": "Mike van Riel",
-                    "email": "mike.vanriel@naenius.com"
+                    "email": "me@mikevanriel.com"
+                }
+            ],
+            "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock."
+        },
+        {
+            "name": "phpdocumentor/type-resolver",
+            "version": "0.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "http://localhost:5800/dists/phpdocumentor-type-resolver-0.2.1.zip",
+                "reference": null,
+                "shasum": "389d7d983d253df13ef781b2df17b682902b378a"
+            },
+            "require": {
+                "php": ">=5.5",
+                "phpdocumentor/reflection-common": "^1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^5.2||^4.8.24"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "phpDocumentor\\Reflection\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "phpDocumentor\\Reflection\\": [
+                        "tests/unit"
+                    ]
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike van Riel",
+                    "email": "me@mikevanriel.com"
                 }
             ]
         },
@@ -2446,9 +2679,9 @@
             "version": "1.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpspec-php-diff-1.0.zip",
+                "url": "http://localhost:5800/dists/phpspec-php-diff-1.0.zip",
                 "reference": null,
-                "shasum": "6850fd834559e479eb6f10e0adebb288f56b843b"
+                "shasum": "f22546d93651708538d913559d00510e5b81ba26"
             },
             "type": "library",
             "autoload": {
@@ -2472,9 +2705,9 @@
             "version": "2.1.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpspec-phpspec-2.1.0.zip",
+                "url": "http://localhost:5800/dists/phpspec-phpspec-2.1.0.zip",
                 "reference": null,
-                "shasum": "f11dbcd140f108ab1b45350fede105880427bb05"
+                "shasum": "c30a506a3dc4b6fa304f5b14f8b8bc87e3edb982"
             },
             "require": {
                 "doctrine/instantiator": "~1.0,>=1.0.1",
@@ -2538,29 +2771,38 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.3.1",
+            "version": "1.6.2",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpspec-prophecy-1.3.1.zip",
+                "url": "http://localhost:5800/dists/phpspec-prophecy-1.6.2.zip",
                 "reference": null,
-                "shasum": "562b50c2e5c4d7e73916c7683e4ad8aef1c20747"
+                "shasum": "d515cf4b964391423f3c6050a4657ed63d379db2"
             },
             "require": {
-                "doctrine/instantiator": "~1.0,>=1.0.2",
-                "phpdocumentor/reflection-docblock": "~2.0"
+                "doctrine/instantiator": "^1.0.2",
+                "php": "^5.3|^7.0",
+                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2",
+                "sebastian/comparator": "^1.1",
+                "sebastian/recursion-context": "^1.0|^2.0"
             },
             "require-dev": {
-                "phpspec/phpspec": "~2.0"
+                "phpspec/phpspec": "^2.0",
+                "phpunit/phpunit": "^4.8 || ^5.6.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
                     "Prophecy\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Fixtures\\Prophecy\\": "fixtures"
                 }
             },
             "license": [
@@ -2578,7 +2820,7 @@
                 }
             ],
             "description": "Highly opinionated mocking framework for PHP 5.3+",
-            "homepage": "http://phpspec.org",
+            "homepage": "https://github.com/phpspec/prophecy",
             "keywords": [
                 "Double",
                 "Dummy",
@@ -2593,9 +2835,9 @@
             "version": "3.3.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpunit-php-code-coverage-3.3.0.zip",
+                "url": "http://localhost:5800/dists/phpunit-php-code-coverage-3.3.0.zip",
                 "reference": null,
-                "shasum": "ab03f1c7db764a22d7a03451cacc456a7233c5cf"
+                "shasum": "ae4218a087d374642dfc22ff571781dd98c0c219"
             },
             "require": {
                 "php": "^5.6 || ^7.0",
@@ -2653,9 +2895,9 @@
             "version": "1.4.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpunit-php-file-iterator-1.4.1.zip",
+                "url": "http://localhost:5800/dists/phpunit-php-file-iterator-1.4.1.zip",
                 "reference": null,
-                "shasum": "210a9bcdf11009b87a0f15407b0485692a8d7de2"
+                "shasum": "bfde403e11037e7b73ce335ac12768a126b67df1"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -2697,9 +2939,9 @@
             "version": "1.2.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpunit-php-text-template-1.2.1.zip",
+                "url": "http://localhost:5800/dists/phpunit-php-text-template-1.2.1.zip",
                 "reference": null,
-                "shasum": "62eae9a4e62a94d4c24a6e1bf135639dd017e691"
+                "shasum": "97cdd3af832d0b8965230b8343f4f128e5518f26"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -2734,9 +2976,9 @@
             "version": "1.0.7",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpunit-php-timer-1.0.7.zip",
+                "url": "http://localhost:5800/dists/phpunit-php-timer-1.0.7.zip",
                 "reference": null,
-                "shasum": "9c88ac0bcd474f39d7cca6084b018d471a5ffbe4"
+                "shasum": "587ca4a9aecf0b34339f2ac3028a91b203624429"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -2772,9 +3014,9 @@
             "version": "1.4.8",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpunit-php-token-stream-1.4.8.zip",
+                "url": "http://localhost:5800/dists/phpunit-php-token-stream-1.4.8.zip",
                 "reference": null,
-                "shasum": "64331fb0010af06d2abc8dfd53aa7aa5c04cbb56"
+                "shasum": "e6222fd92265cb21c5be05b472baf13b6f61a6e8"
             },
             "require": {
                 "ext-tokenizer": "*",
@@ -2817,9 +3059,9 @@
             "version": "5.3",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpunit-phpunit-5.3.zip",
+                "url": "http://localhost:5800/dists/phpunit-phpunit-5.3.zip",
                 "reference": null,
-                "shasum": "31d96169d4ae707acc070290093c0461435743cf"
+                "shasum": "c32e230f1292941c3725f0c42bfcad92973d5ba8"
             },
             "require": {
                 "ext-dom": "*",
@@ -2897,9 +3139,9 @@
             "version": "3.1.2",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/phpunit-phpunit-mock-objects-3.1.2.zip",
+                "url": "http://localhost:5800/dists/phpunit-phpunit-mock-objects-3.1.2.zip",
                 "reference": null,
-                "shasum": "522d7bebc2b540224bae4fffe8ecb65738c6d06a"
+                "shasum": "a8c1c8a6049b4f4067357d691c93eaf15ef8242c"
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
@@ -2955,9 +3197,9 @@
             "version": "1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-code-unit-reverse-lookup-1.0.0.zip",
+                "url": "http://localhost:5800/dists/sebastian-code-unit-reverse-lookup-1.0.0.zip",
                 "reference": null,
-                "shasum": "68303d8abf119bf5ccfa82b8aa386393e114c0f5"
+                "shasum": "e3ed6e17d3eaf3e564826dd71f247e906e515810"
             },
             "require": {
                 "php": ">=5.6"
@@ -2990,17 +3232,17 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.1.2",
+            "version": "1.2.2",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-comparator-1.1.2.zip",
+                "url": "http://localhost:5800/dists/sebastian-comparator-1.2.2.zip",
                 "reference": null,
-                "shasum": "e906759b4aba3de11efeabbec42026f6682c3bb7"
+                "shasum": "f64c8c566d933f510a2cb60a87029ed8bf9f78b6"
             },
             "require": {
                 "php": ">=5.3.3",
                 "sebastian/diff": "~1.2",
-                "sebastian/exporter": "~1.2"
+                "sebastian/exporter": "~1.2 || ~2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.4"
@@ -3008,7 +3250,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -3050,9 +3292,9 @@
             "version": "1.4.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-diff-1.4.1.zip",
+                "url": "http://localhost:5800/dists/sebastian-diff-1.4.1.zip",
                 "reference": null,
-                "shasum": "26e3796c413e8bbe63c483b6841ff667aa643962"
+                "shasum": "fac9db5d62aa1b05903ca8f2c05388f7b4ee3103"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -3095,9 +3337,9 @@
             "version": "1.3.5",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-environment-1.3.5.zip",
+                "url": "http://localhost:5800/dists/sebastian-environment-1.3.5.zip",
                 "reference": null,
-                "shasum": "da91bd3ba99574e688a096d666eaf7f23c8b3c3d"
+                "shasum": "aa0bed9576f767b0be24ca81b50d8caf18ebcfa0"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -3138,9 +3380,9 @@
             "version": "1.2.1",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-exporter-1.2.1.zip",
+                "url": "http://localhost:5800/dists/sebastian-exporter-1.2.1.zip",
                 "reference": null,
-                "shasum": "71cc3fc4a665538f7179ed1a10202983657c55b4"
+                "shasum": "baaa713977f071f2346fd7f598b841ffbd4aa988"
             },
             "require": {
                 "php": ">=5.3.3",
@@ -3197,9 +3439,9 @@
             "version": "1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-global-state-1.0.0.zip",
+                "url": "http://localhost:5800/dists/sebastian-global-state-1.0.0.zip",
                 "reference": null,
-                "shasum": "0eba1d9679f074d40b7eb78d5e0be8a329923d70"
+                "shasum": "3e002d436936e977f675d0627270ad34e09490db"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -3246,9 +3488,9 @@
             "version": "1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-object-enumerator-1.0.0.zip",
+                "url": "http://localhost:5800/dists/sebastian-object-enumerator-1.0.0.zip",
                 "reference": null,
-                "shasum": "b6328e8890d5de9434b3bad79c74a8b938c5c187"
+                "shasum": "2bb8984828315cea0e16dd5ebd8cea80a0981659"
             },
             "require": {
                 "php": ">=5.6",
@@ -3285,9 +3527,9 @@
             "version": "1.0.2",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-recursion-context-1.0.2.zip",
+                "url": "http://localhost:5800/dists/sebastian-recursion-context-1.0.2.zip",
                 "reference": null,
-                "shasum": "ab8a34a65fce824e14001e90a75194da139d05a3"
+                "shasum": "798778980ef08c6b3c26ff374a27ce086b6884bb"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -3331,9 +3573,9 @@
             "version": "1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-resource-operations-1.0.0.zip",
+                "url": "http://localhost:5800/dists/sebastian-resource-operations-1.0.0.zip",
                 "reference": null,
-                "shasum": "74356ca593f19be554514f28f3ef5fb9d291a236"
+                "shasum": "7150866b082f37cab20b777954c8b59609f5ab65"
             },
             "require": {
                 "php": ">=5.6.0"
@@ -3366,9 +3608,9 @@
             "version": "1.0.6",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sebastian-version-1.0.6.zip",
+                "url": "http://localhost:5800/dists/sebastian-version-1.0.6.zip",
                 "reference": null,
-                "shasum": "225f994ca5cf5a9f9d5d81379a6cf3533e4e3906"
+                "shasum": "035b4d9022eda41255b760a944363ff5a0e074a3"
             },
             "type": "library",
             "autoload": {
@@ -3397,9 +3639,9 @@
             "version": "1.1.2",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/sven-artisan-view-1.1.2.zip",
+                "url": "http://localhost:5800/dists/sven-artisan-view-1.1.2.zip",
                 "reference": null,
-                "shasum": "ff0bb4207fb57539b99506c18849cb646cd83a34"
+                "shasum": "af04e01de853e9fa061206558b7c6a8665957804"
             },
             "require": {
                 "illuminate/support": "5.0.* || 5.1.* || 5.2.*"
@@ -3438,14 +3680,63 @@
             ]
         },
         {
+            "name": "symfony/class-loader",
+            "version": "3.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "http://localhost:5800/dists/symfony-class-loader-3.0.4.zip",
+                "reference": null,
+                "shasum": "391586011bc0a148524aefd0828b1c08eb04d141"
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "symfony/finder": "~2.8|~3.0",
+                "symfony/polyfill-apcu": "~1.1"
+            },
+            "suggest": {
+                "symfony/polyfill-apcu": "For using ApcClassLoader on HHVM"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\ClassLoader\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony ClassLoader Component",
+            "homepage": "https://symfony.com"
+        },
+        {
             "name": "symfony/yaml",
             "version": "2.1",
             "target-dir": "Symfony/Component/Yaml",
             "dist": {
                 "type": "zip",
-                "url": "http://localhost:5800//dists/symfony-yaml-2.1.zip",
+                "url": "http://localhost:5800/dists/symfony-yaml-2.1.zip",
                 "reference": null,
-                "shasum": "bb2d9722453fbe2044a77d7343cc6798ffd655f3"
+                "shasum": "954a9eba5b20edaa403fef60460815e04df506ff"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -3471,6 +3762,54 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com"
+        },
+        {
+            "name": "webmozart/assert",
+            "version": "1.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "http://localhost:5800/dists/webmozart-assert-1.2.0.zip",
+                "reference": null,
+                "shasum": "cbbb8fc9f13294792d3aa66f58a662f5aa47b9af"
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.6",
+                "sebastian/version": "^1.0.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webmozart\\Assert\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webmozart\\Assert\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                }
+            ],
+            "description": "Assertions to validate method input/output with nice error messages.",
+            "keywords": [
+                "assert",
+                "check",
+                "validate"
+            ]
         }
     ],
     "aliases": [],

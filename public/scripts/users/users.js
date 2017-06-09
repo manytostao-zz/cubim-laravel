@@ -21,8 +21,8 @@ var users = function () {
                 opens: (Metronic.isRTL() ? 'left' : 'right'),
                 format: 'DD/MM/YYYY',
                 separator: ' a ',
-                startDate: startDate != undefined && startDate != '' ? startDate : moment().subtract('days', 29),
-                endDate: endDate != undefined && startDate != '' ? endDate : moment(),
+                startDate: startDate !== undefined && startDate !== '' ? startDate : moment().subtract('days', 29),
+                endDate: endDate !== undefined && startDate !== '' ? endDate : moment(),
                 minDate: '01/04/2014',
                 locale: {
                     applyLabel: 'Aplicar',
@@ -33,11 +33,11 @@ var users = function () {
                     customRangeLabel: 'Rango propio',
                     daysOfWeek: moment.weekdaysMin(),
                     monthNames: moment.monthsShort(),
-                    firstDay: moment.localeData()._week.dow,
+                    firstDay: moment.localeData()._week.dow
                 }
             },
             function (start, end) {
-                $('#register_date_range input').val(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
+                $('#register_date_range').find('input').val(start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY'));
                 $startDate = start.format('DD/MM/YYYY');
                 $endDate = end.format('DD/MM/YYYY');
             }
@@ -53,8 +53,8 @@ var users = function () {
             form['last_name'] = $('#form_last_name').val();
             form['email'] = $('#form_email').val();
             form['roles'] = $('#form_roles').val();
-            form['from_register_date'] = $startDate != undefined ? $startDate : '';
-            form['to_register_date'] = $endDate != undefined ? $endDate : '';
+            form['from_register_date'] = $startDate !== undefined ? $startDate : '';
+            form['to_register_date'] = $endDate !== undefined ? $endDate : '';
             //form['inactivo'] = $('#form_inactivo').is(":checked");
             form['_token'] = $('#form__token').val();
             $.ajax({

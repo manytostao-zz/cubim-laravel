@@ -141,6 +141,7 @@ return [
         Sven\ArtisanView\ArtisanViewServiceProvider::class,
         Lord\Laroute\LarouteServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Application Service Providers...

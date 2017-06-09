@@ -97,7 +97,7 @@
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
     <div class="page-footer-inner">
-        2016 &copy; CUBiM por <a
+        2017 &copy; CUBiM por <a
                 href="http://codechanic.wordpress.com"
                 title="Codechanich en WordPress" target="_blank">Codechanic</a>.
     </div>

@@ -62,8 +62,7 @@
                 <div class="portlet light profile-sidebar-portlet">
                     <!-- SIDEBAR USERPIC -->
                     <div class="profile-userpic">
-                        <img alt="" class="img-responsive"
-                             src="../../assets/admin/pages/media/profile/profile_user.jpg">
+                        <p style="text-align: center">NO IMAGE</p>
                     </div>
                     <!-- END SIDEBAR USERPIC -->
                     <!-- SIDEBAR USER TITLE -->
@@ -81,16 +80,6 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- END SIDEBAR USER TITLE -->
-                    {{--<div class="profile-usermenu">--}}
-                        {{--<ul class="nav">--}}
-                            {{--<li class="active">--}}
-                                {{--<a class="active" data-toggle="tab" aria-expanded="true">--}}
-                                    {{--<i class="icon-graph"></i>--}}
-                                    {{--Actividad </a>--}}
-                            {{--</li>--}}
-                        {{--</ul>--}}
-                    {{--</div>--}}
                 </div>
                 <!-- END PORTLET MAIN -->
             </div>

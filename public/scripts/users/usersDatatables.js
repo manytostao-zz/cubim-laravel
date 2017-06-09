@@ -39,7 +39,7 @@ var usersDatatables = function () {
                 var counter = 0;
                 table.find('tbody tr').each(function (counter) {
                     var aData = oTable.row(this).data();
-                    if (aData != null) {
+                    if (aData !== null) {
                         var nCloneTd = '';
                         var dropdownClass = 'dropdown-menu pull-right';
                         if (counter > oTable.rows().count() - 3 && counter < oTable.rows().count())
@@ -82,7 +82,7 @@ var usersDatatables = function () {
                                 '</ul>' +
                                 '</div>' +
                                 '</div>';
-                            aData[5] = '<i class="fa fa-check fa-success"></i>';
+                            // aData[5] = '<i class="fa fa-check fa-success"></i>';
 
                         }
                         aData[6] = nCloneTd;
@@ -151,7 +151,7 @@ var usersDatatables = function () {
         /* handle show/hide columns*/
         $('input[type="checkbox"]', tableColumnToggler).change(function () {
             var iCol = parseInt($(this).attr("data-column"));
-            oTable.column(iCol).visible($(this).attr("checked") == "checked");
+            oTable.column(iCol).visible($(this).attr("checked") === "checked");
         });
     };
 
@@ -161,7 +161,7 @@ var usersDatatables = function () {
 
         tableColumnToggler.find('input[type="checkbox"]').each(function () {
             var iCol = parseInt($(this).attr("data-column"));
-            oTable.column(iCol).visible($(this).attr("checked") == "checked");
+            oTable.column(iCol).visible($(this).attr("checked") === "checked");
         })
     };
 

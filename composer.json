@@ -18,7 +18,8 @@
         "phpspec/phpspec": "~2.1",
         "barryvdh/laravel-debugbar": "2.2",
         "cviebrock/eloquent-sluggable": "^3.1",
-        "sven/artisan-view": "^1.0"
+        "sven/artisan-view": "^1.0",
+        "barryvdh/laravel-ide-helper": "^2.3"
     },
     "repositories": [
         {

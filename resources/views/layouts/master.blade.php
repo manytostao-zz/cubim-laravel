@@ -35,7 +35,7 @@
     {!! HTML::style('css/olive.css') !!}
     {!! HTML::style('css/custom.css') !!}
             <!-- END THEME STYLES -->
-    <link rel="shortcut icon" href="favicon.ico"/>
+    {{--<link rel="shortcut icon" href="favicon.ico"/>--}}
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -55,7 +55,7 @@
     <div class="page-header-inner">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="index.html">
+            <a href="{{URL::route('home')}}">
                 {!! HTML::image('img/logo_cubim.png', 'logo', ['width' => '190px', 'heigh' => '46px' ]) !!}
             </a>
             {{--<div class="menu-toggler sidebar-toggler">--}}

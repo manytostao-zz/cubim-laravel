@@ -11,7 +11,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 /**
- * Class CUBiMUsuario
+ * Class User
  * @package CUBiM\Model
  */
 class User extends Model implements AuthenticatableContract,

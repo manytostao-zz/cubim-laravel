@@ -124,6 +124,10 @@ class RecreateForeignkeys extends Migration
             $table->foreign('nomenclator_id')->references('id')->on('nomenclators')->onDelete('restrict');
         });
 
+        Schema::table('traces', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+        });
+
         \DB::statement("SET foreign_key_checks = 1");
     }
 

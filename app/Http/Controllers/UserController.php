@@ -18,7 +18,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -57,12 +57,27 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param Request $request
      * @param  int $id
      * @return \Illuminate\View\View
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
+
+        if (is_numeric($id)) {
+
+            /*the user's traces are filtered by today's date by default*/
+
+            $date = new \DateTime('today', new \DateTimeZone('America/Havana'));
+            $filter = [
+                'user' => $id,
+                'from_creation_date' => $date->format('d/m/Y'),
+                'to_creation_date' => $date->format('d/m/Y')
+            ];
+            $request->session()->put('traces_filters', $filter);
+        }
         $user = User::with('roles')->find($id);
+
         return view('users.show')
             ->with('active', array('sup' => ''))
             ->with('user', $user);

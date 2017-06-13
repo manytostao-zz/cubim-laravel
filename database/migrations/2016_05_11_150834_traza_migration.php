@@ -46,6 +46,17 @@ class TrazaMigration extends Migration
 
         Schema::table('traces', function (Blueprint $table) {
             $table->dropColumn('fecha');
+            $table->integer('user_id');
+        });
+
+        DB::statement("
+            UPDATE traces SET user_id = (
+              SELECT id FROM appuser WHERE CONCAT(appuser.nombre, ' ', appuser.apellidos) = traces.user
+              )
+         ");
+
+        Schema::table('traces', function (Blueprint $table) {
+            $table->dropColumn('user');
         });
     }
 
@@ -58,6 +69,7 @@ class TrazaMigration extends Migration
     {
         Schema::table('traces', function (Blueprint $table) {
             $table->dateTime('fecha');
+            $table->dropColumn('user_id');
         });
 
         \DB::statement("

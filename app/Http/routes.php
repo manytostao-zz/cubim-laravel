@@ -59,6 +59,14 @@ Route::resource('users', 'UserController');
 
 #endregion
 
+#region traces
+
+Route::post('traces/datatable/', ['as' => 'traces.datatable', 'uses' => 'TraceController@datatable']);
+
+Route::post('traces/filter/', ['as' => 'traces.filter', 'uses' => 'TraceController@filter']);
+
+#endregion
+
 #region auth
 
 Route::get('/login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@getLogin']);

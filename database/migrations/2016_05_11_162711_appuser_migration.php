@@ -79,6 +79,10 @@ class AppuserMigration extends Migration
 //            $table->foreign('user_id', 'FK_80E3492774E3600A')->references('id')->on('users');
 //        });
 
+        \DB::statement("
+            ALTER TABLE traces
+              CHANGE user_id user_id INT(10) UNSIGNED COMMENT 'Identifier of the user.'");
+
         Schema::table('userimage', function (Blueprint $table) {
             $table->drop();
         });

@@ -5,30 +5,30 @@ namespace CUBiM\Model;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Bibliografia
+ * Class Bibliography
  * @package CUBiM\Model
  */
-class Bibliografia extends Model
+class Bibliography extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'bibliografia';
+    protected $table = 'bibliography_request';
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function nomencladores()
+    public function nomenclators()
     {
-        return $this->belongsToMany('CUBiM\Model\Nomenclador');
+        return $this->belongsToMany('CUBiM\Model\Nomenclator');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function respuestas(){
-        return $this->hasMany('CUBiM\Model\Respuesta');
+    public function answers(){
+        return $this->hasMany('CUBiM\Model\Answer');
     }
 }

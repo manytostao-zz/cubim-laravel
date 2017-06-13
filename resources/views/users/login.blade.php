@@ -109,7 +109,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END LOGIN -->
 <!-- BEGIN COPYRIGHT -->
 <div class="copyright">
-    2016 &copy; CUBiM por <a style="color: #ffffff;"
+    2017 &copy; CUBiM por <a style="color: #ffffff;"
                              href="http://codechanic.wordpress.com"
                              title="Codechanich en WordPress" target="_blank">Codechanic</a>.
 </div>

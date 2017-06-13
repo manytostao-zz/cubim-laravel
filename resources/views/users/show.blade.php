@@ -3,14 +3,17 @@
 @section('title_section')
     <title>CUBIM - Administración</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    @endsection
+@endsection
 
-    @section('styles_section')
+@section('styles_section')
     {!! HTML::style('css/profile.css') !!}
-    @endsection
+    {!! HTML::style('plugins/select2/select2.css') !!}
+    {!! HTML::style('plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css') !!}
+    {!! HTML::style('plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') !!}
+@endsection
 
-    @section('content_section')
-            <!-- BEGIN PAGE HEADER-->
+@section('content_section')
+    <!-- BEGIN PAGE HEADER-->
     <h3 class="page-title">
         Perfil de cuenta
     </h3>
@@ -98,161 +101,47 @@
                                 <div class="actions">
                                     <div data-toggle="buttons" class="btn-group btn-group-devided">
                                         <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
-                                            <input type="radio" id="option1" class="toggle" name="options">Today</label>
+                                            <input type="radio" id="today_button" class="toggle"
+                                                   name="options" value="today">Hoy</label>
                                         <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-                                            <input type="radio" id="option2" class="toggle" name="options">Week</label>
+                                            <input type="radio" id="week_button" class="toggle"
+                                                   name="options" value="week">Semana</label>
                                         <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-                                            <input type="radio" id="option2" class="toggle" name="options">Month</label>
+                                            <input type="radio" id="month_button" class="toggle"
+                                                   name="options" value="month">Mes</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="portlet-body">
-                                <div class="row number-stats margin-bottom-30">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="stat-left">
-                                            <div class="stat-chart">
-                                                <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
-                                                <div id="sparkline_bar">
-                                                    <canvas style="display: inline-block; width: 90px; height: 45px; vertical-align: top;"
-                                                            width="90" height="45"></canvas>
-                                                </div>
-                                            </div>
-                                            <div class="stat-number">
-                                                <div class="title">
-                                                    Total
-                                                </div>
-                                                <div class="number">
-                                                    2460
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="stat-right">
-                                            <div class="stat-chart">
-                                                <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
-                                                <div id="sparkline_bar2">
-                                                    <canvas style="display: inline-block; width: 90px; height: 45px; vertical-align: top;"
-                                                            width="90" height="45"></canvas>
-                                                </div>
-                                            </div>
-                                            <div class="stat-number">
-                                                <div class="title">
-                                                    New
-                                                </div>
-                                                <div class="number">
-                                                    719
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="table-scrollable table-scrollable-borderless">
-                                    <table class="table table-hover table-light">
+                                    <table class="table table-striped table-bordered table-hover"
+                                           id="tracesListDatatable">
                                         <thead>
-                                        <tr class="uppercase">
-                                            <th colspan="2">
-                                                MEMBER
+                                        <tr>
+                                            <th style="text-align: left; display: none">
+                                                Id
                                             </th>
-                                            <th>
-                                                Earnings
+                                            <th style="text-align: left">
+                                                Operaci&oacute;n
                                             </th>
-                                            <th>
-                                                CASES
+                                            <th style="text-align: left">
+                                                Objeto
                                             </th>
-                                            <th>
-                                                CLOSED
+                                            <th style="text-align: left">
+                                                Comentario
                                             </th>
-                                            <th>
-                                                RATE
+                                            <th style="text-align: left">
+                                                Modulo
+                                            </th>
+                                            <th class="hidden-xs" style="text-align: center">
+                                                Fecha
+                                            </th>
+                                            <th style="text-align: left">
+                                                Usuario
                                             </th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td class="fit">
-                                                <img src="../../assets/admin/layout3/img/avatar4.jpg"
-                                                     class="user-pic">
-                                            </td>
-                                            <td>
-                                                <a class="primary-link" href="javascript:;">Brain</a>
-                                            </td>
-                                            <td>
-                                                $345
-                                            </td>
-                                            <td>
-                                                45
-                                            </td>
-                                            <td>
-                                                124
-                                            </td>
-                                            <td>
-                                                <span class="bold theme-font">80%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fit">
-                                                <img src="../../assets/admin/layout3/img/avatar5.jpg"
-                                                     class="user-pic">
-                                            </td>
-                                            <td>
-                                                <a class="primary-link" href="javascript:;">Nick</a>
-                                            </td>
-                                            <td>
-                                                $560
-                                            </td>
-                                            <td>
-                                                12
-                                            </td>
-                                            <td>
-                                                24
-                                            </td>
-                                            <td>
-                                                <span class="bold theme-font">67%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fit">
-                                                <img src="../../assets/admin/layout3/img/avatar6.jpg"
-                                                     class="user-pic">
-                                            </td>
-                                            <td>
-                                                <a class="primary-link" href="javascript:;">Tim</a>
-                                            </td>
-                                            <td>
-                                                $1,345
-                                            </td>
-                                            <td>
-                                                450
-                                            </td>
-                                            <td>
-                                                46
-                                            </td>
-                                            <td>
-                                                <span class="bold theme-font">98%</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fit">
-                                                <img src="../../assets/admin/layout3/img/avatar7.jpg"
-                                                     class="user-pic">
-                                            </td>
-                                            <td>
-                                                <a class="primary-link" href="javascript:;">Tom</a>
-                                            </td>
-                                            <td>
-                                                $645
-                                            </td>
-                                            <td>
-                                                50
-                                            </td>
-                                            <td>
-                                                89
-                                            </td>
-                                            <td>
-                                                <span class="bold theme-font">58%</span>
-                                            </td>
-                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -264,4 +153,23 @@
             <!-- END PROFILE CONTENT -->
         </div>
     </div>
+@endsection
+
+@section('scripts_section')
+    {!! HTML::script('plugins/datatables/media/js/jquery.dataTables.min.js') !!}
+    {!! HTML::script('plugins/datatables/extensions/TableTools/js/dataTables.TableTools.min.js') !!}
+    {!! HTML::script('plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js') !!}
+    {!! HTML::script('plugins/select2/select2.min.js') !!}
+    {!! HTML::script('plugins/select2/select2_locale_es.js') !!}
+    {!! HTML::script('scripts/traces/tracesDatatables.js') !!}
+    {!! HTML::script('scripts/traces/traces.js') !!}
+    {!! HTML::script('scripts/laroute.js') !!}
+    {!! HTML::script('scripts/utilities.js') !!}
+    <script>
+        jQuery(document).ready(function () {
+            traces.initFilterButtons();
+            tracesDatatables.initTracesListDatatable();
+        })
+    </script>
+
 @endsection

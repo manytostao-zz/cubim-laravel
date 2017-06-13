@@ -47,7 +47,7 @@ $debugbar_routes = [
     'debugbar.assets.css' => true,
     'debugbar.assets.js' => true,
     'debugbar.openhandler' => true,
-    'debugbar.clockwork'=>true
+    'debugbar.clockwork' => true
 ];
 
 $customer_routes = [
@@ -66,8 +66,13 @@ $customer_routes = [
     "customers.library_card" => true
 ];
 
+$traces_routes = [
+    "traces.datatable" => true,
+    "traces.filter" => true,
+];
+
 return [
-    'ROLE_SUPER_ADMINISTRATOR' => array_merge($other_routes, $nomenclator_routes, $user_routes, $auth_routes, $customer_routes, $debugbar_routes),
+    'ROLE_SUPER_ADMINISTRATOR' => array_merge($other_routes, $nomenclator_routes, $user_routes, $auth_routes, $customer_routes, $traces_routes, $debugbar_routes),
 
     'ROLE_REGISTRY' => $user_routes
 ];

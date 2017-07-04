@@ -213,13 +213,22 @@ class NomenclatorController extends Controller
     public function datatable(Request $request)
     {
         $columns = $request->get('columns');
-        $filters = $request->session()->has('nomenclator_filters') ? $request->session()->get('customer_filters') : array();
-        $filters['nomenclator_type_id'] = $request->get('nomenclator_type_id');
-        $request->session()->set('nomenclator_filters', $filters);
+        $nomenclatorFilters = $request->session()->has('nomenclator_filters') ? $request->session()->get('nomenclator_filters') : array();
+        $nomenclatorFilters['nomenclator_type'] = $request->get('nomenclator_type_id');
+        $request->session()->set('nomenclator_filters', $nomenclatorFilters);
+
+        /*Extract filters from request and session vars*/
+        $filters['search'] = $request->get('search');
+        $filters['order'] = $request->get('order');
+        $filters['length'] = $request->get('length');
+        $filters['start'] = $request->get('start');
+        $filters['columns'] = $request->get('columns');
+        $filters['filters'] = $request->session()->has('nomenclator_filters') ? $request->session()->get('nomenclator_filters') : array();
+
         $recordsTotal = $this->nomenclatorsRepository->countByNomenclatorTypeId($request->get('nomenclator_type_id'));//Nomenclator::where('nomenclator_type_id', $request->get('nomenclator_type_id'))->count();
-        $nomenclators = $this->nomenclatorsRepository->findByFilters($request);
+        $nomenclators = $this->nomenclatorsRepository->findByFilters($filters);
         try {
-            $recordsFiltered = intval($this->nomenclatorsRepository->findByFilters($request, true));
+            $recordsFiltered = intval($this->nomenclatorsRepository->findByFilters($filters, true));
         } catch (\ErrorException $e) {
             $recordsFiltered = 0;
         }

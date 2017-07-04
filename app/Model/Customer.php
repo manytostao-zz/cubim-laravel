@@ -67,40 +67,37 @@ class Customer extends Model
 
     /**
      * @param $query
-     * @param $request
+     * @param $filters
      * @param bool $count
      * @return mixed
      * @internal param $columns
      * @internal param $filters
      */
-    public function scopeFilter($query, $request, $count = false)
+    public function scopeFilter($query, $filters, $count = false)
     {
         //Filtering by single search input
-        if (isset($request['search']) && $request['search']['value'] != '') {
-            $query->select('customers.*')->where(function ($query) use ($request) {
-                $query->whereHas('nomenclators', function ($query) use ($request) {
-                    $query->where('description', 'like', '%' . $request['search']['value'] . '%');
+        if (isset($filters['search']) && $filters['search']['value'] != '') {
+            $query->select('customers.*')->where(function ($query) use ($filters) {
+                $query->whereHas('nomenclators', function ($query) use ($filters) {
+                    $query->where('description', 'like', '%' . $filters['search']['value'] . '%');
                 })
-                    ->orWhere('name', 'like', '%' . $request['search']['value'] . '%')
-                    ->orWhere('last_name', 'like', '%' . $request['search']['value'] . '%')
-                    ->orWhere('library_card', 'like', '%' . $request['search']['value'] . '%')
-                    ->orWhere('id_card', 'like', '%' . $request['search']['value'] . '%')
-                    ->orWhere('email', 'like', '%' . $request['search']['value'] . '%')
-                    ->orWhere('phone', 'like', '%' . $request['search']['value'] . '%')
-                    ->orWhere('experience', 'like', '%' . $request['search']['value'] . '%')
-                    ->orWhereRaw('DATE_FORMAT(created_at, "\'%d/%m/%Y") like \'%' . $request['search']['value'] . '%\'')
-                    ->orWhere('comments', 'like', '%' . $request['search']['value'] . '%')
-                    ->orWhere('topic', 'like', '%' . $request['search']['value'] . '%');
+                    ->orWhere('name', 'like', '%' . $filters['search']['value'] . '%')
+                    ->orWhere('last_name', 'like', '%' . $filters['search']['value'] . '%')
+                    ->orWhere('library_card', 'like', '%' . $filters['search']['value'] . '%')
+                    ->orWhere('id_card', 'like', '%' . $filters['search']['value'] . '%')
+                    ->orWhere('email', 'like', '%' . $filters['search']['value'] . '%')
+                    ->orWhere('phone', 'like', '%' . $filters['search']['value'] . '%')
+                    ->orWhere('experience', 'like', '%' . $filters['search']['value'] . '%')
+                    ->orWhereRaw('DATE_FORMAT(created_at, "\'%d/%m/%Y") like \'%' . $filters['search']['value'] . '%\'')
+                    ->orWhere('comments', 'like', '%' . $filters['search']['value'] . '%')
+                    ->orWhere('topic', 'like', '%' . $filters['search']['value'] . '%');
             });
         }
 
-        $filters = $request->session()->has('customer_filters') ? $request->session()->get('customer_filters') : array();
-        $orderBy = $request->has('order') ? $request->get('order') : array();
-        $columns = $request['columns'];
-        SearchApi::applyFilters($filters, $orderBy, $columns, $query);
+        SearchApi::applyFilters($filters, $query);
 
-        if ($request->has('length') && $request->get('length') > 0 and !$count)
-            $result = $query->take($request['length'])->skip($request['start']);
+        if (!is_null($filters['length']) && $filters['length'] > 0 and !$count)
+            $result = $query->take($filters['length'])->skip($filters['start']);
         else
             $result = $query;
         return !$count ? $result->get() : $result->get()->count();

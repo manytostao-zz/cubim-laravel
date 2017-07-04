@@ -6,7 +6,7 @@
  * Time: 19:53
  */
 
-namespace CUBiM\Apis\NomenclatorSearchApi\Filters;
+namespace CUBiM\Apis\SearchApi\Filters;
 
 
 use Illuminate\Database\Eloquent\Builder;

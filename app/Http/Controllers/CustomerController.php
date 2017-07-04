@@ -184,7 +184,7 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
 
         $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
-        
+
         try {
             Customer::destroy($id);
 
@@ -201,6 +201,7 @@ class CustomerController extends Controller
     }
 
     /**
+     * Ban or unban the specified resource from the system
      * @param Request $request
      * @return mixed
      */
@@ -229,6 +230,7 @@ class CustomerController extends Controller
     }
 
     /**
+     * Activate or deactivate the specified resource in the system
      * @param Request $request
      * @return mixed
      */
@@ -257,12 +259,36 @@ class CustomerController extends Controller
     }
 
     /**
-     * Returns a json list to use in datatables
+     * Return a json list to use in datatables
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function datatable(Request $request)
     {
+        /*Extract filters from request and session vars*/
+        $filters['search'] = $request->get('search');
+        $filters['order'] = $request->get('order');
+        $filters['length'] = $request->get('length');
+        $filters['start'] = $request->get('start');
+        $filters['columns'] = $request->get('columns');
+        $filters['filters'] = $request->session()->has('customer_filters') ? $request->session()->get('customer_filters') : array();
+
+        $recordsTotal = intval(Customer::all()->count());
+        $customers = Customer::with(['nomenclators', 'user'])->filter($filters);
+
+        try {
+            $recordsFiltered = intval(Customer::filter($filters, true));
+        } catch (\ErrorException $e) {
+            $recordsFiltered = 0;
+        }
+
+        $output = array(
+            "draw" => intval($request->get('draw')),
+            "recordsTotal" => $recordsTotal,
+            "recordsFiltered" => $recordsFiltered,
+            "data" => array()
+        );
+
         $columns = array(
             'id',
             'name',
@@ -291,20 +317,6 @@ class CustomerController extends Controller
             'experience',
             'created_at',
             'actions',
-        );
-        $recordsTotal = intval(Customer::all()->count());
-        $customers = Customer::with(['nomenclators', 'user'])->filter($request);
-        try {
-            $recordsFiltered = intval(Customer::filter($request, true));
-        } catch (\ErrorException $e) {
-            $recordsFiltered = 0;
-        }
-
-        $output = array(
-            "draw" => intval($request->get('draw')),
-            "recordsTotal" => $recordsTotal,
-            "recordsFiltered" => $recordsFiltered,
-            "data" => array()
         );
 
         foreach ($customers as $aRow) {
@@ -371,6 +383,7 @@ class CustomerController extends Controller
     }
 
     /**
+     * Set session filter for the resource
      * @param Request $request
      */
     public function filter(Request $request)
@@ -379,6 +392,7 @@ class CustomerController extends Controller
     }
 
     /**
+     * Remove session filter for the resource
      * @param Request $request
      */
     public function clean(Request $request)

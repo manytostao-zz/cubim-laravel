@@ -29,32 +29,29 @@ class Nomenclator extends Model
 
     /**
      * @param $query
-     * @param $request
+     * @param $filters
      * @param bool $count
      * @return mixed
      * @internal param $columns
      * @internal param $filters
      */
-    public function scopeFilter($query, $request, $count = false)
+    public function scopeFilter($query, $filters, $count = false)
     {
-        if (isset($request['search']) && $request['search']['value'] != '') {
-            $query->select('nomenclators.*')->where(function ($query) use ($request) {
+        if (isset($filters['search']) && $filters['search']['value'] != '') {
+            $query->select('nomenclators.*')->where(function ($query) use ($filters) {
                 $query
-                    ->where('description', 'like', '%' . $request['search']['value'] . '%')
-                    ->orWhereRaw('DATE_FORMAT(created_at, "\'%d/%m/%Y") like \'%' . $request['search']['value'] . '%\'');
+                    ->where('description', 'like', '%' . $filters['search']['value'] . '%')
+                    ->orWhereRaw('DATE_FORMAT(created_at, "\'%d/%m/%Y") like \'%' . $filters['search']['value'] . '%\'');
             });
         }
 
-        $filters = $request->session()->has('nomenclator_filters') ? $request->session()->get('nomenclator_filters') : array();
-        $orderBy = $request->has('order') ? $request->get('order') : array();
-        $columns = $request['columns'];
-        SearchApi::applyFilters($filters, $orderBy, $columns, $query);
+        SearchApi::applyFilters($filters, $query);
 
-        if ($request->has('length') && $request->get('length') > 0 and !$count)
-            $result = $query->where('nomenclator_type_id', $request->get('nomenclator_type_id'))->take($request['length'])->skip($request['start']);
+        if (!is_null($filters['length']) && $filters['length'] > 0 and !$count)
+            $result = $query->take($filters['length'])->skip($filters['start']);
         else
             $result = $query;
-        return !$count ? $result->where('nomenclator_type_id', $request->get('nomenclator_type_id'))->get() : $result->where('nomenclator_type_id', $request->get('nomenclator_type_id'))->count();
+        return !$count ? $result->get() : $result->get()->count();
 
     }
 }

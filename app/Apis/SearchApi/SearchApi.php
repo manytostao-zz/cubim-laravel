@@ -11,27 +11,25 @@ namespace CUBiM\Apis\SearchApi;
 
 class SearchApi
 {
-    public static function applyFilters($filters, $orderBy, $columns, &$query)
+    public static function applyFilters($filters, &$query)
     {
-        $query = static::applyDecoratorFromRequest($filters, $orderBy, $columns, $query);
+        $query = static::applyDecoratorFromRequest($filters, $query);
     }
 
-    public static function applyDecoratorFromRequest($filters, $orderBy, $columns, &$query)
+    public static function applyDecoratorFromRequest($filters, &$query)
     {
-        if (isset($filters))
-            foreach ($filters as $key => $value) {
-                $decorator = static::createFilterDecorator($key);
+        foreach ($filters['filters'] as $key => $value) {
+            $decorator = static::createFilterDecorator($key);
 
-                if (static::isValidDecorator($decorator))
-                    $query = $decorator::applyWhere($query, $value);
-            }
-        if (isset($orderBy))
-            foreach ($orderBy as $key => $value) {
-                $decorator = static::createFilterDecorator($columns[$value['column']]['name']);
+            if (static::isValidDecorator($decorator))
+                $query = $decorator::applyWhere($query, $value);
+        }
+        foreach ($filters['order'] as $key => $value) {
+            $decorator = static::createFilterDecorator($filters['columns'][$value['column']]['name']);
 
-                if (static::isValidDecorator($decorator))
-                    $query = $decorator::applyOrderBy($query, $value['dir']);
-            }
+            if (static::isValidDecorator($decorator))
+                $query = $decorator::applyOrderBy($query, $value['dir']);
+        }
 
         return $query;
     }

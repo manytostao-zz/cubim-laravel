@@ -165,7 +165,7 @@ var tracesDatatables = function () {
         })
     };
 
-    var _initTracesListDatatable = function (id) {
+    var _initTracesListDatatable = function ($from) {
         var table = $('#tracesListDatatable');
         /* Table tools samples: https://www.datatables.net/release-datatables/extras/TableTools/ */
 
@@ -191,7 +191,7 @@ var tracesDatatables = function () {
             },
             "columnDefs": [{
                 "visible": false,
-                "targets": [0, 5]
+                "targets": $from === 'users' ? [0, 5, 6] : [0, 5]
             }, {
                 "orderable": false,
                 "targets": [6]
@@ -239,8 +239,8 @@ var tracesDatatables = function () {
     };
 
     return {
-        initTracesListDatatable: function (id) {
-            _initTracesListDatatable(id)
+        initTracesListDatatable: function ($from) {
+            _initTracesListDatatable($from)
         }
     }
 }();

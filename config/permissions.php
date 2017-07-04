@@ -21,6 +21,7 @@ $nomenclator_routes = [
     "nomenclators.edit" => true,
     "nomenclators.update" => true,
     "nomenclators.destroy" => true,
+    "nomenclators.activate" => true,
     "nomenclators.datatable" => true
 ];
 
@@ -72,7 +73,14 @@ $traces_routes = [
 ];
 
 return [
-    'ROLE_SUPER_ADMINISTRATOR' => array_merge($other_routes, $nomenclator_routes, $user_routes, $auth_routes, $customer_routes, $traces_routes, $debugbar_routes),
+    'ROLE_SUPER_ADMINISTRATOR' => array_merge(
+        $other_routes,
+        $nomenclator_routes,
+        $user_routes,
+        $auth_routes,
+        $customer_routes,
+        $traces_routes,
+        $debugbar_routes),
 
     'ROLE_REGISTRY' => $user_routes
 ];

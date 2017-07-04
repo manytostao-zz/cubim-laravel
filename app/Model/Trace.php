@@ -16,7 +16,7 @@ class Trace extends Model
      *
      * @var array
      */
-    protected $fillable = ['operation', 'object', 'comments', 'module'];
+    protected $fillable = ['operation', 'object', 'comments', 'module', 'user_id'];
 
     /**
      * The table associated with the model.
@@ -61,16 +61,6 @@ class Trace extends Model
         if (isset($filters))
             foreach ($filters as $key => $value) {
                 switch ($key) {
-//                    case 'roles':
-//                        if (!is_null($value) && $value != '')
-//                            $query->select('users.*')->where(function ($query) use ($value) {
-//                                foreach ($value as $v) {
-//                                    $query->whereHas('roles', function ($query) use ($v) {
-//                                        $query->where('id', $v);
-//                                    });
-//                                }
-//                            });
-//                        break;
                     case 'from_creation_date':
                         if (!is_null($value) && $value != '') {
                             $from = new \DateTime('today', new \DateTimeZone('America/Havana'));

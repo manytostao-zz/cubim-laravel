@@ -27,8 +27,8 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right">
-                <a class="btn btn-fit-height blue" data-close-others="true">
-                    <i class="fa fa-plus"></i> Nuevo usuario
+                <a class="btn btn-fit-height blue" data-close-others="true" href="{{URL::route('customers.create')}}">
+                    <i class="fa fa-plus"></i> Nuevo Usuario
                 </a>
             </div>
         </div>
@@ -80,7 +80,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a id="activate" href="javascript:;">
+                                    <a id="activate" href="javascript:">
                                         @if(!is_null($customer->active) && $customer->active == 1)
                                             <i class="fa fa-ban"></i> Inactivar
                                         @else

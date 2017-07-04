@@ -40,6 +40,9 @@ var nomenclatorsDatatables = function () {
                 "data": {_token: CSRF_TOKEN, nomenclator_type_id: nomenclator_type_id}
             },
             "drawCallback": $nomenclatorTable.postDraw,
+            "createdRow": function (row, data, index) {
+                $('td', row).eq(2).id = 'td' + data[0];
+            },
             "columnDefs": [{
                 "visible": false,
                 "targets": [0]
@@ -92,10 +95,11 @@ var nomenclatorsDatatables = function () {
 
     $nomenclatorTable.postDraw = function () {
         var $tr = $('#nomenclatorsListDatatable').find('tbody tr');
+
         $tr.each(function (counter) {
             var nCloneTd = '';
             var aData = $('#nomenclatorsListDatatable').DataTable().row(this).data();
-            if (aData != undefined) {
+            if (aData !== undefined) {
                 var dropdownClass = 'dropdown-menu';
                 if (counter > oTable.rows().count() - 3 && counter < oTable.rows().count())
                     dropdownClass = 'dropdown-menu bottom-left';
@@ -103,22 +107,22 @@ var nomenclatorsDatatables = function () {
                 var btn_group = $('<div class="btn-group"></div>');
                 var btn_actions = $('<button class="btn dropdown-toggle" data-toggle="dropdown">Acciones <i class="fa fa-angle-down"></i></button>');
                 var ul = $('<ul class="' + dropdownClass + '"></ul>');
-                var btn_edit = $('<li class="pull-left">' +
+                var btn_edit = $('<li>' +
                     '<a class="btn-edit" data-id="' + aData[0] + '" data-description="' + aData[1] + '" href="javascript:;">' +
                     '<i class="fa fa-edit"></i>Editar </a>' +
                     '</li>');
-                var btn_activate = $('<li class="pull-left">' +
-                    '<a class="btn-edit" data-id="' + aData[0] + '" href="javascript:;">' +
+                var btn_activate = $('<li>' +
+                    '<a id="activate' + aData[0] + '" class="btn-activate" data-id="' + aData[0] + '" href="javascript:">' +
                     '<i class="fa fa-check"></i>Activar </a>' +
                     '</li>');
-                var btn_delete = $('<li class="pull-left">' +
+                var btn_delete = $('<li>' +
                     '<a class="btn-delete" data-id="' + aData[0] + '">' +
-                    '<i class="fa fa-search"></i>Eliminar </a>' +
+                    '<i class="fa fa-trash"></i>Eliminar </a>' +
                     '</li>');
                 if (oTable.rows().count() <= 2) {
                     ul.width(267);
                 }
-                if (aData[2] == true) {
+                if (aData[2] === 1) {
                     if (oTable.rows().count() <= 2) {
                         ul.width(180);
                         ul.removeClass('bottom-left').addClass('bottom-left-small');
@@ -134,28 +138,74 @@ var nomenclatorsDatatables = function () {
                 }
                 btn_group.append(btn_actions).append(ul);
                 col_md_12.append(btn_group);
-                aData[2] = aData[2] == true ? '<i class="fa fa-check fa-success"></i>' : '<i class="fa fa-ban fa-danger"></i>';
+                aData[2] = aData[2] === 1 ? '<i class="fa fa-check fa-success"></i>' : '<i class="fa fa-ban fa-danger"></i>';
                 aData[4] = col_md_12.html();
                 oTable.row(this).data(aData);
-                $('.btn-edit').click(function () {
-                    var $modalView = $('#modal-edit');
-                    $modalView.modal();
-                    $modalView.find('.modal-title').text('Editar valor');
-                    $modalView.find('#form_id').val($(this).data('id'));
-                    $modalView.find('#form_description').val($(this).data('description'));
-                    $modalView.find('#form_nomenclator').attr('action', laroute.route('nomenclators.update', {nomenclators: $(this).data('id')}));
-                    $modalView.modal('show');
-                });
-
-                $('.btn-delete').click(function () {
-                    var id = $(this).attr('data-id');
-                    $('#delete').attr('href', laroute.route('nomenclators.destroy', {nomenclators: id}));
-                    var $modalView = $('#modal-delete');
-                    $modalView.modal();
-                });
             }
         });
 
+        _initActivateButtons();
+
+        _initDeleteButtons();
+
+        _initEditButtons();
+    };
+
+    var _initActivateButtons = function () {
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $('.btn-activate').on('click', function (e) {
+            var id = $(this).attr('data-id');
+            $.ajax({
+                url: laroute.route('nomenclators.activate'),
+                type: 'POST',
+                data: {_token: CSRF_TOKEN, id: id},
+                success: function (data) {
+                    var info = $('<div class="alert alert-info alert-dismissable"><button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>' + data['message'] + '</div>');
+                    $('#info').append(info);
+                    if (data['value'] === true) {
+                        var $tr = $('#nomenclatorsListDatatable').find('tbody tr');
+                        $tr.each(function () {
+                            var aData = $('#nomenclatorsListDatatable').DataTable().row(this).data();
+                            if (aData[0]==id){
+                                $(this).find('td i').removeClass('fa fa-ban fa-danger');
+                                $(this).find('td i').addClass('fa fa-check fa-success');
+                                $('.btn-activate').remove();
+                            }
+                        })
+                    }
+                    else {
+                        $('#activate' + id).html('<i class="fa fa-check"></i> Activar');
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    var info =
+                        $('<div class="alert alert-danger alert-dismissable"><button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button> Ha ocurrido un error inesperado: '
+                            + errorThrown + '.</div>');
+                    $('#info').append(info);
+                }
+            });
+        });
+    };
+
+    var _initDeleteButtons = function () {
+        $('.btn-delete').click(function () {
+            var id = $(this).attr('data-id');
+            $('#delete').attr('href', laroute.route('nomenclators.destroy', {nomenclators: id}));
+            var $modalView = $('#modal-delete');
+            $modalView.modal();
+        });
+    };
+
+    var _initEditButtons = function () {
+        $('.btn-edit').click(function () {
+            var $modalView = $('#modal-edit');
+            $modalView.modal();
+            $modalView.find('.modal-title').text('Editar valor');
+            $modalView.find('#form_id').val($(this).data('id'));
+            $modalView.find('#form_description').val($(this).data('description'));
+            $modalView.find('#form_nomenclator').attr('action', laroute.route('nomenclators.update', {nomenclators: $(this).data('id')}));
+            $modalView.modal('show');
+        });
     };
 
     return {

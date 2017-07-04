@@ -39,6 +39,8 @@ Route::post('nomenclators/json/', ['as' => 'nomenclators.json', 'uses' => 'Nomen
 
 Route::post('nomenclators/datatable/', ['as' => 'nomenclators.datatable', 'uses' => 'NomenclatorController@datatable']);
 
+Route::post('nomenclators/activate/', ['as' => 'nomenclators.activate', 'uses' => 'NomenclatorController@activate']);
+
 Route::resource('nomenclators', 'NomenclatorController');
 
 Route::get('nomenclators/type/{nomenclator_type_id}', ['as' => 'nomenclators.index', 'uses' => 'NomenclatorController@index']);

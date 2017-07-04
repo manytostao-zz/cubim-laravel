@@ -54,6 +54,8 @@ return [
 
     'locale' => 'en',
 
+    'locales' => ['en' => 'English', 'es' => 'Spanish'],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -150,6 +152,7 @@ return [
         CUBiM\Providers\AuthServiceProvider::class,
         CUBiM\Providers\EventServiceProvider::class,
         CUBiM\Providers\RouteServiceProvider::class,
+        CUBiM\Providers\RepositoriesServiceProvider::class
 
     ],
 

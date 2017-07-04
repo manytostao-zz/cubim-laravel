@@ -2,7 +2,7 @@
 
 namespace CUBiM\Model;
 
-use CUBiM\Apis\NomenclatorSearch\NomenclatorSearch;
+use CUBiM\Apis\SearchApi\SearchApi;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -48,7 +48,7 @@ class Nomenclator extends Model
         $filters = $request->session()->has('nomenclator_filters') ? $request->session()->get('nomenclator_filters') : array();
         $orderBy = $request->has('order') ? $request->get('order') : array();
         $columns = $request['columns'];
-        NomenclatorSearch::applyFilters($filters, $orderBy, $columns, $query);
+        SearchApi::applyFilters($filters, $orderBy, $columns, $query);
 
         if ($request->has('length') && $request->get('length') > 0 and !$count)
             $result = $query->where('nomenclator_type_id', $request->get('nomenclator_type_id'))->take($request['length'])->skip($request['start']);

@@ -113,7 +113,7 @@ class TraceController extends Controller
             'created_at',
             'user',
         );
-//        dd($request->session()->get('traces_filters'));
+
         $recordsTotal = intval(Trace::all()->count());
         $traces = Trace::with('user')->filter($request, $columns);
         try {

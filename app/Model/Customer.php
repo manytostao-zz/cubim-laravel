@@ -3,7 +3,7 @@
 namespace CUBiM\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use CUBiM\Apis\CustomerSearch\CustomerSearch;
+use CUBiM\Apis\SearchApi\SearchApi;
 
 /**
  * Class Customer
@@ -97,7 +97,7 @@ class Customer extends Model
         $filters = $request->session()->has('customer_filters') ? $request->session()->get('customer_filters') : array();
         $orderBy = $request->has('order') ? $request->get('order') : array();
         $columns = $request['columns'];
-        CustomerSearch::applyFilters($filters, $orderBy, $columns, $query);
+        SearchApi::applyFilters($filters, $orderBy, $columns, $query);
 
         if ($request->has('length') && $request->get('length') > 0 and !$count)
             $result = $query->take($request['length'])->skip($request['start']);

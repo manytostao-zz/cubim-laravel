@@ -41,7 +41,7 @@ class CustomerController extends Controller
      * Store a newly created resource in storage.
      *
      * @param CustomerFormRequest|Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CustomerFormRequest $request)
     {
@@ -107,11 +107,12 @@ class CustomerController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit($id)
     {
         $customer = Customer::with(['nomenclators', 'user'])->find($id);
+
         return view('customers.edit')->with('customer', $customer)->with('active', array('sup' => 'registro'));
     }
 
@@ -120,7 +121,7 @@ class CustomerController extends Controller
      *
      * @param CustomerFormRequest|Request $request
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(CustomerFormRequest $request, $id)
     {
@@ -166,6 +167,8 @@ class CustomerController extends Controller
 
         $customer->nomenclators()->sync($nomenclators);
 
+        $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
+
         return \Redirect::route('customers.edit',
             array($customer->id))->with('message', 'Datos de usuario actualizados correctamente.');
     }
@@ -174,17 +177,20 @@ class CustomerController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
+        $customer = Customer::find($id);
+
+        $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
+        
         try {
             Customer::destroy($id);
 
             return \Redirect::route('customers.index')
                 ->with('message', 'Se ha eliminado correctamente el usuario.');
         } catch (QueryException $e) {
-            $customer = Customer::find($id);
             $customer->update([
                 'active' => false
             ]);
@@ -211,6 +217,9 @@ class CustomerController extends Controller
             $value = false;
         }
         $customer->save();
+
+        $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
+
         $data['message'] = $message;
         $data['value'] = $value;
 
@@ -236,6 +245,9 @@ class CustomerController extends Controller
             $value = false;
         }
         $customer->save();
+
+        $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
+
         $data['message'] = $message;
         $data['value'] = $value;
 

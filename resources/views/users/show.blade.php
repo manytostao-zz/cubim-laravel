@@ -168,7 +168,7 @@
     <script>
         jQuery(document).ready(function () {
             traces.initFilterButtons();
-            tracesDatatables.initTracesListDatatable();
+            tracesDatatables.initTracesListDatatable('users');
         })
     </script>
 

@@ -3,15 +3,15 @@
 @section('title_section')
     <title>CUBiM - Nomencladores</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    @endsection
+@endsection
 
-    @section('styles_section')
+@section('styles_section')
     {!! HTML::style('plugins/select2/select2.css') !!}
     {!! HTML::style('plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css') !!}
-    @endsection
+@endsection
 
-    @section('content_section')
-            <!-- BEGIN PAGE HEADER-->
+@section('content_section')
+    <!-- BEGIN PAGE HEADER-->
     <h3 class="page-title">
         {{$nomenclator_type->description}}
         <small> Nomenclador</small>
@@ -34,12 +34,14 @@
     </div>
     <!-- END PAGE HEADER-->
     <!-- BEGIN PAGE CONTENT-->
-    @if(Session::has('message'))
-        <div class="alert alert-info alert-dismissable">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
-            {{Session::get('message')}}
-        </div>
-    @endif
+    <div id="info">
+        @if(Session::has('message'))
+            <div class="alert alert-info alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>
+                {{Session::get('message')}}
+            </div>
+        @endif
+    </div>
     <ul style="list-style: none; padding: 0">
         @foreach($errors->all() as $error)
             <li>

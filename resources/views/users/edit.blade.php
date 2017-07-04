@@ -28,7 +28,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right">
-                <a class="btn btn-fit-height blue" data-close-others="true" href="{{URL::route('usuarios.create')}}">
+                <a class="btn btn-fit-height blue" data-close-others="true" href="{{URL::route('customers.create')}}">
                     <i class="fa fa-plus"></i> Nuevo Usuario
                 </a>
             </div>

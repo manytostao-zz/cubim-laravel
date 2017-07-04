@@ -258,7 +258,7 @@ var customers = function () {
                 success: function (data) {
                     var info = $('<div class="alert alert-info alert-dismissable"><button aria-hidden="true" data-dismiss="alert" class="close" type="button"></button>' + data['message'] + '</div>');
                     $('#info').append(info);
-                    if (data['value'] == true) {
+                    if (data['value'] === true) {
                         $('#activate').html('<i class="fa fa-ban"></i> Inactivar');
                     }
                     else {

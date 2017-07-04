@@ -4,6 +4,8 @@ namespace CUBiM\Http\Controllers;
 
 use CUBiM\Model\Nomenclator;
 use CUBiM\Model\NomenclatorType;
+use CUBiM\Repositories\Interfaces\INomenclatorsRepository;
+use CUBiM\Repositories\Interfaces\INomenclatorTypesRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use CUBiM\Http\Requests;
@@ -15,15 +17,37 @@ use CUBiM\Http\Requests;
 class NomenclatorController extends Controller
 {
     /**
+     * @var INomenclatorsRepository
+     */
+    private $nomenclatorsRepository;
+
+    /**
+     * @var INomenclatorTypesRepository
+     */
+    private $nomenclatorTypesRepository;
+
+
+    /**
+     * NomenclatorController constructor.
+     * @param INomenclatorsRepository $nomenclatorsRepository
+     * @param INomenclatorTypesRepository $nomenclatorTypesRepository
+     */
+    public function __construct(INomenclatorsRepository $nomenclatorsRepository, INomenclatorTypesRepository $nomenclatorTypesRepository)
+    {
+        $this->nomenclatorsRepository = $nomenclatorsRepository;
+        $this->nomenclatorTypesRepository = $nomenclatorTypesRepository;
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @param $nomenclator_type_id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      * @internal param $id
      */
     public function index($nomenclator_type_id)
     {
-        $nomenclator_type = NomenclatorType::find($nomenclator_type_id);
+        $nomenclator_type = $this->nomenclatorTypesRepository->find($nomenclator_type_id);
         return view('nomenclators.index')->with('nomenclator_type', $nomenclator_type)->with('active', array('sup' => ''));
     }
 
@@ -75,15 +99,17 @@ class NomenclatorController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        $nomenclator = Nomenclator::find($id);
+        $nomenclator = $this->nomenclatorsRepository->find($id);
 
         $nomenclator->update([
             'description' => $request->get('description'),
         ]);
+
+        $request->session()->put('traceComments', 'Tipo de Nomenclador: ' . $nomenclator->nomenclator_type->description . '. Descripción:' . $nomenclator->description . '.');
 
         return \Redirect::route('nomenclators.index',
             array($nomenclator->nomenclator_type_id))->with('message', 'Valor de nomenclador actualizado correctamente.');
@@ -92,22 +118,25 @@ class NomenclatorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param Request $request
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $nomenclator = Nomenclator::find($id);
+        $nomenclator = $this->nomenclatorsRepository->find($id);
+
+        $request->session()->put('traceComments', 'Tipo de Nomenclador: ' . $nomenclator->nomenclator_type->description . '. Descripción:' . $nomenclator->description . '.');
+
         $nomenclator_type_id = $nomenclator->nomenclator_type_id;
         try {
-            Nomenclator::destroy($id);
+            $this->nomenclatorsRepository->delete($id);
 
             return \Redirect::route('nomenclators.index',
                 array($nomenclator_type_id))->with('message', 'Valor de nomenclador eliminado correctamente.');
         } catch (QueryException $e) {
-            $nomenclator->update([
-                'active' => false,
-            ]);
+            $nomenclator->active = false;
+            $this->nomenclatorsRepository->save($nomenclator);
 
             return \Redirect::route('nomenclators.index',
                 array($nomenclator->nomenclator_type_id))->with('message', 'El valor está en uso y no se pudo eliminar; en lugar de ello se desactivó.');
@@ -120,19 +149,21 @@ class NomenclatorController extends Controller
      */
     public function activate(Request $request)
     {
-        $customer = Customer::find($request->get('id'));
-        if (is_null($customer->active) || $customer->active == 0) {
-            $customer->active = 1;
-            $message = 'Se ha activado el usuario.';
+        $nomenclator = $this->nomenclatorsRepository->find($request->get('id'));
+        if (is_null($nomenclator->active) || $nomenclator->active == 0) {
+            $nomenclator->active = 1;
+            $message = 'Se ha activado el valor del nomenclador.';
             $value = true;
         } else {
-            $customer->active = 0;
-            $message = 'Se ha inactivado el usuario.';
+            $nomenclator->active = 0;
+            $message = 'Se ha inactivado el valor del nomenclador.';
             $value = false;
         }
-        $customer->save();
+        $this->nomenclatorsRepository->save($nomenclator);
         $data['message'] = $message;
         $data['value'] = $value;
+
+        $request->session()->put('traceComments', 'Tipo de Nomenclador: ' . $nomenclator->nomenclator_type->description . '. Descripción:' . $nomenclator->description . '.');
 
         return response()->json($data);
 
@@ -140,6 +171,7 @@ class NomenclatorController extends Controller
     }
 
     /**
+     * Returns a json list to use in select2 droppable list.
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -184,10 +216,10 @@ class NomenclatorController extends Controller
         $filters = $request->session()->has('nomenclator_filters') ? $request->session()->get('customer_filters') : array();
         $filters['nomenclator_type_id'] = $request->get('nomenclator_type_id');
         $request->session()->set('nomenclator_filters', $filters);
-        $recordsTotal = Nomenclator::where('nomenclator_type_id', $request->get('nomenclator_type_id'))->count();
-        $nomenclators = Nomenclator::filter($request);
+        $recordsTotal = $this->nomenclatorsRepository->countByNomenclatorTypeId($request->get('nomenclator_type_id'));//Nomenclator::where('nomenclator_type_id', $request->get('nomenclator_type_id'))->count();
+        $nomenclators = $this->nomenclatorsRepository->findByFilters($request);
         try {
-            $recordsFiltered = intval(Nomenclator::filter($request, true));
+            $recordsFiltered = intval($this->nomenclatorsRepository->findByFilters($request, true));
         } catch (\ErrorException $e) {
             $recordsFiltered = 0;
         }

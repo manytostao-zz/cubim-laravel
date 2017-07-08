@@ -10,8 +10,6 @@ namespace CUBiM\Repositories\Implementations;
 
 use CUBiM\Model\Nomenclator;
 use CUBiM\Repositories\Interfaces\INomenclatorsRepository;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Query\Builder;
 
 /**
  * Class NomenclatorsRepository
@@ -22,28 +20,38 @@ class NomenclatorsRepository implements INomenclatorsRepository
 
     /**
      * @param $id
+     * @param array $with
      * @return mixed
      */
-    public function find($id)
+    public function find($id, $with = [])
     {
-        return Nomenclator::find($id);
+        return Nomenclator::with($with)->find($id);
     }
 
-    public function countByNomenclatorTypeId($nomenclatorTypeId)
+    /**
+     * @param $filters
+     * @param array $with
+     * @param bool $countOnly
+     * @param bool $queryOnly
+     * @return mixed
+     */
+    public function findByFilters($filters, $with = [], $countOnly = false, $queryOnly = false)
     {
-        return Nomenclator::where('nomenclator_type_id', $nomenclatorTypeId)->count();
+        return Nomenclator::with($with)->filter($filters, $countOnly, $queryOnly);
     }
 
-    public function findByFilters($filters, $countOnly = false)
-    {
-        return Nomenclator::filter($filters, $countOnly);
-    }
-
+    /**
+     * @param $id
+     * @return int
+     */
     public function delete($id)
     {
         return Nomenclator::destroy($id);
     }
 
+    /**
+     * @param $nomenclator
+     */
     public function save($nomenclator)
     {
         $nomenclator->save();

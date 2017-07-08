@@ -12,11 +12,20 @@ namespace CUBiM\Repositories\Implementations;
 use CUBiM\Repositories\Interfaces\INomenclatorTypesRepository;
 use CUBiM\Model\NomenclatorType;
 
+/**
+ * Class NomenclatorTypesRepository
+ * @package CUBiM\Repositories\Implementations
+ */
 class NomenclatorTypesRepository implements INomenclatorTypesRepository
 {
 
-    public function find($id)
+    /**
+     * @param $id
+     * @param array $with
+     * @return mixed
+     */
+    public function find($id, $with = [])
     {
-        return NomenclatorType::find($id);
+        return NomenclatorType::with($with)->find($id);
     }
 }

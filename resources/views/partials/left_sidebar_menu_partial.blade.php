@@ -17,7 +17,7 @@
                     <span class="title">Panel Resumen</span>
                 </a>
             </li>
-            <li @if($active['sup'] == 'registro') class="start active open" @endif>
+            <li @if($active['sup'] == 'registry') class="start active open" @endif>
                 <a href="{{ URL::route('customers.index') }}">
                     <i class="icon-users"></i>
                     <span class="title">Registro</span>

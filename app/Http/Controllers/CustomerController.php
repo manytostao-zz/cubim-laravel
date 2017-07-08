@@ -2,39 +2,52 @@
 
 namespace CUBiM\Http\Controllers;
 
+use CUBiM\Helper\Helper;
 use CUBiM\Http\Requests\CustomerFormRequest;
 use CUBiM\Model\Customer;
+use CUBiM\Repositories\Interfaces\ICustomersRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
-use CUBiM\Http\Requests;
-use CUBiM\Http\Controllers\Controller;
-
 /**
- * Class UsuarioController
+ * Class CustomerController
  * @package CUBiM\Http\Controllers
  */
 class CustomerController extends Controller
 {
     /**
+     * @var ICustomersRepository
+     */
+    private $customersRepository;
+
+    /**
+     * CustomerController constructor.
+     * @param ICustomersRepository $customersRepository
+     */
+    public function __construct(ICustomersRepository $customersRepository)
+    {
+        $this->customersRepository = $customersRepository;
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(Request $request)
     {
-        return view('customers.index')->with('active', array('sup' => 'registro'));
+        return view('customers.index')->with('active', array('sup' => 'registry'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        return view('customers.create')->with('active', array('sup' => 'registro'));
+        return view('customers.create')->with('active', array('sup' => 'registry'));
     }
 
     /**
@@ -84,8 +97,8 @@ class CustomerController extends Controller
                 'active' => 1)
         );
 
-        $customer->save();
-        $customer->nomenclators()->sync($nomenclators);
+        $this->customersRepository->save($customer);
+        $this->customersRepository->syncNomenclators($customer, $nomenclators);
 
         return \Redirect::route('customers.edit',
             array($customer->id))->with('message', 'Datos de usuario almacenados correctamente');
@@ -95,12 +108,12 @@ class CustomerController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show($id)
     {
-        $customer = Customer::with(['nomenclators', 'user'])->find($id);
-        return view('customers.show')->with('customer', $customer)->with('active', array('sup' => 'registro'));
+        $customer = $this->customersRepository->findById($id, ['nomenclators', 'user']);
+        return view('customers.show')->with('customer', $customer)->with('active', array('sup' => 'registry'));
     }
 
     /**
@@ -111,9 +124,9 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        $customer = Customer::with(['nomenclators', 'user'])->find($id);
+        $customer = $this->customersRepository->findById($id, ['nomenclators', 'user']);
 
-        return view('customers.edit')->with('customer', $customer)->with('active', array('sup' => 'registro'));
+        return view('customers.edit')->with('customer', $customer)->with('active', array('sup' => 'registry'));
     }
 
     /**
@@ -125,7 +138,7 @@ class CustomerController extends Controller
      */
     public function update(CustomerFormRequest $request, $id)
     {
-        $customer = Customer::find($id);
+        $customer = $this->customersRepository->findById($id);
         $nomenclators = array();
         if ($request->get('country') != '')
             $nomenclators[] = $request->get('country');
@@ -152,7 +165,7 @@ class CustomerController extends Controller
         if ($request->get('customer_type') != '')
             $nomenclators[] = $request->get('customer_type');
 
-        $customer->update([
+        $this->customersRepository->update($customer, [
             'name' => $request->get('name'),
             'last_name' => $request->get('last_name'),
             'id_card' => $request->get('id_card'),
@@ -165,7 +178,7 @@ class CustomerController extends Controller
             'student' => $request->get('student') == 'on' ? 1 : 0,
         ]);
 
-        $customer->nomenclators()->sync($nomenclators);
+        $this->customersRepository->syncNomenclators($customer, $nomenclators);
 
         $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
 
@@ -176,22 +189,23 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param Request $request
      * @param  int $id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request, $id)
     {
-        $customer = Customer::find($id);
+        $customer = $this->customersRepository->findById($id);
 
         $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
 
         try {
-            Customer::destroy($id);
+            $this->customersRepository->delete($id);
 
             return \Redirect::route('customers.index')
                 ->with('message', 'Se ha eliminado correctamente el usuario.');
         } catch (QueryException $e) {
-            $customer->update([
+            $this->customersRepository->update($customer, [
                 'active' => false
             ]);
 
@@ -207,7 +221,7 @@ class CustomerController extends Controller
      */
     public function ban(Request $request)
     {
-        $customer = Customer::find($request->get('id'));
+        $customer = $this->customersRepository->findById($request->get('id'));
         if (is_null($customer->banned) || $customer->banned == 0) {
             $customer->banned = 1;
             $message = 'Se ha restringido al usuario el acceso al centro.';
@@ -217,7 +231,7 @@ class CustomerController extends Controller
             $message = 'Se ha concedido al usuario el acceso al centro.';
             $value = false;
         }
-        $customer->save();
+        $this->customersRepository->save($customer);
 
         $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
 
@@ -236,7 +250,7 @@ class CustomerController extends Controller
      */
     public function activate(Request $request)
     {
-        $customer = Customer::find($request->get('id'));
+        $customer = $this->customersRepository->findById($request->get('id'));
         if (is_null($customer->active) || $customer->active == 0) {
             $customer->active = 1;
             $message = 'Se ha activado el usuario.';
@@ -246,7 +260,7 @@ class CustomerController extends Controller
             $message = 'Se ha inactivado el usuario.';
             $value = false;
         }
-        $customer->save();
+        $this->customersRepository->save($customer);
 
         $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
 
@@ -266,18 +280,14 @@ class CustomerController extends Controller
     public function datatable(Request $request)
     {
         /*Extract filters from request and session vars*/
-        $filters['search'] = $request->get('search');
-        $filters['order'] = $request->get('order');
-        $filters['length'] = $request->get('length');
-        $filters['start'] = $request->get('start');
-        $filters['columns'] = $request->get('columns');
-        $filters['filters'] = $request->session()->has('customer_filters') ? $request->session()->get('customer_filters') : array();
+        $filters = Helper::extractDatatableFiltersFromRequest($request, 'customer_filters');
 
-        $recordsTotal = intval(Customer::all()->count());
-        $customers = Customer::with(['nomenclators', 'user'])->filter($filters);
+        $recordsTotal = intval($this->customersRepository->findByFilters([], [], true));
+
+        $customers = $this->customersRepository->findByFilters($filters, ['nomenclators', 'user']);
 
         try {
-            $recordsFiltered = intval(Customer::filter($filters, true));
+            $recordsFiltered = intval($this->customersRepository->findByFilters($filters, [], true));
         } catch (\ErrorException $e) {
             $recordsFiltered = 0;
         }
@@ -334,40 +344,40 @@ class CustomerController extends Controller
                             $row[] = '';
                         break;
                     case 'customer_type':
-                        $row[] = $this->get_customer_nomenclator($aRow, 11);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 11);
                         break;
                     case 'professional_type':
-                        $row[] = $this->get_customer_nomenclator($aRow, 1);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 1);
                         break;
                     case 'institution':
-                        $row[] = $this->get_customer_nomenclator($aRow, 5);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 5);
                         break;
                     case 'specialty':
-                        $row[] = $this->get_customer_nomenclator($aRow, 2);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 2);
                         break;
                     case 'profession':
-                        $row[] = $this->get_customer_nomenclator($aRow, 3);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 3);
                         break;
                     case 'dedication':
-                        $row[] = $this->get_customer_nomenclator($aRow, 6);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 6);
                         break;
                     case 'occupational_category':
-                        $row[] = $this->get_customer_nomenclator($aRow, 8);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 8);
                         break;
                     case 'scientific_category':
-                        $row[] = $this->get_customer_nomenclator($aRow, 10);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 10);
                         break;
                     case 'investigative_category':
-                        $row[] = $this->get_customer_nomenclator($aRow, 9);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 9);
                         break;
                     case 'teaching_category':
-                        $row[] = $this->get_customer_nomenclator($aRow, 7);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 7);
                         break;
                     case 'country':
-                        $row[] = $this->get_customer_nomenclator($aRow, 12);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 12);
                         break;
                     case 'position':
-                        $row[] = $this->get_customer_nomenclator($aRow, 4);
+                        $row[] = Helper::getCustomerNomenclator($aRow, 4);
                         break;
                     default:
                         if ($columns[$i] != ' ') {
@@ -404,31 +414,11 @@ class CustomerController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function library_card(Request $request)
+    public function lastLibraryCardNumber(Request $request)
     {
-        $customer_type = $request->get('customer_type');
+        $customerType = $request->get('customer_type');
+        $lastLibraryCardNumber = $this->customersRepository->getLastAssignedLibraryCardNumber($customerType);
 
-        $last_library_card_number = Customer::where(function ($query) use ($request, &$customer_type) {
-            $query->whereHas('nomenclators', function ($query) use ($request, &$customer_type) {
-                $query->where('nomenclators.id', '=', '' . $customer_type . '');
-            });
-        })->max('customers.library_card');
-
-        return response()->json($last_library_card_number + 1);
-    }
-
-    /**
-     * @param $customer
-     * @param $nomenclator_id
-     * @return string
-     * @internal param $nomenclador_id
-     */
-    private function get_customer_nomenclator($customer, $nomenclator_id)
-    {
-        $nom = $customer->nomenclators->filter(
-            function ($nomenclator) use ($nomenclator_id) {
-                return $nomenclator->nomenclator_type_id == $nomenclator_id;
-            });
-        return count($nom) > 0 ? $nom->first()->description : '';
+        return response()->json($lastLibraryCardNumber + 1);
     }
 }

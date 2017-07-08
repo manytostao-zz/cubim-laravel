@@ -68,14 +68,15 @@ class Customer extends Model
     /**
      * @param $query
      * @param $filters
-     * @param bool $count
+     * @param bool $countOnly
+     * @param bool $queryOnly
      * @return mixed
      * @internal param $columns
      * @internal param $filters
      */
-    public function scopeFilter($query, $filters, $count = false)
+    public function scopeFilter($query, $filters, $countOnly = false, $queryOnly = false)
     {
-        //Filtering by single search input
+        //Filter by single search input
         if (isset($filters['search']) && $filters['search']['value'] != '') {
             $query->select('customers.*')->where(function ($query) use ($filters) {
                 $query->whereHas('nomenclators', function ($query) use ($filters) {
@@ -96,10 +97,13 @@ class Customer extends Model
 
         SearchApi::applyFilters($filters, $query);
 
-        if (!is_null($filters['length']) && $filters['length'] > 0 and !$count)
-            $result = $query->take($filters['length'])->skip($filters['start']);
-        else
-            $result = $query;
-        return !$count ? $result->get() : $result->get()->count();
+        if (isset($filters['length']) && !is_null($filters['length']) && $filters['length'] > 0 and !$countOnly)
+            $query->take($filters['length'])->skip($filters['start']);
+
+        if ($queryOnly) return $query;
+
+        if ($countOnly) return $query->get()->count();
+
+        return $query->get();
     }
 }

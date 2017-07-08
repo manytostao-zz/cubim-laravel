@@ -395,7 +395,7 @@ var customers = function () {
             else {
                 e.preventDefault();
                 $.ajax({
-                    url: laroute.route('customers.library_card'),
+                    url: laroute.route('customers.lastLibraryCardNumber'),
                     type: 'POST',
                     data: {_token: CSRF_TOKEN, customer_type: customer_type},
                     success: function (data) {

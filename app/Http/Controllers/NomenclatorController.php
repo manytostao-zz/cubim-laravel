@@ -2,16 +2,14 @@
 
 namespace CUBiM\Http\Controllers;
 
-use CUBiM\Model\Nomenclator;
-use CUBiM\Model\NomenclatorType;
+use CUBiM\Helper\Helper;
 use CUBiM\Repositories\Interfaces\INomenclatorsRepository;
 use CUBiM\Repositories\Interfaces\INomenclatorTypesRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use CUBiM\Http\Requests;
 
 /**
- * Class NomencladorController
+ * Class NomenclatorController
  * @package CUBiM\Http\Controllers
  */
 class NomenclatorController extends Controller
@@ -182,12 +180,15 @@ class NomenclatorController extends Controller
         $result = [];
         $result['total_count'] = 0;
         $result['items'] = [];
-        $query = Nomenclator::where('nomenclator_type_id', $params['nomenclator_type_id'])->orderBy('description', 'ASC');
+        $filters['filters'] = ['nomenclator_type' => $params['nomenclator_type_id']];
+        $query = $this->nomenclatorsRepository->findByFilters($filters, false, true);
+
         if (array_key_exists('description', $params) && $params['description'] != '')
             $query->where('description', 'like', '%' . $params['description'] . '%');
         if (array_key_exists('id', $params) && $params['id'] != '')
             $query->where('id', '=', $params['id']);
-        $result['total_count'] = $query->get()->count();
+
+        $result['total_count'] = $this->nomenclatorsRepository->findByFilters($filters, true);
         $nomenclators = $query
             ->take(intval($params['pageCount']))
             ->skip(intval($params['page']) > 0 ? intval($params['pageCount'] * ($params['page'] - 1)) : null)
@@ -218,17 +219,12 @@ class NomenclatorController extends Controller
         $request->session()->set('nomenclator_filters', $nomenclatorFilters);
 
         /*Extract filters from request and session vars*/
-        $filters['search'] = $request->get('search');
-        $filters['order'] = $request->get('order');
-        $filters['length'] = $request->get('length');
-        $filters['start'] = $request->get('start');
-        $filters['columns'] = $request->get('columns');
-        $filters['filters'] = $request->session()->has('nomenclator_filters') ? $request->session()->get('nomenclator_filters') : array();
+        $filters = Helper::extractDatatableFiltersFromRequest($request, 'nomenclator_filters');
 
-        $recordsTotal = $this->nomenclatorsRepository->countByNomenclatorTypeId($request->get('nomenclator_type_id'));//Nomenclator::where('nomenclator_type_id', $request->get('nomenclator_type_id'))->count();
+        $recordsTotal = $this->nomenclatorsRepository->findByFilters($nomenclatorFilters, [], true);//countByNomenclatorTypeId($request->get('nomenclator_type_id'));//Nomenclator::where('nomenclator_type_id', $request->get('nomenclator_type_id'))->count();
         $nomenclators = $this->nomenclatorsRepository->findByFilters($filters);
         try {
-            $recordsFiltered = intval($this->nomenclatorsRepository->findByFilters($filters, true));
+            $recordsFiltered = intval($this->nomenclatorsRepository->findByFilters($filters, [], true));
         } catch (\ErrorException $e) {
             $recordsFiltered = 0;
         }

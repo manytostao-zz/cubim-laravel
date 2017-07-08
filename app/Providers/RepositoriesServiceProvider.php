@@ -23,5 +23,6 @@ class RepositoriesServiceProvider extends ServiceProvider
     {
         $this->app->bind('CUBiM\Repositories\Interfaces\INomenclatorsRepository', 'CUBiM\Repositories\Implementations\NomenclatorsRepository');
         $this->app->bind('CUBiM\Repositories\Interfaces\INomenclatorTypesRepository', 'CUBiM\Repositories\Implementations\NomenclatorTypesRepository');
+        $this->app->bind('CUBiM\Repositories\Interfaces\ICustomersRepository', 'CUBiM\Repositories\Implementations\CustomersRepository');
     }
 }

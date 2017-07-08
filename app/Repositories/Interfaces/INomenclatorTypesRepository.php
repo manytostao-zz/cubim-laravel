@@ -9,7 +9,16 @@
 namespace CUBiM\Repositories\Interfaces;
 
 
+/**
+ * Interface INomenclatorTypesRepository
+ * @package CUBiM\Repositories\Interfaces
+ */
 interface INomenclatorTypesRepository
 {
-    public function find($id);
+    /**
+     * @param $id
+     * @param array $with
+     * @return mixed
+     */
+    public function find($id, $with = []);
 }

@@ -8,25 +8,26 @@
 
 namespace CUBiM\Repositories\Interfaces;
 
-
 /**
- * Interface INomenclatorsRepository
+ * Interface ICustomersRepository
  * @package CUBiM\Repositories\Interfaces
  */
-interface INomenclatorsRepository
+interface ICustomersRepository
 {
     /**
      * @param $id
      * @param array $with
      * @return mixed
      */
-    public function find($id, $with = []);
+    public function findById($id, $with = []);
+
     /**
      * @param $filters
      * @param array $with
      * @param bool $countOnly
      * @param bool $queryOnly
      * @return mixed
+     * @internal param array $whith
      */
     public function findByFilters($filters, $with = [], $countOnly = false, $queryOnly = false);
 
@@ -37,8 +38,28 @@ interface INomenclatorsRepository
     public function delete($id);
 
     /**
-     * @param $nomenclator
+     * @param $customer
+     * @param array $fields
      * @return mixed
      */
-    public function save($nomenclator);
+    public function update($customer, $fields=[]);
+
+    /**
+     * @param $customer
+     * @return mixed
+     */
+    public function save($customer);
+
+    /**
+     * @param $customer
+     * @param $nomenclators
+     * @return mixed
+     */
+    public function syncNomenclators($customer, $nomenclators);
+
+    /**
+     * @param $customerType
+     * @return mixed
+     */
+    public function getLastAssignedLibraryCardNumber($customerType);
 }

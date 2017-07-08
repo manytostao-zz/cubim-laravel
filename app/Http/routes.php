@@ -27,7 +27,7 @@ Route::post('customers/ban/', ['as' => 'customers.ban', 'uses' => 'CustomerContr
 
 Route::post('customers/activate/', ['as' => 'customers.activate', 'uses' => 'CustomerController@activate']);
 
-Route::post('customers/library_card/', ['as' => 'customers.library_card', 'uses' => 'CustomerController@library_card']);
+Route::post('customers/lastLibraryCardNumber/', ['as' => 'customers.lastLibraryCardNumber', 'uses' => 'CustomerController@lastLibraryCardNumber']);
 
 Route::resource('customers', 'CustomerController');
 

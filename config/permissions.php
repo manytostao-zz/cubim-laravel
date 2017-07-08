@@ -64,7 +64,7 @@ $customer_routes = [
     "customers.edit" => true,
     "customers.update" => true,
     "customers.destroy" => true,
-    "customers.library_card" => true
+    "customers.lastLibraryCardNumber" => true
 ];
 
 $traces_routes = [

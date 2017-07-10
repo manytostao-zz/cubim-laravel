@@ -28,6 +28,15 @@
                                         </div>
                                     </div>
                                 </a>
+                            </li><li>
+                                <a href="{{URL::route('traces.index')}}">
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Trazas</h4>
+                                        <div class="media-heading-sub">
+                                            Registros del sistema
+                                        </div>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </div>

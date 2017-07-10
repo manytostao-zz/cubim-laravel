@@ -3,16 +3,16 @@
 @section('title_section')
     <title>CUBiM - Administración</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    @endsection
+@endsection
 
-    @section('styles_section')
+@section('styles_section')
     {!! HTML::style('plugins/select2/select2.css') !!}
     {!! HTML::style('plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css') !!}
     {!! HTML::style('plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') !!}
-    @endsection
+@endsection
 
-    @section('content_section')
-            <!-- BEGIN PAGE HEADER-->
+@section('content_section')
+    <!-- BEGIN PAGE HEADER-->
     <h3 class="page-title">
         Cuentas de usuario
     </h3>
@@ -109,14 +109,14 @@
                                 </div>
                             </div>
                             {{--<div class="col-md-4">--}}
-                                {{--<div class="md-checkbox">--}}
-                                    {{--{!! Form::checkbox('inactivo', Session::get('users_filters')['inactivo'], Session::get('users_filters')['inactivo'] == 'true', array('class'=>'md-check', 'id'=>'form_inactivo')) !!}--}}
-                                    {{--<label for="form_inactivo">--}}
-                                        {{--<span></span>--}}
-                                        {{--<span class="check"></span>--}}
-                                        {{--<span class="box"></span>--}}
-                                        {{--Solo inactivos </label>--}}
-                                {{--</div>--}}
+                            {{--<div class="md-checkbox">--}}
+                            {{--{!! Form::checkbox('inactivo', Session::get('users_filters')['inactivo'], Session::get('users_filters')['inactivo'] == 'true', array('class'=>'md-check', 'id'=>'form_inactivo')) !!}--}}
+                            {{--<label for="form_inactivo">--}}
+                            {{--<span></span>--}}
+                            {{--<span class="check"></span>--}}
+                            {{--<span class="box"></span>--}}
+                            {{--Solo inactivos </label>--}}
+                            {{--</div>--}}
                             {{--</div>--}}
                         </div>
                     </div>
@@ -173,7 +173,7 @@
                                 Roles
                             </th>
                             {{--<th class="hidden-xs" style="text-align: center">--}}
-                                {{--Activo--}}
+                            {{--Activo--}}
                             {{--</th>--}}
                             <th class="hidden-xs" style="text-align: center">
                                 Fecha de alta

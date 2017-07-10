@@ -70,6 +70,7 @@ $customer_routes = [
 $traces_routes = [
     "traces.datatable" => true,
     "traces.filter" => true,
+    "traces.index" => true
 ];
 
 return [

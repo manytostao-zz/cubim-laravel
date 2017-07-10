@@ -2,23 +2,29 @@
 
 namespace CUBiM\Http\Controllers;
 
+use CUBiM\Helper\Helper;
 use CUBiM\Model\Trace;
+use CUBiM\Repositories\Interfaces\ITracesRepository;
 use ErrorException;
 use Illuminate\Http\Request;
 
-use CUBiM\Http\Requests;
-use CUBiM\Http\Controllers\Controller;
-
 class TraceController extends Controller
 {
+    protected $tracesRepository;
+
+    function __construct(ITracesRepository $tracesRepository)
+    {
+        $this->tracesRepository = $tracesRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        return view("traces.index")->with('active', array('sup' => ''));
     }
 
     /**
@@ -104,6 +110,16 @@ class TraceController extends Controller
      */
     public function datatable(Request $request)
     {
+        $filters = Helper::extractDatatableFiltersFromRequest($request, 'traces_filters');
+
+//        $recordsTotal = intval(Trace::all()->count());
+//        $traces = Trace::with('user')->filter($request, $columns);
+        $recordsTotal = $this->tracesRepository->findByFilters([], [], true);
+        try {
+            $recordsFiltered = intval(Trace::filter($request, $columns, true));
+        } catch (ErrorException $e) {
+            $recordsFiltered = 0;
+        }
         $columns = array(
             'id',
             'operation',
@@ -113,14 +129,6 @@ class TraceController extends Controller
             'created_at',
             'user',
         );
-
-        $recordsTotal = intval(Trace::all()->count());
-        $traces = Trace::with('user')->filter($request, $columns);
-        try {
-            $recordsFiltered = intval(Trace::filter($request, $columns, true));
-        } catch (ErrorException $e) {
-            $recordsFiltered = 0;
-        }
 
         $output = array(
             "draw" => intval($request->get('draw')),

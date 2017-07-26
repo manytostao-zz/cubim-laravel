@@ -1,4 +1,4 @@
-# Laravel-CUBiM
+# CUBiM (*Laravel Version*)
 
 CUBiM is an application for introducing and managing medical library user's personal data that is important to the library itself. Gaining control over this data improves the statistics 
 needed by the institution to make strategical decisions such as which books to buy, etc.

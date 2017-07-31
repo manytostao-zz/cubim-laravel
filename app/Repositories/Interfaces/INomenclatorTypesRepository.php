@@ -8,17 +8,12 @@
 
 namespace CUBiM\Repositories\Interfaces;
 
+use CUBiM\Repositories\IRepository;
 
 /**
  * Interface INomenclatorTypesRepository
- * @package CUBiM\Repositories\Interfaces
+ * @package CUBiM\Repositories\Eloquent\Interfaces
  */
-interface INomenclatorTypesRepository
+interface INomenclatorTypesRepository extends IRepository
 {
-    /**
-     * @param $id
-     * @param array $with
-     * @return mixed
-     */
-    public function find($id, $with = []);
 }

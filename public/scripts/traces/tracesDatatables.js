@@ -191,14 +191,11 @@ var tracesDatatables = function () {
             },
             "columnDefs": [{
                 "visible": false,
-                "targets": $from === 'users' ? [0, 5, 6] : [0, 5]
-            }, {
-                "orderable": false,
-                "targets": [6]
+                "targets": $from === 'users' ? [0, 6] : [0]
             }
             ],
             "order": [
-                [0, 'desc']
+                [5, 'desc']
             ],
             "lengthMenu": [
                 [5, 10, 15, 20, -1],

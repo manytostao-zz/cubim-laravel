@@ -72,7 +72,7 @@
                             <th data-name="created_at">
                                 Fecha de creaci&oacute;n
                             </th>
-                            <th data-name="actions"></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>

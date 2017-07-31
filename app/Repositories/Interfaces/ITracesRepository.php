@@ -3,18 +3,17 @@
  * Created by PhpStorm.
  * User: Osmany Torres Leyva
  * Date: 25/06/2017
- * Time: 14:05
+ * Time: 16:15
  */
 
 namespace CUBiM\Repositories\Interfaces;
 
 use CUBiM\Repositories\IRepository;
 
-
 /**
- * Interface INomenclatorsRepository
+ * Interface ITracesRepository
  * @package CUBiM\Repositories\Eloquent\Interfaces
  */
-interface INomenclatorsRepository extends IRepository
+interface ITracesRepository extends IRepository
 {
 }

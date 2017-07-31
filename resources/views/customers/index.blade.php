@@ -405,7 +405,7 @@
                            id="usersListDatatable">
                         <thead>
                         <tr>
-                            <th style="text-align: left; display: none">
+                            <th data-name="id" style="text-align: left; display: none">
                                 Id
                             </th>
                             <th data-name="name" style="text-align: left">

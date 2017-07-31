@@ -150,7 +150,7 @@ var customersDatatables = function () {
         /* handle show/hide columns*/
         $('input[type="checkbox"]', tableColumnToggler).change(function () {
             var iCol = parseInt($(this).attr("data-column"));
-            oTable.column(iCol).visible($(this).attr("checked") == "checked");
+            oTable.column(iCol).visible($(this).attr("checked") === "checked");
         });
     };
 

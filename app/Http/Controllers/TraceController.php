@@ -2,23 +2,29 @@
 
 namespace CUBiM\Http\Controllers;
 
+use CUBiM\Helper\Helper;
 use CUBiM\Model\Trace;
+use CUBiM\Repositories\Interfaces\ITracesRepository;
 use ErrorException;
 use Illuminate\Http\Request;
 
-use CUBiM\Http\Requests;
-use CUBiM\Http\Controllers\Controller;
-
 class TraceController extends Controller
 {
+    protected $tracesRepository;
+
+    function __construct(ITracesRepository $tracesRepository)
+    {
+        $this->tracesRepository = $tracesRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        return view("traces.index")->with('active', array('sup' => ''));
     }
 
     /**
@@ -104,20 +110,27 @@ class TraceController extends Controller
      */
     public function datatable(Request $request)
     {
-        $columns = array(
-            'id',
-            'operation',
-            'object',
-            'comments',
-            'module',
-            'created_at',
-            'user',
-        );
+        $filters = Helper::extractDatatableFiltersFromRequest($request, 'traces_filters');
 
-        $recordsTotal = intval(Trace::all()->count());
-        $traces = Trace::with('user')->filter($request, $columns);
+        $columnNames = array();
+
+        foreach ($filters['columns'] as $column) {
+            switch ($column['name']) {
+                case 'user':
+                    array_push($columnNames, 'user_id');
+                    break;
+                default:
+                    array_push($columnNames, $column['name']);
+                    break;
+            }
+        }
+
+        $recordsTotal = $this->tracesRepository->count();
+
+        $traces = $this->tracesRepository->paginateWhere($filters['length'], $columnNames, ($filters['start'] / $filters['length']) + 1, $filters);
+
         try {
-            $recordsFiltered = intval(Trace::filter($request, $columns, true));
+            $recordsFiltered = $this->tracesRepository->countWhere($filters);
         } catch (ErrorException $e) {
             $recordsFiltered = 0;
         }
@@ -131,14 +144,8 @@ class TraceController extends Controller
 
         foreach ($traces as $aRow) {
             $row = array();
-            for ($i = 0; $i < count($columns); $i++) {
-                switch ($columns[$i]) {
-                    case 'roles':
-                        $roles = $aRow->roles->map(function ($rol) {
-                            return ' ' . $rol->slug;
-                        });
-                        $row[] = $roles;
-                        break;
+            for ($i = 0; $i < count($filters['columns']); $i++) {
+                switch ($filters['columns'][$i]['name']) {
                     case 'created_at':
                         $date = strtotime($aRow->created_at);
                         $row[] = date('d/m/Y', $date);
@@ -147,9 +154,9 @@ class TraceController extends Controller
                         $row[] = $aRow->user->first_name . ' ' . $aRow->user->last_name;
                         break;
                     default:
-                        if ($columns[$i] != ' ') {
+                        if ($filters['columns'][$i]['name'] != ' ') {
                             /* General output */
-                            $row[] = $aRow[$columns[$i]];
+                            $row[] = $aRow[$filters['columns'][$i]['name']];
                         }
                         break;
                 }

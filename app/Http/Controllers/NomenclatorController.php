@@ -3,6 +3,7 @@
 namespace CUBiM\Http\Controllers;
 
 use CUBiM\Helper\Helper;
+use CUBiM\Repositories\IEloquentRepository;
 use CUBiM\Repositories\Interfaces\INomenclatorsRepository;
 use CUBiM\Repositories\Interfaces\INomenclatorTypesRepository;
 use Illuminate\Database\QueryException;
@@ -101,16 +102,14 @@ class NomenclatorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nomenclator = $this->nomenclatorsRepository->find($id);
+        $this->nomenclatorsRepository->update(['description' => $request->get('description')], $id);
 
-        $nomenclator->update([
-            'description' => $request->get('description'),
-        ]);
+        $nomenclator = $this->nomenclatorsRepository->find($id);
 
         $request->session()->put('traceComments', 'Tipo de Nomenclador: ' . $nomenclator->nomenclator_type->description . '. Descripción:' . $nomenclator->description . '.');
 
         return \Redirect::route('nomenclators.index',
-            array($nomenclator->nomenclator_type_id))->with('message', 'Valor de nomenclador actualizado correctamente.');
+            array($nomenclator->nomenclator_type_id))->with('message', "Valor de nomenclador actualizado correctamente.");
     }
 
     /**
@@ -133,8 +132,7 @@ class NomenclatorController extends Controller
             return \Redirect::route('nomenclators.index',
                 array($nomenclator_type_id))->with('message', 'Valor de nomenclador eliminado correctamente.');
         } catch (QueryException $e) {
-            $nomenclator->active = false;
-            $this->nomenclatorsRepository->save($nomenclator);
+            $this->nomenclatorsRepository->update(['active' => false], $nomenclator->id);
 
             return \Redirect::route('nomenclators.index',
                 array($nomenclator->nomenclator_type_id))->with('message', 'El valor está en uso y no se pudo eliminar; en lugar de ello se desactivó.');
@@ -149,23 +147,20 @@ class NomenclatorController extends Controller
     {
         $nomenclator = $this->nomenclatorsRepository->find($request->get('id'));
         if (is_null($nomenclator->active) || $nomenclator->active == 0) {
-            $nomenclator->active = 1;
+            $this->nomenclatorsRepository->update(['active' => true], $nomenclator->id);
             $message = 'Se ha activado el valor del nomenclador.';
             $value = true;
         } else {
-            $nomenclator->active = 0;
+            $this->nomenclatorsRepository->update(['active' => false], $nomenclator->id);
             $message = 'Se ha inactivado el valor del nomenclador.';
             $value = false;
         }
-        $this->nomenclatorsRepository->save($nomenclator);
         $data['message'] = $message;
         $data['value'] = $value;
 
         $request->session()->put('traceComments', 'Tipo de Nomenclador: ' . $nomenclator->nomenclator_type->description . '. Descripción:' . $nomenclator->description . '.');
 
         return response()->json($data);
-
-
     }
 
     /**
@@ -180,19 +175,24 @@ class NomenclatorController extends Controller
         $result = [];
         $result['total_count'] = 0;
         $result['items'] = [];
-        $filters['filters'] = ['nomenclator_type' => $params['nomenclator_type_id']];
-        $query = $this->nomenclatorsRepository->findByFilters($filters, false, true);
+        $criterias = ['nomenclator_type' => $params['nomenclator_type_id']];
 
         if (array_key_exists('description', $params) && $params['description'] != '')
-            $query->where('description', 'like', '%' . $params['description'] . '%');
+            $criterias = array_add($criterias, 'description', $params['description']);
         if (array_key_exists('id', $params) && $params['id'] != '')
-            $query->where('id', '=', $params['id']);
+            $criterias = array_add($criterias, 'id', $params['id']);
 
-        $result['total_count'] = $this->nomenclatorsRepository->findByFilters($filters, true);
-        $nomenclators = $query
-            ->take(intval($params['pageCount']))
-            ->skip(intval($params['page']) > 0 ? intval($params['pageCount'] * ($params['page'] - 1)) : null)
-            ->get();
+        $filters['filters'] = $criterias;
+
+        $result['total_count'] = $this->nomenclatorsRepository->countWhere($filters);
+
+        $nomenclators = $this->nomenclatorsRepository->paginateWhere(
+            intval($params['pageCount']),
+            ['id', 'description'],
+            $params['page'],
+            $filters
+        );
+
         for ($i = 0; $i < count($nomenclators); $i++) {
             $result['items'][$i]['id'] = $nomenclators[$i]->id;
             $result['items'][$i]['text'] = $nomenclators[$i]->description;
@@ -213,18 +213,31 @@ class NomenclatorController extends Controller
      */
     public function datatable(Request $request)
     {
-        $columns = $request->get('columns');
-        $nomenclatorFilters = $request->session()->has('nomenclator_filters') ? $request->session()->get('nomenclator_filters') : array();
         $nomenclatorFilters['nomenclator_type'] = $request->get('nomenclator_type_id');
         $request->session()->set('nomenclator_filters', $nomenclatorFilters);
 
         /*Extract filters from request and session vars*/
         $filters = Helper::extractDatatableFiltersFromRequest($request, 'nomenclator_filters');
 
-        $recordsTotal = $this->nomenclatorsRepository->findByFilters($nomenclatorFilters, [], true);//countByNomenclatorTypeId($request->get('nomenclator_type_id'));//Nomenclator::where('nomenclator_type_id', $request->get('nomenclator_type_id'))->count();
-        $nomenclators = $this->nomenclatorsRepository->findByFilters($filters);
+        $columnNames = array();
+
+        foreach ($filters['columns'] as $column) {
+            switch ($column['name']) {
+                case '':
+                    break;
+                default:
+                    array_push($columnNames, $column['name']);
+                    break;
+            }
+        }
+
+        /*Extract filters from request and session vars*/
+        $filters = Helper::extractDatatableFiltersFromRequest($request, 'nomenclator_filters');
+
+        $recordsTotal = intval($this->nomenclatorsRepository->countWhere(['filters' => ['nomenclator_type_id' => $request->get('nomenclator_type_id')]]));
+        $nomenclators = $this->nomenclatorsRepository->paginateWhere($filters['length'], $columnNames, ($filters['start'] / $filters['length']) + 1, $filters);
         try {
-            $recordsFiltered = intval($this->nomenclatorsRepository->findByFilters($filters, [], true));
+            $recordsFiltered = intval($this->nomenclatorsRepository->countWhere($filters));
         } catch (\ErrorException $e) {
             $recordsFiltered = 0;
         }
@@ -236,10 +249,12 @@ class NomenclatorController extends Controller
             "data" => array()
         );
 
+        $columnNames[] = 'actions';
+
         foreach ($nomenclators as $aRow) {
             $row = array();
-            for ($i = 0; $i < count($columns); $i++) {
-                switch ($columns[$i]['name']) {
+            for ($i = 0; $i < count($columnNames); $i++) {
+                switch ($columnNames[$i]) {
                     case 'created_at':
                         $date = strtotime($aRow->created_at);
                         if ($date != '')
@@ -248,9 +263,9 @@ class NomenclatorController extends Controller
                             $row[] = 'No definida';
                         break;
                     default:
-                        if ($columns[$i]['name'] != ' ') {
+                        if ($columnNames[$i] != ' ') {
                             /* General output */
-                            $row[] = $aRow[$columns[$i]['name']];
+                            $row[] = $aRow[$columnNames[$i]];
                         }
                         break;
                 }

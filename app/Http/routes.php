@@ -13,7 +13,9 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'MainController@home']);
 
-Route::get('/503', ['as' => 'error.503', function () {return view('errors.503');}]);
+Route::get('/503', ['as' => 'error.503', function () {
+    return view('errors.503');
+}]);
 
 #region customers
 
@@ -66,6 +68,8 @@ Route::resource('users', 'UserController');
 Route::post('traces/datatable/', ['as' => 'traces.datatable', 'uses' => 'TraceController@datatable']);
 
 Route::post('traces/filter/', ['as' => 'traces.filter', 'uses' => 'TraceController@filter']);
+
+Route::get('traces/index/', ['as' => 'traces.index', 'uses' => 'TraceController@index']);
 
 #endregion
 

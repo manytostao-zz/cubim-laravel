@@ -197,6 +197,8 @@ class CustomerController extends Controller
             ),
             $customer->id);
 
+        $this->customersRepository->sync($customer->id, ['nomenclators' => $nomenclators]);
+
         $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $customer->name . ' ' . $customer->last_name . '.');
 
         return \Redirect::route('customers.edit',

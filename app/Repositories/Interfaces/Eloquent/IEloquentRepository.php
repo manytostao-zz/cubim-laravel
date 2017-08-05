@@ -27,4 +27,10 @@ interface IEloquentRepository extends IRepository
      * @return mixed
      */
     public function with(array $relations);
+
+    /**
+     * @param $id
+     * @param array $relations
+     */
+    public function sync($id, $relations = array());
 }

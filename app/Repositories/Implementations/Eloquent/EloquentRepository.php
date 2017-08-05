@@ -66,6 +66,18 @@ class EloquentRepository implements IEloquentRepository
     }
 
     /**
+     * @param $id
+     * @param array $relations
+     */
+    public function sync($id, $relations = array())
+    {
+        $model = $this->model->find($id);
+        foreach ($relations as $relation => $values) {
+            $model->$relation()->sync($values);
+        }
+    }
+
+    /**
      * @param array $columns
      * @return mixed
      */

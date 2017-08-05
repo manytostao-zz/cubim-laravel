@@ -27,22 +27,4 @@ class CustomersRepository extends EloquentRepository implements ICustomersReposi
         parent::__construct($app);
         $this->setModel('CUBiM\Model\Customer');
     }
-
-    public function update(array $data, $id, $attribute = "id")
-    {
-        if (parent::update($data, $id, $attribute))
-            return $this->model->push();
-        else return false;
-    }
-
-    /**
-     * @param $id
-     * @param $nomenclators
-     * @return mixed|void
-     */
-    public function syncNomenclators($id, $nomenclators)
-    {
-        $customer = $this->find($id);
-        $customer->nomenclators()->sync($nomenclators);
-    }
 }

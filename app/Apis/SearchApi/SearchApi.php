@@ -18,8 +18,8 @@ class SearchApi
 
     public static function applyDecoratorFromRequest($filters, &$query)
     {
-        if (isset($filters['filters']))
-            foreach ($filters['filters'] as $key => $value) {
+        if (isset($filters['criterias']))
+            foreach ($filters['criterias'] as $key => $value) {
                 $decorator = static::createFilterDecorator($key);
 
                 if (static::isValidDecorator($decorator))
@@ -27,10 +27,10 @@ class SearchApi
             }
         if (isset($filters['order']))
             foreach ($filters['order'] as $key => $value) {
-                $decorator = static::createFilterDecorator($filters['columns'][$value['column']]['name']);
+                $decorator = static::createFilterDecorator($key);
 
                 if (static::isValidDecorator($decorator))
-                    $query = $decorator::applyOrderBy($query, $value['dir']);
+                    $query = $decorator::applyOrderBy($query, $value);
             }
 
         return $query;

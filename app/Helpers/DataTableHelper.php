@@ -6,22 +6,22 @@
  * Time: 21:46
  */
 
-namespace CUBiM\Helper;
+namespace CUBiM\Helpers;
 
 use Illuminate\Http\Request;
 
 /**
- * Class Helper
- * @package CUBiM\Helper
+ * Class DataTableHelper
+ * @package CUBiM\Helpers
  */
-class Helper
+class DataTableHelper
 {
     /**
      * @param Request $request
      * @param $sessionFiltersName
      * @return mixed
      */
-    public static function extractDatatableFiltersFromRequest(Request $request, $sessionFiltersName)
+    public static function extractRequestFilters(Request $request, $sessionFiltersName)
     {
 
         $filters['search'] = $request->get('search');

@@ -25,5 +25,7 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->bind('CUBiM\Repositories\Interfaces\INomenclatorTypesRepository', 'CUBiM\Repositories\Implementations\Eloquent\NomenclatorTypesRepository');
         $this->app->bind('CUBiM\Repositories\Interfaces\ICustomersRepository', 'CUBiM\Repositories\Implementations\Eloquent\CustomersRepository');
         $this->app->bind('CUBiM\Repositories\Interfaces\ITracesRepository', 'CUBiM\Repositories\Implementations\Eloquent\TracesRepository');
+        $this->app->bind('CUBiM\Repositories\Interfaces\IRolesRepository', 'CUBiM\Repositories\Implementations\Eloquent\RolesRepository');
+        $this->app->bind('CUBiM\Repositories\Interfaces\IUsersRepository', 'CUBiM\Repositories\Implementations\Eloquent\UsersRepository');
     }
 }

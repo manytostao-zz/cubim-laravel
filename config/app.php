@@ -152,7 +152,8 @@ return [
         CUBiM\Providers\AuthServiceProvider::class,
         CUBiM\Providers\EventServiceProvider::class,
         CUBiM\Providers\RouteServiceProvider::class,
-        CUBiM\Providers\RepositoriesServiceProvider::class
+        CUBiM\Providers\RepositoriesServiceProvider::class,
+        CUBiM\Providers\HelpersServiceProvider::class
 
     ],
 
@@ -207,6 +208,7 @@ return [
         'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
         'Reminder' => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
         'Sentinel' => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
+        'DataTableHelper' => CUBiM\Providers\HelpersServiceProvider::class
 
     ],
 

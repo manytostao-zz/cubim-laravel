@@ -118,25 +118,25 @@
                                            id="tracesListDatatable">
                                         <thead>
                                         <tr>
-                                            <th style="text-align: left; display: none">
+                                            <th data-name="id" style="text-align: left; display: none">
                                                 Id
                                             </th>
-                                            <th style="text-align: left">
+                                            <th data-name="operation" style="text-align: left">
                                                 Operaci&oacute;n
                                             </th>
-                                            <th style="text-align: left">
+                                            <th data-name="object" style="text-align: left">
                                                 Objeto
                                             </th>
-                                            <th style="text-align: left">
+                                            <th data-name="comments" style="text-align: left">
                                                 Comentario
                                             </th>
-                                            <th style="text-align: left">
+                                            <th data-name="module" style="text-align: left">
                                                 Modulo
                                             </th>
-                                            <th class="hidden-xs" style="text-align: center">
+                                            <th data-name="created_at" class="hidden-xs" style="text-align: center">
                                                 Fecha
                                             </th>
-                                            <th style="text-align: left">
+                                            <th data-name="user" style="text-align: left">
                                                 Usuario
                                             </th>
                                         </tr>

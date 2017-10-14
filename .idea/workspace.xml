@@ -4,53 +4,25 @@
     <bookmark url="file://$PROJECT_DIR$/resources/views/customers/create.blade.php" line="77" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277915b2-ab88-41ae-8712-6ec620ea6ff7" name="Default" comment="*- Creating CustomerRepository and refactoring CustomerController to use it.&#10;*- Making SearchApi more generic by asking if variables are set.&#10;*- Introducing static Helper class to extract methods form Controllers that don't do view processing.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webResources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Apis/SearchApi/Filters/FromCreationDate.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Id.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Module.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Object.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Operation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Apis/SearchApi/Filters/ToCreationDate.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Apis/SearchApi/Filters/User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Exceptions/RepositoryException.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/IRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/CustomersRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/EloquentRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/NomenclatorTypesRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/NomenclatorsRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/TracesRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/Eloquent/IEloquentRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/ITracesRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/traces/index.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/Implementations/CustomersRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/Implementations/NomenclatorTypesRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/Implementations/NomenclatorsRepository.php" afterPath="" />
+    <list default="true" id="277915b2-ab88-41ae-8712-6ec620ea6ff7" name="Default" comment="Add helper, repositories and filters&#10;&#10;A helper for DataTables is created to use throughout the application. &#10;The FirstName filter is added to the search API.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Apis/SearchApi/Filters/FirstName.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Providers/HelpersServiceProvider.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/RolesRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/UsersRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IRolesRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IUsersRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CUBiM.iml" afterPath="$PROJECT_DIR$/.idea/CUBiM.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_5_6_16_1_01_PM_c.xml" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_5_6_16_1_01_PM_c.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/commandlinetools/Tool_based_on_Symfony_Console_5_6_16_1_01_PM_artisan.xml" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Tool_based_on_Symfony_Console_5_6_16_1_01_PM_artisan.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Osmany_Torres_Leyva.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Osmany_Torres_Leyva.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Apis/SearchApi/SearchApi.php" afterPath="$PROJECT_DIR$/app/Apis/SearchApi/SearchApi.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/NomenclatorController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/NomenclatorController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TraceController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TraceController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/Customer.php" afterPath="$PROJECT_DIR$/app/Model/Customer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/Nomenclator.php" afterPath="$PROJECT_DIR$/app/Model/Nomenclator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/Trace.php" afterPath="$PROJECT_DIR$/app/Model/Trace.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/RepositoriesServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/RepositoriesServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/ICustomersRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/ICustomersRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/INomenclatorTypesRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/INomenclatorTypesRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/INomenclatorsRepository.php" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/INomenclatorsRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/permissions.php" afterPath="$PROJECT_DIR$/config/permissions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/customers/customersDatatables.js" afterPath="$PROJECT_DIR$/public/scripts/customers/customersDatatables.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/traces/tracesDatatables.js" afterPath="$PROJECT_DIR$/public/scripts/traces/tracesDatatables.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/customers/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/customers/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/nomenclators/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/nomenclators/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/right_sidebar_menu_partial.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/right_sidebar_menu_partial.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Helper/Helper.php" afterPath="$PROJECT_DIR$/app/Helpers/DataTableHelper.php" />
     </list>
     <ignored path="CUBiM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,8 +59,8 @@
       <file leaf-file-name="EloquentRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/EloquentRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+            <state relative-caret-position="2669">
+              <caret line="166" column="38" lean-forward="false" selection-start-line="166" selection-start-column="36" selection-end-line="166" selection-end-column="38" />
               <folding>
                 <element signature="e#159#194#0#PHP" expanded="true" />
               </folding>
@@ -96,22 +68,57 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repositories/IRepository.php">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="28" />
+            <state relative-caret-position="2499">
+              <caret line="151" column="50" lean-forward="false" selection-start-line="151" selection-start-column="50" selection-end-line="151" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ICustomersRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/ICustomersRepository.php">
+      <file leaf-file-name="FirstName.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/FirstName.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="40" />
+            <state relative-caret-position="235">
+              <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchApi.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/SearchApi.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="32" column="68" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataTableHelper.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Helpers/DataTableHelper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NomenclatorController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NomenclatorController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="59" column="4" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+              <folding>
+                <element signature="e#42#76#0#PHP" expanded="true" />
+                <element signature="e#1834#1896#0#PHP" expanded="false" />
+                <element signature="e#2028#2076#0#PHP" expanded="false" />
+                <element signature="e#5189#5337#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,115 +126,38 @@
       <file leaf-file-name="IEloquentRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/Eloquent/IEloquentRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+            <state relative-caret-position="51">
+              <caret line="8" column="48" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TracesRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/TracesRepository.php">
+      <file leaf-file-name="RepositoriesServiceProvider.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Providers/RepositoriesServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <element signature="e#160#223#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomerController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-              <folding>
-                <element signature="e#42#66#0#PHP" expanded="true" />
-                <element signature="e#505#549#0#PHP" expanded="false" />
-                <element signature="e#700#841#0#PHP" expanded="false" />
-                <element signature="e#847#1010#0#PHP" expanded="false" />
-                <element signature="e#1015#1134#0#PHP" expanded="false" />
-                <element signature="e#1140#1280#0#PHP" expanded="false" />
-                <element signature="e#1285#1406#0#PHP" expanded="false" />
-                <element signature="e#1412#1580#0#PHP" expanded="false" />
-                <element signature="e#3788#3856#0#PHP" expanded="false" />
-                <element signature="e#3788#3919#0#PHP" expanded="false" />
-                <element signature="e#3932#4049#0#PHP" expanded="false" />
-                <element signature="e#4552#4687#0#PHP" expanded="false" />
-                <element signature="e#5191#5381#0#PHP" expanded="false" />
-                <element signature="e#6959#7672#0#PHP" expanded="false" />
-                <element signature="e#7852#7920#0#PHP" expanded="false" />
-                <element signature="e#7998#8170#0#PHP" expanded="false" />
-                <element signature="e#8818#8981#0#PHP" expanded="false" />
-                <element signature="e#9004#9126#0#PHP" expanded="false" />
-                <element signature="e#9990#10120#0#PHP" expanded="false" />
-                <element signature="e#10947#11081#0#PHP" expanded="false" />
-                <element signature="e#12640#12712#0#PHP" expanded="false" />
-                <element signature="e#12732#12927#0#PHP" expanded="false" />
-                <element signature="e#12949#13669#0#PHP" expanded="false" />
-                <element signature="e#13855#14021#0#PHP" expanded="false" />
-                <element signature="e#14042#14316#0#PHP" expanded="false" />
-                <element signature="e#14486#14617#0#PHP" expanded="false" />
-                <element signature="e#14638#14763#0#PHP" expanded="false" />
-                <element signature="e#14784#14907#0#PHP" expanded="false" />
-                <element signature="e#14928#15052#0#PHP" expanded="false" />
-                <element signature="e#15073#15197#0#PHP" expanded="false" />
-                <element signature="e#15218#15353#0#PHP" expanded="false" />
-                <element signature="e#15374#15508#0#PHP" expanded="false" />
-                <element signature="e#15529#15665#0#PHP" expanded="false" />
-                <element signature="e#15686#15817#0#PHP" expanded="false" />
-                <element signature="e#15838#15960#0#PHP" expanded="false" />
-                <element signature="e#15981#16103#0#PHP" expanded="false" />
-                <element signature="e#16157#16316#0#PHP" expanded="false" />
-                <element signature="e#16481#16566#0#PHP" expanded="false" />
-                <element signature="e#16571#16700#0#PHP" expanded="false" />
-                <element signature="e#16706#16794#0#PHP" expanded="false" />
-                <element signature="e#16799#16905#0#PHP" expanded="false" />
-                <element signature="e#16911#16998#0#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Customer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/Customer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            <state relative-caret-position="391">
+              <caret line="28" column="125" lean-forward="false" selection-start-line="28" selection-start-column="125" selection-end-line="28" selection-end-column="125" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomersRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/CustomersRepository.php">
+      <file leaf-file-name="HelpersServiceProvider.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Providers/HelpersServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding>
-                <element signature="e#159#222#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="1414" column="0" lean-forward="false" selection-start-line="1414" selection-start-column="0" selection-end-line="1414" selection-end-column="0" />
+            <state relative-caret-position="201">
+              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HandleExceptions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+            <state relative-caret-position="3519">
+              <caret line="207" column="77" lean-forward="false" selection-start-line="207" selection-start-column="77" selection-end-line="207" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -244,8 +174,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Searc</find>
-      <find>Search</find>
       <find>NomenclatorSearchApi</find>
       <find>Nomenclator:</find>
       <find>registroreg</find>
@@ -274,6 +202,8 @@
       <find>CUBiM\Repositories</find>
       <find>syncNomenclators</find>
       <find>sync</find>
+      <find>sync(</find>
+      <find>roles</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -304,9 +234,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="composer clear-cache" />
-      <command text="artisan clear-compiled" />
-      <command text="composer update " />
       <command text="artisan route:clear" />
       <command text="artisan route:list" />
       <command text="artisan laroute:generate" />
@@ -329,38 +256,23 @@
       <command text="artisan clear-compiled" />
       <command text="composer update " />
       <command text="artisan vendor:publish" />
+      <command text="composer update " />
+      <command text="artisan make:provider HelpersServiceProvider" />
+      <command text="artisan cache:clear " />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="Osmany Torres Leyva &lt;manytostao@gmail.com&gt;" />
         <option value="manytostao &lt;manytostao@gmail.com&gt;" />
+        <option value="Osmany Torres Leyva &lt;manytostao@gmail.com&gt;" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php" />
-        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Experience.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/resources/views/users/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/right_sidebar_menu_partial.blade.php" />
-        <option value="$PROJECT_DIR$/config/permissions.php" />
-        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/FromCreationDate.php" />
-        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/ToCreationDate.php" />
-        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Phone.php" />
-        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/User.php" />
-        <option value="$PROJECT_DIR$/resources/views/traces/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Id.php" />
-        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Operation.php" />
-        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Object.php" />
-        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Module.php" />
         <option value="$PROJECT_DIR$/public/scripts/traces/tracesDatatables.js" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/FunctionalTrace.php" />
         <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/Filter.php" />
@@ -373,7 +285,6 @@
         <option value="$PROJECT_DIR$/resources/views/nomenclators/index.blade.php" />
         <option value="$PROJECT_DIR$/public/scripts/customers/customersDatatables.js" />
         <option value="$PROJECT_DIR$/public/scripts/nomenclators/nomenclatorsDatatables.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/NomenclatorController.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Implementations/TracesRepository.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TraceController.php" />
         <option value="$PROJECT_DIR$/app/Repositories/IRepository.php" />
@@ -384,19 +295,35 @@
         <option value="$PROJECT_DIR$/app/Repositories/Eloquent/Implementations/CustomersRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Eloquent/Interfaces/IEloquentRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Eloquent/Interfaces/ICustomersRepository.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/ICustomersRepository.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/Eloquent/IEloquentRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Interfaces/INomenclatorsRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Interfaces/INomenclatorTypesRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Interfaces/ITracesRepository.php" />
-        <option value="$PROJECT_DIR$/app/Providers/RepositoriesServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/EloquentRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/NomenclatorsRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/NomenclatorTypesRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/TracesRepository.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/CustomersRepository.php" />
         <option value="$PROJECT_DIR$/app/Model/Customer.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/ICustomersRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/CustomersRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/Eloquent/IEloquentRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/EloquentRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/RolRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/IRolRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/IRolesRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/RolesRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/IUsersRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/UsersRepository.php" />
+        <option value="$PROJECT_DIR$/app/Providers/RepositoriesServiceProvider.php" />
+        <option value="$PROJECT_DIR$/resources/views/users/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
+        <option value="$PROJECT_DIR$/app/Apis/SearchApi/Filters/FirstName.php" />
+        <option value="$PROJECT_DIR$/app/Helpers/Helper.php" />
+        <option value="$PROJECT_DIR$/app/Helpers/DataTable.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/app/Providers/HelpersServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/app/Apis/SearchApi/SearchApi.php" />
+        <option value="$PROJECT_DIR$/app/Helpers/DataTableHelper.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/NomenclatorController.php" />
       </list>
     </option>
   </component>
@@ -499,9 +426,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="54" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-24" />
+    <option name="y" value="-20" />
     <option name="width" value="1874" />
     <option name="height" value="1092" />
   </component>
@@ -520,7 +447,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -537,13 +463,20 @@
               <item name="CUBiM" type="b2602c69:ProjectViewProjectNode" />
               <item name="cubim-laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Helpers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="CUBiM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cubim-laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="CUBiM" type="b2602c69:ProjectViewProjectNode" />
               <item name="cubim-laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="CUBiM" type="b2602c69:ProjectViewProjectNode" />
@@ -587,37 +520,48 @@
               <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Eloquent" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="CUBiM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cubim-laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="CUBiM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cubim-laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/artisan" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
-    <property name="SearchEverywhereHistoryKey" value="customer&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Model/Customer.php&#10;model&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php&#10;customco&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/CustomerController.php&#10;serv&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Providers/RepositoriesServiceProvider.php&#10;Mo&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php&#10;reposservi&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Providers/RepositoriesServiceProvider.php&#10;Irepos&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Repositories/Interfaces/IRepository.php&#10;eloq&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/EloquentRepository.php&#10;ireposito&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/IRepository.php&#10;ielo&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/IEloquentRepository.php&#10;tra&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/TraceController.php&#10;inde&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/resources/views/customers/index.blade.php&#10;index&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/resources/views/customers/index.blade.php&#10;nomenclatodata&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/public/scripts/nomenclators/nomenclatorsDatatables.js&#10;customercontro&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/CustomerController.php&#10;nomenclators&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/public/scripts/nomenclators/nomenclatorsDatatables.js&#10;nomenclator&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Model/Nomenclator.php&#10;nomencla&#9;null&#9;null&#10;nomenc&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/NomenclatorController.php&#10;Builder&#9;null&#9;null&#10;Illuminate\Database\Query\Builder&#9;null&#9;null&#10;tracecont&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/TraceController.php&#10;tracecontroll&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/TraceController.php&#10;services&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/bootstrap/cache/services.json&#10;customcontro&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/Controllers/CustomerController.php&#10;nomeco&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/Controllers/NomenclatorController.php&#10;Custom&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Model/Customer.php&#10;Trace&#9;null&#9;null&#10;nome&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/Controllers/NomenclatorController.php&#10;permissi&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/config/permissions.php&#10;left&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/resources/views/partials/left_sidebar_menu_partial.blade.php&#10;righ&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/resources/views/partials/right_sidebar_menu_partial.blade.php&#10;rout&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/routes.php&#10;Nomencla&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Repositories/Implementations/NomenclatorsRepository.php&#10;Inome&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Repositories/Interfaces/INomenclatorsRepository.php&#10;edit&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/resources/views/customers/edit.blade.php&#10;larou&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/public/scripts/laroute.js&#10;custjs&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/public/scripts/customers/customers.js&#10;he&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Helper/Helper.php&#10;master&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/resources/views/layouts/master.blade.php&#10;C&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Model/Customer.php&#10;app&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/config/app.php&#10;customercontroll&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/Controllers/CustomerController.php&#10;layou&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/public/css/layout.css&#10;nomcontro&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/Controllers/NomenclatorController.php&#10;inom&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Repositories/INomenclatorsRepository.php&#10;app.php&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/config/app.php&#10;CustomerC&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/Controllers/CustomerController.php&#10;permi&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/config/permissions.php&#10;show&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/resources/views/customers/show.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="elo&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/Implementations/Eloquent/EloquentRepository.php&#10;searc&#9;null&#9;null&#10;nomencla&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/NomenclatorController.php&#10;customerco&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/CustomerController.php&#10;eloque&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/Implementations/Eloquent/EloquentRepository.php&#10;c&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/CustomerController.php&#10;show&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/resources/views/users/show.blade.php&#10;inde&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/resources/views/traces/index.blade.php&#10;trace&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/TraceController.php&#10;eloq&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/Implementations/Eloquent/EloquentRepository.php&#10;iel&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/Interfaces/Eloquent/IEloquentRepository.php&#10;User&#9;null&#9;null&#10;ser&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Providers/RepositoriesServiceProvider.php&#10;usercontro&#9;null&#9;null&#10;IELO&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/Interfaces/Eloquent/IEloquentRepository.php&#10;icus&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/Interfaces/ICustomersRepository.php&#10;custo&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Model/Customer.php&#10;cus&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/CustomerController.php&#10;customer&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Model/Customer.php&#10;model&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php&#10;customco&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/CustomerController.php&#10;serv&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Providers/RepositoriesServiceProvider.php&#10;Mo&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php&#10;reposservi&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Providers/RepositoriesServiceProvider.php&#10;Irepos&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Repositories/Interfaces/IRepository.php&#10;ireposito&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/IRepository.php&#10;ielo&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Repositories/IEloquentRepository.php&#10;tra&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/TraceController.php&#10;index&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/resources/views/customers/index.blade.php&#10;nomenclatodata&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/public/scripts/nomenclators/nomenclatorsDatatables.js&#10;customercontro&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/CustomerController.php&#10;nomenclators&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/public/scripts/nomenclators/nomenclatorsDatatables.js&#10;nomenclator&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Model/Nomenclator.php&#10;nomenc&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/NomenclatorController.php&#10;Builder&#9;null&#9;null&#10;Illuminate\Database\Query\Builder&#9;null&#9;null&#10;tracecont&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/TraceController.php&#10;tracecontroll&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/app/Http/Controllers/TraceController.php&#10;services&#9;FILE&#9;file://D:/xampp/htdocs/cubim-laravel/bootstrap/cache/services.json&#10;customcontro&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/Controllers/CustomerController.php&#10;nomeco&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/Controllers/NomenclatorController.php&#10;Custom&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Model/Customer.php&#10;Trace&#9;null&#9;null&#10;nome&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/Controllers/NomenclatorController.php&#10;permissi&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/config/permissions.php&#10;left&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/resources/views/partials/left_sidebar_menu_partial.blade.php&#10;righ&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/resources/views/partials/right_sidebar_menu_partial.blade.php&#10;rout&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Http/routes.php&#10;Nomencla&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Repositories/Implementations/NomenclatorsRepository.php&#10;Inome&#9;FILE&#9;file://D:/xampp/htdocs/Laravel-CUBiM/app/Repositories/Interfaces/INomenclatorsRepository.php" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\cubim-laravel\app\Apis\SearchApi\Filters" />
-      <recent name="D:\xampp\htdocs\Laravel-CUBiM\app\Apis\SearchApi\Filters" />
-      <recent name="D:\xampp\htdocs\Laravel-CUBiM\app\Repositories\Interfaces" />
-      <recent name="D:\xampp\htdocs\Laravel-CUBiM\resources\views\traces" />
-      <recent name="D:\xampp\htdocs\Laravel-CUBiM\app\Repositories\Implementations" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\cubim-laravel\app\Repositories\Interfaces" />
       <recent name="D:\xampp\htdocs\cubim-laravel\app\Repositories\Interfaces\Eloquent" />
       <recent name="D:\xampp\htdocs\cubim-laravel\app\Repositories\Implementations\Eloquent" />
       <recent name="D:\xampp\htdocs\cubim-laravel\app\Repositories\Implementations" />
       <recent name="D:\xampp\htdocs\cubim-laravel\app\Repositories" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\cubim-laravel\app\Apis\SearchApi\Filters" />
+      <recent name="D:\xampp\htdocs\Laravel-CUBiM\app\Apis\SearchApi\Filters" />
+      <recent name="D:\xampp\htdocs\Laravel-CUBiM\app\Repositories\Interfaces" />
+      <recent name="D:\xampp\htdocs\Laravel-CUBiM\resources\views\traces" />
+      <recent name="D:\xampp\htdocs\Laravel-CUBiM\app\Repositories\Implementations" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -632,7 +576,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.TestCase">
+  <component name="RunManager" selected="PHP Web Application.CUBiM">
     <configuration name="CUBiM" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="cubim.dev" />
     <configuration name="TestCase" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="TestCase" file="$PROJECT_DIR$/tests/TestCase.php" scope="Class" />
@@ -776,7 +720,9 @@
       <workItem from="1499478016412" duration="7949000" />
       <workItem from="1499531550524" duration="7476000" />
       <workItem from="1501265503959" duration="187000" />
-      <workItem from="1501332039125" duration="47804000" />
+      <workItem from="1501332039125" duration="47886000" />
+      <workItem from="1501960299781" duration="14144000" />
+      <workItem from="1507982742478" duration="438000" />
     </task>
     <task id="LOCAL-00001" summary="Changing small things on the code of User module.&#10;Installing laravel-ide-helper.">
       <created>1497038212257</created>
@@ -820,11 +766,25 @@
       <option name="project" value="LOCAL" />
       <updated>1499535101061</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="* Refactoring Repository Pattern implementation.">
+      <created>1501474405011</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1501474405011</updated>
+    </task>
+    <task id="LOCAL-00009" summary="* Refactoring Repository Pattern implementation.&#10;* Adding &quot;sync&quot; method to EloquentRepository to sync ManyToMany relationships.&#10;* Refactoring CustomerController to make it call new sync method from CustomerRepository.">
+      <created>1501965366507</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1501965366507</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263096000" />
+    <option name="totallyTimeSpent" value="277760000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -836,30 +796,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1092" extended-state="0" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26190478" sideWeight="0.42307693" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4375667" sideWeight="0.5022051" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30448717" sideWeight="0.49779493" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276414" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1786108" sideWeight="0.43" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46581197" sideWeight="0.50551265" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855567" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31303418" sideWeight="0.49779493" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1786108" sideWeight="0.57" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18191841" sideWeight="0.5769231" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276414" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46581197" sideWeight="0.4966924" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="154" y="92" width="1674" height="892" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="154" y="92" width="1674" height="892" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30448717" sideWeight="0.49779493" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31303418" sideWeight="0.49779493" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46581197" sideWeight="0.49448732" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -867,6 +827,16 @@
   </component>
   <component name="UpdateCopyrightCheckinHandler">
     <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -906,8 +876,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
     <MESSAGE value="Changing small things on the code of User module.&#10;Installing laravel-ide-helper." />
     <MESSAGE value="Changing diff tool to Beyond Compare in workspace." />
@@ -915,198 +883,52 @@
     <MESSAGE value="*- Correcting tracing mechanism using middleware, session vars and language files.&#10;*- Correcting SearchApi to make it standard for every object.&#10;*- Implementing Repository Pattern mechanism form Nomenclator and NomenclatorType objects.&#10;*- Implementing Nomenclator module activate functionality.&#10;*- Other modifications regarding resources and views." />
     <MESSAGE value="Refactoring filter method in Customer and Nomenclator classes." />
     <MESSAGE value="*- Creating CustomerRepository and refactoring CustomerController to use it.&#10;*- Making SearchApi more generic by asking if variables are set.&#10;*- Introducing static Helper class to extract methods form Controllers that don't do view processing." />
-    <option name="LAST_COMMIT_MESSAGE" value="*- Creating CustomerRepository and refactoring CustomerController to use it.&#10;*- Making SearchApi more generic by asking if variables are set.&#10;*- Introducing static Helper class to extract methods form Controllers that don't do view processing." />
+    <MESSAGE value="* Refactoring Repository Pattern implementation." />
+    <MESSAGE value="* Refactoring Repository Pattern implementation.&#10;* Adding &quot;sync&quot; method to EloquentRepository to sync ManyToMany relationships.&#10;* Refactoring CustomerController to make it call new sync method from CustomerRepository." />
+    <MESSAGE value="Add helper, repositories and filters&#10;&#10;A helper for DataTables is created to use throughout the application. &#10;The FirstName filter is added to the search API." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add helper, repositories and filters&#10;&#10;A helper for DataTables is created to use throughout the application. &#10;The FirstName filter is added to the search API." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php</url>
-          <line>89</line>
+          <line>86</line>
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/CustomersRepository.php</url>
-          <line>32</line>
-          <option name="timeStamp" value="128" />
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/UserController.php</url>
+          <line>151</line>
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/UserController.php</url>
+          <line>225</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/FirstName.php</url>
+          <line>25</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Helpers/DataTableHelper.php</url>
+          <line>26</line>
+          <option name="timeStamp" value="137" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="129" />
+      <option name="time" value="138" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/Experience.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/CustomerType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="28" column="89" lean-forward="true" selection-start-line="28" selection-start-column="89" selection-end-line="28" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/Active.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/NomenclatorType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/FromCreationDate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/SearchApi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/FromInscriptionDate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/CreatedAt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/customers/customers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="451" column="26" lean-forward="true" selection-start-line="451" selection-start-column="26" selection-end-line="451" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="773" column="0" lean-forward="false" selection-start-line="773" selection-start-column="0" selection-end-line="773" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Arr.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.516/RepositoryException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Exceptions/RepositoryException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.344/Repository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="267" column="130" lean-forward="true" selection-start-line="264" selection-start-column="8" selection-end-line="267" selection-end-column="130" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Container/Container.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="50" column="20" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Container/Container.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2890">
-          <caret line="178" column="44" lean-forward="false" selection-start-line="178" selection-start-column="44" selection-end-line="178" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/src/Middleware/Debugbar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/Description.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/nomenclators/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="74" column="31" lean-forward="false" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/customers/customersDatatables.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="48" lean-forward="false" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
-          <folding>
-            <element signature="e#7671#8041#0" expanded="false" />
-            <element signature="e#8129#12128#0" expanded="false" />
-            <element signature="e#12171#15885#0" expanded="false" />
-            <element signature="e#15928#19973#0" expanded="false" />
-            <element signature="e#20016#36750#0" expanded="false" />
-            <element signature="e#36793#40483#0" expanded="false" />
-            <element signature="e#40576#47027#0" expanded="false" />
-            <marker date="1501443640782" expanded="true" signature="26536:26544" ph="ó" />
-            <marker date="1501443640782" expanded="true" signature="26919:26937" ph="..." />
-            <marker date="1501443640782" expanded="true" signature="28278:28290" ph="..." />
-            <marker date="1501443640782" expanded="true" signature="35236:35261" ph="..." />
-            <marker date="1501443640782" expanded="true" signature="35325:35333" ph="ú" />
-            <marker date="1501443640782" expanded="true" signature="44315:44340" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1114,74 +936,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="56" column="32" lean-forward="false" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="35" />
-          <folding>
-            <element signature="e#8265#8554#0" expanded="false" />
-            <element signature="e#8596#9128#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="430" column="0" lean-forward="false" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="1835" column="0" lean-forward="false" selection-start-line="1835" selection-start-column="0" selection-end-line="1835" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NomenclatorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="87" column="22" lean-forward="false" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
-          <folding>
-            <element signature="e#1652#1699#0#PHP" expanded="false" />
-            <element signature="e#1868#1930#0#PHP" expanded="false" />
-            <element signature="e#2062#2110#0#PHP" expanded="false" />
-            <element signature="e#5223#5371#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/customers/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="38" column="26" lean-forward="false" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
-          <folding>
-            <marker date="1501347090706" expanded="true" signature="7165:7613" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="7177:7611" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="10137:10359" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="10153:10357" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="11061:11251" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="16208:16396" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="16701:16898" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="17203:17412" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="17215:17410" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="17717:17921" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="17729:17919" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="19146:19343" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="20063:20364" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="20079:20362" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="21122:21383" ph="..." />
-            <marker date="1501347090706" expanded="true" signature="21138:21381" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TraceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="132" column="75" lean-forward="false" selection-start-line="132" selection-start-column="75" selection-end-line="132" selection-end-column="75" />
-          <folding>
-            <element signature="e#42#66#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1189,7 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1197,7 +958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1205,9 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
           <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="e#31#66#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1215,7 +972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,7 +979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1231,7 +986,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1247,7 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1255,7 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,20 +1035,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/RepositoriesServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" column="121" lean-forward="false" selection-start-line="26" selection-start-column="121" selection-end-line="26" selection-end-column="121" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/NomenclatorsRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#159#222#0#PHP" expanded="true" />
+            <element signature="e#159#222#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1306,7 +1050,7 @@
         <state relative-caret-position="68">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#159#222#0#PHP" expanded="true" />
+            <element signature="e#159#222#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1316,24 +1060,8 @@
         <state relative-caret-position="85">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <element signature="e#160#223#0#PHP" expanded="true" />
+            <element signature="e#160#223#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/ICustomersRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/Eloquent/IEloquentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,97 +1073,286 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php" />
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/ParameterBag.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-          <folding>
-            <element signature="e#42#66#0#PHP" expanded="true" />
-            <element signature="e#505#549#0#PHP" expanded="false" />
-            <element signature="e#700#841#0#PHP" expanded="false" />
-            <element signature="e#847#1010#0#PHP" expanded="false" />
-            <element signature="e#1015#1134#0#PHP" expanded="false" />
-            <element signature="e#1140#1280#0#PHP" expanded="false" />
-            <element signature="e#1285#1406#0#PHP" expanded="false" />
-            <element signature="e#1412#1580#0#PHP" expanded="false" />
-            <element signature="e#3788#3856#0#PHP" expanded="false" />
-            <element signature="e#3788#3919#0#PHP" expanded="false" />
-            <element signature="e#3932#4049#0#PHP" expanded="false" />
-            <element signature="e#4552#4687#0#PHP" expanded="false" />
-            <element signature="e#5191#5381#0#PHP" expanded="false" />
-            <element signature="e#6959#7672#0#PHP" expanded="false" />
-            <element signature="e#7852#7920#0#PHP" expanded="false" />
-            <element signature="e#7998#8170#0#PHP" expanded="false" />
-            <element signature="e#8818#8981#0#PHP" expanded="false" />
-            <element signature="e#9004#9126#0#PHP" expanded="false" />
-            <element signature="e#9990#10120#0#PHP" expanded="false" />
-            <element signature="e#10947#11081#0#PHP" expanded="false" />
-            <element signature="e#12640#12712#0#PHP" expanded="false" />
-            <element signature="e#12732#12927#0#PHP" expanded="false" />
-            <element signature="e#12949#13669#0#PHP" expanded="false" />
-            <element signature="e#13855#14021#0#PHP" expanded="false" />
-            <element signature="e#14042#14316#0#PHP" expanded="false" />
-            <element signature="e#14486#14617#0#PHP" expanded="false" />
-            <element signature="e#14638#14763#0#PHP" expanded="false" />
-            <element signature="e#14784#14907#0#PHP" expanded="false" />
-            <element signature="e#14928#15052#0#PHP" expanded="false" />
-            <element signature="e#15073#15197#0#PHP" expanded="false" />
-            <element signature="e#15218#15353#0#PHP" expanded="false" />
-            <element signature="e#15374#15508#0#PHP" expanded="false" />
-            <element signature="e#15529#15665#0#PHP" expanded="false" />
-            <element signature="e#15686#15817#0#PHP" expanded="false" />
-            <element signature="e#15838#15960#0#PHP" expanded="false" />
-            <element signature="e#15981#16103#0#PHP" expanded="false" />
-            <element signature="e#16157#16316#0#PHP" expanded="false" />
-            <element signature="e#16481#16566#0#PHP" expanded="false" />
-            <element signature="e#16571#16700#0#PHP" expanded="false" />
-            <element signature="e#16706#16794#0#PHP" expanded="false" />
-            <element signature="e#16799#16905#0#PHP" expanded="false" />
-            <element signature="e#16911#16998#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="174">
+          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/CustomersRepository.php">
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Request.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#159#222#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/EloquentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding>
-            <element signature="e#159#194#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/Customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        <state relative-caret-position="361">
+          <caret line="736" column="0" lean-forward="false" selection-start-line="736" selection-start-column="0" selection-end-line="736" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="1414" column="0" lean-forward="false" selection-start-line="1414" selection-start-column="0" selection-end-line="1414" selection-end-column="0" />
+        <state relative-caret-position="235">
+          <caret line="279" column="0" lean-forward="true" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/src/Middleware/Debugbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/users/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="94" column="59" lean-forward="false" selection-start-line="94" selection-start-column="54" selection-end-line="94" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/CustomersRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="105" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="105" />
+          <folding>
+            <element signature="e#159#222#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/IRolesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/ICustomersRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/IUsersRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="46" lean-forward="false" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/RolesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="97" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/UsersRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/traces/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="114" column="48" lean-forward="true" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/users/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="138" column="64" lean-forward="false" selection-start-line="138" selection-start-column="64" selection-end-line="138" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TraceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1520">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/Name.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3706">
+          <caret line="297" column="57" lean-forward="false" selection-start-line="297" selection-start-column="57" selection-end-line="297" selection-end-column="57" />
+          <folding>
+            <element signature="e#409#453#0#PHP" expanded="false" />
+            <element signature="e#604#745#0#PHP" expanded="false" />
+            <element signature="e#751#914#0#PHP" expanded="false" />
+            <element signature="e#919#1038#0#PHP" expanded="false" />
+            <element signature="e#1044#1184#0#PHP" expanded="false" />
+            <element signature="e#1189#1310#0#PHP" expanded="false" />
+            <element signature="e#1316#1484#0#PHP" expanded="false" />
+            <element signature="e#3692#3760#0#PHP" expanded="false" />
+            <element signature="e#3692#3823#0#PHP" expanded="false" />
+            <element signature="e#3836#3953#0#PHP" expanded="false" />
+            <element signature="e#4456#4591#0#PHP" expanded="false" />
+            <element signature="e#5095#5285#0#PHP" expanded="false" />
+            <element signature="e#6815#7604#0#PHP" expanded="false" />
+            <element signature="e#6863#7576#0#PHP" expanded="false" />
+            <element signature="e#7849#7917#0#PHP" expanded="false" />
+            <element signature="e#7995#8167#0#PHP" expanded="false" />
+            <element signature="e#8815#8978#0#PHP" expanded="false" />
+            <element signature="e#9001#9123#0#PHP" expanded="false" />
+            <element signature="e#9987#10117#0#PHP" expanded="false" />
+            <element signature="e#10944#11078#0#PHP" expanded="false" />
+            <element signature="e#12458#12530#0#PHP" expanded="false" />
+            <element signature="e#12550#12745#0#PHP" expanded="false" />
+            <element signature="e#12767#13487#0#PHP" expanded="false" />
+            <element signature="e#13673#13839#0#PHP" expanded="false" />
+            <element signature="e#13860#14134#0#PHP" expanded="false" />
+            <element signature="e#14313#14453#0#PHP" expanded="false" />
+            <element signature="e#14474#14608#0#PHP" expanded="false" />
+            <element signature="e#14629#14761#0#PHP" expanded="false" />
+            <element signature="e#14782#14915#0#PHP" expanded="false" />
+            <element signature="e#14936#15069#0#PHP" expanded="false" />
+            <element signature="e#15090#15234#0#PHP" expanded="false" />
+            <element signature="e#15255#15398#0#PHP" expanded="false" />
+            <element signature="e#15419#15564#0#PHP" expanded="false" />
+            <element signature="e#15585#15725#0#PHP" expanded="false" />
+            <element signature="e#15746#15877#0#PHP" expanded="false" />
+            <element signature="e#15898#16029#0#PHP" expanded="false" />
+            <element signature="e#16083#16242#0#PHP" expanded="false" />
+            <element signature="e#16407#16492#0#PHP" expanded="false" />
+            <element signature="e#16497#16626#0#PHP" expanded="false" />
+            <element signature="e#16632#16720#0#PHP" expanded="false" />
+            <element signature="e#16725#16831#0#PHP" expanded="false" />
+            <element signature="e#16837#16924#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10353">
+          <caret line="616" column="0" lean-forward="false" selection-start-line="616" selection-start-column="0" selection-end-line="616" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Implementations/Eloquent/EloquentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2669">
+          <caret line="166" column="38" lean-forward="false" selection-start-line="166" selection-start-column="36" selection-end-line="166" selection-end-column="38" />
+          <folding>
+            <element signature="e#159#194#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/RepositoriesServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="125" lean-forward="false" selection-start-line="28" selection-start-column="125" selection-end-line="28" selection-end-column="125" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3519">
+          <caret line="207" column="77" lean-forward="false" selection-start-line="207" selection-start-column="77" selection-end-line="207" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2499">
+          <caret line="151" column="50" lean-forward="false" selection-start-line="151" selection-start-column="50" selection-end-line="151" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/SearchApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="32" column="68" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Helpers/DataTableHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/Eloquent/IEloquentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="48" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NomenclatorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="59" column="4" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+          <folding>
+            <element signature="e#42#76#0#PHP" expanded="true" />
+            <element signature="e#1834#1896#0#PHP" expanded="false" />
+            <element signature="e#2028#2076#0#PHP" expanded="false" />
+            <element signature="e#5189#5337#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/HelpersServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Apis/SearchApi/Filters/FirstName.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
           <folding />
         </state>
       </provider>

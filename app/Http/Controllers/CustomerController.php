@@ -2,12 +2,9 @@
 
 namespace CUBiM\Http\Controllers;
 
-use CUBiM\Helper\Helper;
+use CUBiM\Helpers\DataTableHelper;
 use CUBiM\Http\Requests\CustomerFormRequest;
-use CUBiM\Model\Customer;
-use CUBiM\Repositories\IEloquentRepository;
 use CUBiM\Repositories\Interfaces\ICustomersRepository;
-use CUBiM\Repositories\IRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -298,7 +295,7 @@ class CustomerController extends Controller
     public function datatable(Request $request)
     {
         /*Extract filters from request and session vars*/
-        $filters = Helper::extractDatatableFiltersFromRequest($request, 'customer_filters');
+        $filters = DataTableHelper::extractRequestFilters($request, 'customer_filters');
 
         $columnNames = array();
 
@@ -327,7 +324,6 @@ class CustomerController extends Controller
 
         $recordsTotal = intval($this->customersRepository->count());
 
-//        $customers = $this->customersRepository->with(['nomenclators'])->paginate($filters['length'], $columnNames, ($filters['start'] / $filters['length']) + 1, $filters);
         $customers = $this->customersRepository->with(['nomenclators'])->paginateWhere($filters['length'], $columnNames, ($filters['start'] / $filters['length']) + 1, $filters);
 
         try {
@@ -388,40 +384,40 @@ class CustomerController extends Controller
                             $row[] = '';
                         break;
                     case 'customer_type':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 11);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 11);
                         break;
                     case 'professional_type':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 1);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 1);
                         break;
                     case 'institution':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 5);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 5);
                         break;
                     case 'specialty':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 2);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 2);
                         break;
                     case 'profession':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 3);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 3);
                         break;
                     case 'dedication':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 6);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 6);
                         break;
                     case 'occupational_category':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 8);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 8);
                         break;
                     case 'scientific_category':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 10);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 10);
                         break;
                     case 'investigative_category':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 9);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 9);
                         break;
                     case 'teaching_category':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 7);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 7);
                         break;
                     case 'country':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 12);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 12);
                         break;
                     case 'position':
-                        $row[] = Helper::getCustomerNomenclator($aRow, 4);
+                        $row[] = DataTableHelper::getCustomerNomenclator($aRow, 4);
                         break;
                     default:
                         if ($columns[$i] != ' ') {

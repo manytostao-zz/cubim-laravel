@@ -2,8 +2,7 @@
 
 namespace CUBiM\Http\Controllers;
 
-use CUBiM\Helper\Helper;
-use CUBiM\Repositories\IEloquentRepository;
+use CUBiM\Helpers\DataTableHelper;
 use CUBiM\Repositories\Interfaces\INomenclatorsRepository;
 use CUBiM\Repositories\Interfaces\INomenclatorTypesRepository;
 use Illuminate\Database\QueryException;
@@ -217,7 +216,7 @@ class NomenclatorController extends Controller
         $request->session()->set('nomenclator_filters', $nomenclatorFilters);
 
         /*Extract filters from request and session vars*/
-        $filters = Helper::extractDatatableFiltersFromRequest($request, 'nomenclator_filters');
+        $filters = DataTableHelper::extractRequestFilters($request, 'nomenclator_filters');
 
         $columnNames = array();
 
@@ -232,7 +231,7 @@ class NomenclatorController extends Controller
         }
 
         /*Extract filters from request and session vars*/
-        $filters = Helper::extractDatatableFiltersFromRequest($request, 'nomenclator_filters');
+        $filters = DataTableHelper::extractRequestFilters($request, 'nomenclator_filters');
 
         $recordsTotal = intval($this->nomenclatorsRepository->countWhere(['filters' => ['nomenclator_type_id' => $request->get('nomenclator_type_id')]]));
         $nomenclators = $this->nomenclatorsRepository->paginateWhere($filters['length'], $columnNames, ($filters['start'] / $filters['length']) + 1, $filters);

@@ -2,8 +2,7 @@
 
 namespace CUBiM\Http\Controllers;
 
-use CUBiM\Helper\Helper;
-use CUBiM\Model\Trace;
+use CUBiM\Helpers\DataTableHelper;
 use CUBiM\Repositories\Interfaces\ITracesRepository;
 use ErrorException;
 use Illuminate\Http\Request;
@@ -110,7 +109,7 @@ class TraceController extends Controller
      */
     public function datatable(Request $request)
     {
-        $filters = Helper::extractDatatableFiltersFromRequest($request, 'traces_filters');
+        $filters = DataTableHelper::extractRequestFilters($request, 'traces_filters');
 
         $columnNames = array();
 

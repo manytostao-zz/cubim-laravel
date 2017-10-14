@@ -2,12 +2,11 @@
 
 namespace CUBiM\Http\Controllers;
 
+use CUBiM\Helpers\DataTableHelper;
 use CUBiM\Model\User;
-use CUBiM\Model\Rol;
+use CUBiM\Repositories\Interfaces\IRolesRepository;
+use CUBiM\Repositories\Interfaces\IUsersRepository;
 use Illuminate\Http\Request;
-
-use CUBiM\Http\Requests;
-use CUBiM\Http\Controllers\Controller;
 
 /**
  * Class UserController
@@ -15,6 +14,15 @@ use CUBiM\Http\Controllers\Controller;
  */
 class UserController extends Controller
 {
+    protected $rolesRepository;
+    protected $usersRepository;
+
+    public function __construct(IRolesRepository $rolesRepository, IUsersRepository $usersRepository)
+    {
+        $this->rolesRepository = $rolesRepository;
+        $this->usersRepository = $usersRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +30,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $roles = Rol::all();
+        $roles = $this->rolesRepository->all();
         $roles_output = array();
         $roles->each(function ($rol) use (&$roles_output) {
             $roles_output[$rol->id] = $rol->slug;
@@ -63,7 +71,6 @@ class UserController extends Controller
      */
     public function show(Request $request, $id)
     {
-
         if (is_numeric($id)) {
 
             /*the user's traces are filtered by today's date by default*/
@@ -76,7 +83,9 @@ class UserController extends Controller
             ];
             $request->session()->put('traces_filters', $filter);
         }
-        $user = User::with('roles')->find($id);
+
+
+        $user = $this->usersRepository->with(['roles'])->find($id);
 
         return view('users.show')
             ->with('active', array('sup' => ''))
@@ -139,19 +148,20 @@ class UserController extends Controller
      */
     public function datatable(Request $request)
     {
+        /*Extract filters from request and session vars*/
+        $filters = DataTableHelper::extractRequestFilters($request, 'user_filters');
+
         $columns = array(
             'id',
             'first_name',
             'last_name',
             'email',
-            'roles',
-            'created_at',
-            'acciones',
+            'created_at'
         );
-        $recordsTotal = intval(User::all()->count());
-        $users = User::with('roles')->filter($request, $columns);
+        $recordsTotal = $this->usersRepository->count();
+        $users = $this->usersRepository->with(['roles'])->paginateWhere($filters['length'], $columns, ($filters['start'] / $filters['length']) + 1, $filters);
         try {
-            $recordsFiltered = intval(User::filter($request, $columns, true));
+            $recordsFiltered = intval($this->usersRepository->countWhere($filters));
         } catch (\ErrorException $e) {
             $recordsFiltered = 0;
         }
@@ -162,6 +172,11 @@ class UserController extends Controller
             "recordsFiltered" => $recordsFiltered,
             "data" => array()
         );
+
+        array_pop($columns);
+        array_push($columns, 'roles');
+        array_push($columns, 'created_at');
+        array_push($columns, 'actions');
 
         foreach ($users as $aRow) {
             $row = array();
@@ -201,20 +216,29 @@ class UserController extends Controller
         $result = [];
         $result['total_count'] = 0;
         $result['items'] = [];
-        $query = User::orderBy('last_name', 'ASC');
-        if (array_key_exists('description', $params) && $params['description'] != '')
-            $query->where('first_name', 'like', '%' . $params['description'] . '%')
-                ->orWhere('last_name', 'like', '%' . $params['description'] . '%');
-        $result['total_count'] = $query->get()->count();
-        $users = $query->take(intval($params['pageCount']))
-            ->skip(intval($params['page']) > 0 ? intval($params['pageCount'] * ($params['page'] - 1)) : null)
-            ->get();
+
+        $criterias = array();
+        if (array_key_exists('description', $params) && $params['description'] != '') {
+            $criterias = array_add($criterias, 'first_name', $params['description']);
+            $criterias = array_add($criterias, 'last_name', $params['description']);
+        }
+
+        $filters['filters'] = $criterias;
+        $result['total_count'] = $this->usersRepository->countWhere($filters);
+
+        $users = $this->usersRepository->paginateWhere(
+            intval($params['pageCount']),
+            ['id', 'first_name', 'last_name'],
+            $params['page'],
+            $filters
+        );
         for ($i = 0; $i < count($users); $i++) {
             $result['items'][$i]['id'] = $users[$i]->id;
             $result['items'][$i]['text'] = $users[$i]->first_name . ' ' . $users[$i]->last_name;
         }
         if (intval($params['page']) == 1)
             array_unshift($result['items'], ['id' => -1, 'text' => 'Sin especificar...']);
+
         $result['incomplete_results'] = false;
 
         return response()->json($result);

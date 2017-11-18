@@ -29,7 +29,7 @@ class DataTableHelper
         $filters['length'] = $request->get('length');
         $filters['start'] = $request->get('start');
         $filters['columns'] = $request->get('columns');
-        $filters['filters'] = $request->session()->has($sessionFiltersName) ? $request->session()->get($sessionFiltersName) : array();
+        $filters['criterias'] = $request->session()->has($sessionFiltersName) ? $request->session()->get($sessionFiltersName) : array();
 
         return $filters;
     }

@@ -57,13 +57,13 @@
                         <i class="fa fa-list"></i>Par&aacute;metros de filtrado
                     </div>
                     <div class="tools">
-                        <a class="reload" href="javascript:;" data-original-title="" title="Limpiar filtros">
+                        <a class="reload" href="javascript:" data-original-title="" title="Limpiar filtros">
                         </a>
-                        <a class="expand" href="javascript:;" data-original-title="" title="Colapsar/Expandir">
+                        <a class="expand" href="javascript:" data-original-title="" title="Colapsar/Expandir">
                         </a>
                     </div>
                     <div class="actions">
-                        <a id="filter" class="btn default btn-sm" href="javascript:;">
+                        <a id="filter" class="btn default btn-sm" href="javascript:">
                             <i class="fa fa-filter icon-black"></i> Filtrar </a>
                     </div>
                 </div>
@@ -483,7 +483,7 @@
                             <th data-name="created_at" class="hidden-xs" style="text-align: center">
                                 Fecha de Inscripci&oacute;n
                             </th>
-                            <th>
+                            <th data-name="actions">
                             </th>
                         </tr>
                         </thead>

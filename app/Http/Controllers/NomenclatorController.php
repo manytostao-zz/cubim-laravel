@@ -181,7 +181,7 @@ class NomenclatorController extends Controller
         if (array_key_exists('id', $params) && $params['id'] != '')
             $criterias = array_add($criterias, 'id', $params['id']);
 
-        $filters['filters'] = $criterias;
+        $filters['criterias'] = $criterias;
 
         $result['total_count'] = $this->nomenclatorsRepository->countWhere($filters);
 
@@ -233,7 +233,7 @@ class NomenclatorController extends Controller
         /*Extract filters from request and session vars*/
         $filters = DataTableHelper::extractRequestFilters($request, 'nomenclator_filters');
 
-        $recordsTotal = intval($this->nomenclatorsRepository->countWhere(['filters' => ['nomenclator_type_id' => $request->get('nomenclator_type_id')]]));
+        $recordsTotal = intval($this->nomenclatorsRepository->countWhere(['criterias' => ['nomenclator_type_id' => $request->get('nomenclator_type_id')]]));
         $nomenclators = $this->nomenclatorsRepository->paginateWhere($filters['length'], $columnNames, ($filters['start'] / $filters['length']) + 1, $filters);
         try {
             $recordsFiltered = intval($this->nomenclatorsRepository->countWhere($filters));

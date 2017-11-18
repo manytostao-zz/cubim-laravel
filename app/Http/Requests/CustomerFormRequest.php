@@ -2,11 +2,10 @@
 
 namespace CUBiM\Http\Requests;
 
-use CUBiM\Http\Requests\Request;
 use CUBiM\Model\Customer;
 
 /**
- * Class UsuarioFormRequest
+ * Class CustomerFormRequest
  * @package CUBiM\Http\Requests
  */
 class CustomerFormRequest extends Request

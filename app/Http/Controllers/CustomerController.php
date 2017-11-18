@@ -301,7 +301,7 @@ class CustomerController extends Controller
 
         foreach ($filters['columns'] as $column) {
             switch ($column['name']) {
-                case '':
+                case 'actions':
                 case 'attended_by':
                 case 'customer_type':
                 case 'professional_type':
@@ -339,40 +339,19 @@ class CustomerController extends Controller
             "data" => array()
         );
 
-        $columns = array(
-            'id',
-            'name',
-            'last_name',
-            'id_card',
-            'phone',
-            'email',
-            'customer_type',
-            'professional_type',
-            'institution',
-            'library_card',
-            'specialty',
-            'profession',
-            'dedication',
-            'occupational_category',
-            'scientific_category',
-            'investigative_category',
-            'teaching_category',
-            'country',
-            'position',
-            'topic',
-            'comments',
-            'attended_by',
-            'student',
-            'active',
-            'experience',
-            'created_at',
-            'actions',
-        );
+        $columnNames = array();
+
+        foreach ($filters['columns'] as $column) {
+            array_push($columnNames, $column['name']);
+        }
 
         foreach ($customers as $aRow) {
             $row = array();
-            for ($i = 0; $i < count($columns); $i++) {
-                switch ($columns[$i]) {
+            for ($i = 0; $i < count($columnNames); $i++) {
+                switch ($columnNames[$i]) {
+                    case 'actions':
+                        $row[] = '';
+                        break;
                     case 'created_at':
                         $date = strtotime($aRow->created_at);
                         $row[] = date('d/m/Y', $date);
@@ -420,9 +399,9 @@ class CustomerController extends Controller
                         $row[] = DataTableHelper::getCustomerNomenclator($aRow, 4);
                         break;
                     default:
-                        if ($columns[$i] != ' ') {
+                        if ($columnNames[$i] != ' ' && $columnNames[$i] != "") {
                             /* General output */
-                            $row[] = $aRow[$columns[$i]];
+                            $row[] = $aRow[$columnNames[$i]];
                         }
                         break;
                 }

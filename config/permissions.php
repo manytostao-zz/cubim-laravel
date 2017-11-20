@@ -36,6 +36,7 @@ $user_routes = [
     "users.show" => true,
     "users.edit" => true,
     "users.update" => true,
+    "users.change_password" => true,
     "users.destroy" => true
 ];
 

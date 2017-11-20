@@ -12,4 +12,5 @@ return [
     'ban' => 'Permitir/Restringir',
     'destroy' => 'Eliminar',
     'activate' => 'Activar/Desactivar',
+    'change_password' => 'Cambiar Contrase&ntilde;a',
 ];

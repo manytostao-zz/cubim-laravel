@@ -48,7 +48,7 @@ class FunctionalTrace
         $action = $route->getName();
         $user = Sentinel::getUser(true);
         if ($user !== null
-            && (str_contains($action, ['store', 'update', 'destroy', 'ban', 'activate']))
+            && (str_contains($action, ['store', 'update', 'destroy', 'ban', 'activate', 'change_password']))
             && $request->session()->get('errors') === null
         ) {
 

@@ -4,15 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/resources/views/customers/create.blade.php" line="77" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277915b2-ab88-41ae-8712-6ec620ea6ff7" name="Default" comment="Save criterias in 'criterias' position at filters array">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Requests/PasswordFormRequest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Requests/UserFormRequest.php" />
+    <list default="true" id="277915b2-ab88-41ae-8712-6ec620ea6ff7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/permissions.php" afterPath="$PROJECT_DIR$/config/permissions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" />
     </list>
     <ignored path="CUBiM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -144,7 +137,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Requests/PasswordFormRequest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+              <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -308,9 +301,9 @@
         <option value="$PROJECT_DIR$/config/permissions.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/PasswordFormRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/users/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/resources/lang/es/users.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/FunctionalTrace.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
       </list>
     </option>
   </component>
@@ -694,7 +687,7 @@
       <workItem from="1507982742478" duration="464000" />
       <workItem from="1508021613911" duration="3725000" />
       <workItem from="1510399973956" duration="12132000" />
-      <workItem from="1511008989784" duration="10397000" />
+      <workItem from="1511008989784" duration="11109000" />
     </task>
     <task id="LOCAL-00001" summary="Changing small things on the code of User module.&#10;Installing laravel-ide-helper.">
       <created>1497038212257</created>
@@ -822,11 +815,46 @@
       <option name="project" value="LOCAL" />
       <updated>1511144971752</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Modify project files">
+      <created>1511145177145</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1511145177145</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add new route to permisssions">
+      <created>1511145202871</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1511145202871</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add new route to users module">
+      <created>1511145471147</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1511145471147</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Improve users module&#10;&#10;The edit view is created, alongside the change password functionality.">
+      <created>1511145647610</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1511145647610</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Update project files">
+      <created>1511145683773</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1511145683773</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304040000" />
+    <option name="totallyTimeSpent" value="304752000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -937,7 +965,12 @@
     <MESSAGE value="Correct php doc block in NomenclatorFormRequest class" />
     <MESSAGE value="Add new operation to translation file" />
     <MESSAGE value="Create users module translation file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create users module translation file" />
+    <MESSAGE value="Modify project files" />
+    <MESSAGE value="Add new route to permisssions" />
+    <MESSAGE value="Add new route to users module" />
+    <MESSAGE value="Improve users module&#10;&#10;The edit view is created, alongside the change password functionality." />
+    <MESSAGE value="Update project files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update project files" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1218,8 +1251,8 @@
         <state relative-caret-position="17">
           <caret line="27" column="107" lean-forward="false" selection-start-line="27" selection-start-column="107" selection-end-line="27" selection-end-column="107" />
           <folding>
-            <marker date="1510518838818" expanded="true" signature="4888:5287" ph="..." />
-            <marker date="1510518838818" expanded="true" signature="4900:5285" ph="..." />
+            <marker date="1511145543313" expanded="true" signature="4884:5283" ph="..." />
+            <marker date="1511145543313" expanded="true" signature="4896:5281" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1359,7 +1392,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/PasswordFormRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding />
         </state>
       </provider>

@@ -3,6 +3,8 @@
 namespace CUBiM\Http\Controllers;
 
 use CUBiM\Helpers\DataTableHelper;
+use CUBiM\Http\Requests\PasswordFormRequest;
+use CUBiM\Http\Requests\UserFormRequest;
 use CUBiM\Model\User;
 use CUBiM\Repositories\Interfaces\IRolesRepository;
 use CUBiM\Repositories\Interfaces\IUsersRepository;
@@ -14,9 +16,20 @@ use Illuminate\Http\Request;
  */
 class UserController extends Controller
 {
+    /**
+     * @var IRolesRepository
+     */
     protected $rolesRepository;
+    /**
+     * @var IUsersRepository
+     */
     protected $usersRepository;
 
+    /**
+     * UserController constructor.
+     * @param IRolesRepository $rolesRepository
+     * @param IUsersRepository $usersRepository
+     */
     public function __construct(IRolesRepository $rolesRepository, IUsersRepository $usersRepository)
     {
         $this->rolesRepository = $rolesRepository;
@@ -48,7 +61,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create')->with('active', array('sup' => ''));
     }
 
     /**
@@ -100,19 +113,32 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = $this->usersRepository->with(['roles'])->find($id);
+
+        return view('users.edit')->with('user', $user)->with('active', array('sup' => ''));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param UserFormRequest|Request $request
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $request, $id)
     {
-        //
+        $user = $this->usersRepository->find($id);
+
+        $this->usersRepository->update([
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            'email' => $request->get('email')
+        ], $id);
+
+        $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $user->first_name . ' ' . $user->last_name . '.');
+
+        return \Redirect::route('users.edit',
+            array($id))->with('message', 'Datos de usuario actualizados correctamente.');
     }
 
     /**
@@ -127,11 +153,30 @@ class UserController extends Controller
     }
 
     /**
+     * @param PasswordFormRequest|Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function change_password(PasswordFormRequest $request)
+    {
+        $id = $request->get('id');
+        $user = $this->usersRepository->find($id);
+
+        $this->usersRepository->update([
+            'password' => bcrypt($request->get('new_password'))
+        ], $id);
+
+        $request->session()->put('traceComments', 'Nombre(s) y Apellido(s): ' . $user->first_name . ' ' . $user->last_name . '.');
+
+        return \Redirect::route('users.edit',
+            array($id))->with('message', 'Contrase&ntilde;a actualizada correctamente.');
+    }
+
+    /**
      * @param Request $request
      */
     public function filter(Request $request)
     {
-        $request->session()->put('users_filters', $request->get('form'));
+        $request->session()->put('user_filters', $request->get('form'));
     }
 
     /**
@@ -139,7 +184,7 @@ class UserController extends Controller
      */
     public function clean(Request $request)
     {
-        $request->session()->pull('users_filters');
+        $request->session()->pull('user_filters');
     }
 
     /**
@@ -151,15 +196,21 @@ class UserController extends Controller
         /*Extract filters from request and session vars*/
         $filters = DataTableHelper::extractRequestFilters($request, 'user_filters');
 
-        $columns = array(
-            'id',
-            'first_name',
-            'last_name',
-            'email',
-            'created_at'
-        );
+        $columnNames = array();
+
+        foreach ($filters['columns'] as $column) {
+            switch ($column['name']) {
+                case 'actions':
+                case 'roles':
+                    break;
+                default:
+                    array_push($columnNames, $column['name']);
+                    break;
+            }
+        }
+
         $recordsTotal = $this->usersRepository->count();
-        $users = $this->usersRepository->with(['roles'])->paginateWhere($filters['length'], $columns, ($filters['start'] / $filters['length']) + 1, $filters);
+        $users = $this->usersRepository->with(['roles'])->paginateWhere($filters['length'], $columnNames, ($filters['start'] / $filters['length']) + 1, $filters);
         try {
             $recordsFiltered = intval($this->usersRepository->countWhere($filters));
         } catch (\ErrorException $e) {
@@ -173,15 +224,19 @@ class UserController extends Controller
             "data" => array()
         );
 
-        array_pop($columns);
-        array_push($columns, 'roles');
-        array_push($columns, 'created_at');
-        array_push($columns, 'actions');
+        $columnNames = array();
+
+        foreach ($filters['columns'] as $column) {
+            array_push($columnNames, $column['name']);
+        }
 
         foreach ($users as $aRow) {
             $row = array();
-            for ($i = 0; $i < count($columns); $i++) {
-                switch ($columns[$i]) {
+            for ($i = 0; $i < count($columnNames); $i++) {
+                switch ($columnNames[$i]) {
+                    case 'actions':
+                        $row[] = '';
+                        break;
                     case 'roles':
                         $roles = $aRow->roles->map(function ($rol) {
                             return ' ' . $rol->slug;
@@ -193,9 +248,9 @@ class UserController extends Controller
                         $row[] = date('d/m/Y', $date);
                         break;
                     default:
-                        if ($columns[$i] != ' ') {
+                        if ($columnNames[$i] != ' ' && $columnNames[$i] != "") {
                             /* General output */
-                            $row[] = $aRow[$columns[$i]];
+                            $row[] = $aRow[$columnNames[$i]];
                         }
                         break;
                 }
@@ -223,7 +278,7 @@ class UserController extends Controller
             $criterias = array_add($criterias, 'last_name', $params['description']);
         }
 
-        $filters['filters'] = $criterias;
+        $filters['criterias'] = $criterias;
         $result['total_count'] = $this->usersRepository->countWhere($filters);
 
         $users = $this->usersRepository->paginateWhere(
@@ -269,6 +324,9 @@ class UserController extends Controller
         return response()->json($result);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function login()
     {
         return view('users.login');

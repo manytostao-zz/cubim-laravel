@@ -25,7 +25,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right">
-                <a class="btn btn-fit-height blue" data-close-others="true" href="javascript:;">
+                <a class="btn btn-fit-height blue" data-close-others="true" href="{{URL::route('users.create')}}">
                     <i class="fa fa-plus"></i> Nueva cuenta
                 </a>
             </div>
@@ -157,28 +157,25 @@
                     <table class="table table-striped table-bordered table-hover" id="usersListDatatable">
                         <thead>
                         <tr>
-                            <th style="text-align: left; display: none">
+                            <th data-name="id" style="text-align: left; display: none">
                                 Id
                             </th>
-                            <th style="text-align: left">
+                            <th data-name="first_name" style="text-align: left">
                                 Nombre(s)
                             </th>
-                            <th style="text-align: left">
+                            <th data-name="last_name" style="text-align: left">
                                 Apellidos
                             </th>
-                            <th class="hidden-xs" style="text-align: center">
+                            <th data-name="email" class="hidden-xs" style="text-align: center">
                                 Nombre de usuario
                             </th>
-                            <th class="hidden-xs" style="text-align: center">
+                            <th data-name="roles" class="hidden-xs" style="text-align: center">
                                 Roles
                             </th>
-                            {{--<th class="hidden-xs" style="text-align: center">--}}
-                            {{--Activo--}}
-                            {{--</th>--}}
-                            <th class="hidden-xs" style="text-align: center">
+                            <th data-name="created_at" class="hidden-xs" style="text-align: center">
                                 Fecha de alta
                             </th>
-                            <th class="hidden-xs" style="text-align: center">
+                            <th data-name="actions" class="hidden-xs" style="text-align: center">
                             </th>
                         </tr>
                         </thead>

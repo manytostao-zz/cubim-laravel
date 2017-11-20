@@ -59,6 +59,8 @@ Route::post('users/filter/', ['as' => 'users.filter', 'uses' => 'UserController@
 
 Route::post('users/clean/', ['as' => 'users.clean', 'uses' => 'UserController@clean']);
 
+Route::post('users/change_password/', ['as' => 'users.change_password', 'uses' => 'UserController@change_password']);
+
 Route::resource('users', 'UserController');
 
 #endregion

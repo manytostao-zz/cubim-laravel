@@ -13,13 +13,13 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Experience implements Filter
 {
+
     /**
      * Apply a given search value to the builder instance.
      *
      * @param Builder $builder
      * @param mixed $value
-     * @return Builder|void $builder
-     * @internal param $ |Builder $builder
+     * @return Builder $builder
      */
     public static function applyWhere(Builder $builder, $value)
     {
@@ -40,5 +40,19 @@ class Experience implements Filter
     public static function applyOrderBy(Builder $builder, $dir)
     {
         return $builder->orderBy('experience', $dir);
+    }
+
+    /**
+     * Apply a given search value to the builder instance.
+     *
+     * @param Builder $builder
+     * @param mixed $value
+     * @return Builder $builder
+     */
+    public static function applyOrWhere(Builder $builder, $value)
+    {
+        if (!is_null($value) and $value != '')
+            return $builder->orWhere('experience', 'like', '%' . $value . '%');
+        return $builder;
     }
 }

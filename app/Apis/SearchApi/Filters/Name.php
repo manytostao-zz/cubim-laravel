@@ -27,6 +27,20 @@ class Name implements Filter
             return $builder->where('name', 'like', '%' . $value . '%');
         return $builder;
     }
+    /**
+     * Apply a given search value to the builder instance.
+     *
+     * @param Builder $builder
+     * @param mixed $value
+     * @return Builder|void $builder
+     * @internal param $ |Builder $builder
+     */
+    public static function applyOrWhere(Builder $builder, $value)
+    {
+        if (!is_null($value) and $value != '')
+            return $builder->orWhere('name', 'like', '%' . $value . '%');
+        return $builder;
+    }
 
     /**
      * Apply a given order to the builder instance.

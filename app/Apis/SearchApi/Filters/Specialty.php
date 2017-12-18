@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Specialty implements Filter
 {
+    
     /**
      * Apply a given search value to the builder instance.
      *
@@ -60,5 +61,17 @@ class Specialty implements Filter
                     ->where('nomenclators.nomenclator_type_id', '=', '2');
             })
             ->orderBy('nomenclators.description', $dir);
+    }
+
+    /**
+     * Apply a given search value to the builder instance.
+     *
+     * @param Builder $builder
+     * @param mixed $value
+     * @return Builder $builder
+     */
+    public static function applyOrWhere(Builder $builder, $value)
+    {
+        return $builder;
     }
 }

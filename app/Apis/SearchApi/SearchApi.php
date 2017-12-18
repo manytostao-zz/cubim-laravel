@@ -18,6 +18,16 @@ class SearchApi
 
     public static function applyDecoratorFromRequest($filters, &$query)
     {
+        if (isset($filters['search']) && !empty($filters['search']['value'])) {
+            $query = $query->where(function ($query) use ($filters) {
+                foreach ($filters['columns'] as $key => $value) {
+                    $decorator = static::createFilterDecorator($value['name']);
+                    if (static::isValidDecorator($decorator)) {
+                        $decorator::applyOrWhere($query, $filters['search']['value']);
+                    }
+                }
+            });
+        }
         if (isset($filters['criterias']))
             foreach ($filters['criterias'] as $key => $value) {
                 $decorator = static::createFilterDecorator($key);

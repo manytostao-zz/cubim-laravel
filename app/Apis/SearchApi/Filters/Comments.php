@@ -40,4 +40,18 @@ class Comments implements Filter
     {
         return $builder->orderBy('comments', $dir);
     }
+
+    /**
+     * Apply a given search value to the builder instance.
+     *
+     * @param Builder $builder
+     * @param mixed $value
+     * @return Builder $builder
+     */
+    public static function applyOrWhere(Builder $builder, $value)
+    {
+        if (!is_null($value) and $value != '')
+            return $builder->orWhere('comments', 'like', '%' . $value . '%');
+        return $builder;
+    }
 }

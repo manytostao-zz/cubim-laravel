@@ -21,7 +21,7 @@ class CreatedAt implements Filter
      */
     public static function applyWhere(Builder $builder, $value)
     {
-        // TODO: Implement applyWhere() method.
+        return $builder;
     }
 
     /**
@@ -36,5 +36,17 @@ class CreatedAt implements Filter
     public static function applyOrderBy(Builder $builder, $dir)
     {
         return $builder->orderBy('created_at', $dir);
+    }
+
+    /**
+     * Apply a given search value to the builder instance.
+     *
+     * @param Builder $builder
+     * @param mixed $value
+     * @return Builder $builder
+     */
+    public static function applyOrWhere(Builder $builder, $value)
+    {
+        return $builder;
     }
 }

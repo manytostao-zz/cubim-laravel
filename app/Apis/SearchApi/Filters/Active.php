@@ -41,4 +41,18 @@ class Active implements Filter
     {
         return $builder->orderBy('active', $dir);
     }
+
+    /**
+     * Apply a given search value to the builder instance.
+     *
+     * @param Builder $builder
+     * @param mixed $value
+     * @return Builder $builder
+     */
+    public static function applyOrWhere(Builder $builder, $value)
+    {
+        if (!is_null($value) && $value != '' && $value === 'true')
+            return $builder->orWhere('active', '=', 1);
+        return $builder;
+    }
 }

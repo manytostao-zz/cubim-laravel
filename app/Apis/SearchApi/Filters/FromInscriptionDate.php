@@ -45,4 +45,16 @@ class FromInscriptionDate implements Filter
     {
         // TODO: Implement applyOrderBy() method.
     }
+
+    /**
+     * Apply a given search value to the builder instance.
+     *
+     * @param Builder $builder
+     * @param mixed $value
+     * @return Builder $builder
+     */
+    public static function applyOrWhere(Builder $builder, $value)
+    {
+        return $builder;
+    }
 }
